@@ -112,7 +112,7 @@ export function Footer() {
         <div className="flex flex-col">
           <h4 className="text-white font-medium mb-6">Contacto</h4>
           <nav className="flex flex-col">
-            <FooterLink href="mailto:hello@ablank.com.mx">hello@ablank.com.mx</FooterLink>
+            <FooterLink href="mailto:hello@ablank.com.mx">hello@ablank.mx</FooterLink>
             <FooterLink href="tel:5576048470">+52 7604 8470</FooterLink>
           </nav>
         </div>
