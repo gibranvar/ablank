@@ -251,7 +251,7 @@ export function ProductShowcase() {
   }, [isPlaying]);
 
   return (
-    <section ref={containerRef} className="relative py-32 md:py-48 bg-[#020202] overflow-hidden border-t border-white/5">
+    <section id='casos' ref={containerRef} className="relative py-32 md:py-48 bg-[#020202] overflow-hidden border-t border-white/5">
       {/* Fondo técnico sutil */}
       <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0)', backgroundSize: '40px 40px' }} />
 

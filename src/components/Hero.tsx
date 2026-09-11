@@ -108,7 +108,7 @@ export function Hero() {
         {/* CTAs Centrados */}
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 w-full">
           <a 
-            href="#contacto" 
+            href="#casos" 
             className="hero-cta group relative inline-flex items-center justify-center gap-2 px-8 py-4 text-sm font-semibold text-white transition-transform hover:scale-[1.02] active:scale-95"
             style={{
               borderRadius: '16px',
