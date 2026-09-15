@@ -13,6 +13,7 @@ import { Security } from '@/components/Security';
 import { FAQ } from '@/components/FAQ';
 import { FinalCTA } from '@/components/FinalCTA';
 import { Footer } from '@/components/Footer';
+import { CookieBanner } from './components/CookieBanner';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <LostSalesSimulator />
         <Security />
         <FAQ />
+        <CookieBanner />
       </main>
       <Footer />
     </div>

@@ -42,74 +42,118 @@ export function Platform() {
 
   useGSAP(
     () => {
-      // Estado Inicial
-      gsap.set('.matrix-node', { z: 250, opacity: 0 });
+      let mm = gsap.matchMedia();
+
+      // ==========================================
+      // ESTADO INICIAL COMPARTIDO
+      // ==========================================
       gsap.set('.core-beam', { height: 0, opacity: 0 });
       gsap.set('.vein-track', { opacity: 0 });
       gsap.set('.data-pulse', { opacity: 0 });
 
-      // Timeline de Entrada
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: root.current,
-          start: 'top 55%', 
-          toggleActions: 'play none none none',
-        },
+      // ==========================================
+      // ESCRITORIO (768px+): Animación 3D Premium
+      // ==========================================
+      mm.add("(min-width: 768px)", () => {
+        gsap.set('.matrix-node', { z: 250, opacity: 0 });
+
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: root.current,
+            start: 'top 55%', 
+            toggleActions: 'play none none none',
+          },
+        });
+
+        tl.fromTo('.pf-headline',
+          { opacity: 0, filter: 'blur(16px)', y: 30 },
+          { opacity: 1, filter: 'blur(0px)', y: 0, duration: 2.5, ease: 'power2.out' }
+        );
+
+        tl.to('.matrix-node', {
+          z: 0,
+          opacity: 1,
+          duration: 3.5,
+          ease: 'power3.inOut',
+          stagger: { amount: 1.5, from: 'center' } 
+        }, '-=1.5'); 
+
+        tl.to('.vein-track', { opacity: 1, duration: 2, ease: 'power2.inOut' }, '-=1.5');
+        tl.to('.data-pulse', { opacity: 1, duration: 1 }, '-=1');
+        tl.to('.core-beam', { height: '200px', opacity: 1, duration: 2.5, ease: 'power2.out' }, '-=1');
+
+        gsap.to('.data-pulse', {
+          strokeDashoffset: -150, 
+          ease: 'none',
+          duration: 1, 
+          repeat: -1
+        });
       });
 
-      // 1. Animación Apple del Titular (Blur out + Y offset)
-      tl.fromTo('.pf-headline',
-        { opacity: 0, filter: 'blur(16px)', y: 30 },
-        { opacity: 1, filter: 'blur(0px)', y: 0, duration: 2.5, ease: 'power2.out' }
-      );
+      // ==========================================
+      // MÓVIL (-768px): Animación Ultra-Ligera (60fps)
+      // ==========================================
+      mm.add("(max-width: 767px)", () => {
+        // En móvil no caen desde el eje Z, solo un ligero offset en Y para no saturar la matriz
+        gsap.set('.matrix-node', { y: 30, opacity: 0 });
 
-      // 2. Descenso de los cristales en onda desde el centro
-      tl.to('.matrix-node', {
-        z: 0,
-        opacity: 1,
-        duration: 3.5,
-        ease: 'power3.inOut',
-        stagger: { amount: 1.5, from: 'center' } 
-      }, '-=1.5'); // Arranca mientras el texto aún se está aclarando
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: root.current,
+            start: 'top 65%', 
+            toggleActions: 'play none none none',
+          },
+        });
 
-      // 3. Aparece la pista de cristal de las curvas
-      tl.to('.vein-track', { opacity: 1, duration: 2, ease: 'power2.inOut' }, '-=1.5');
-      
-      // 4. Aparecen las gotas de sangre de datos
-      tl.to('.data-pulse', { opacity: 1, duration: 1 }, '-=1');
+        // Sin blur, solo opacidad y deslizamiento
+        tl.fromTo('.pf-headline',
+          { opacity: 0, y: 20 },
+          { opacity: 1, y: 0, duration: 1, ease: 'power2.out' }
+        );
 
-      // 5. El láser central se dispara
-      tl.to('.core-beam', { height: '200px', opacity: 1, duration: 2.5, ease: 'power2.out' }, '-=1');
+        // Fade-in secuencial fluido sin cálculos 3D pesados
+        tl.to('.matrix-node', {
+          y: 0,
+          opacity: 1,
+          duration: 1.5,
+          ease: 'power2.out',
+          stagger: { amount: 1, from: 'center' } 
+        }, '-=0.5'); 
 
-      // EL BUCLE INFINITO DE SANGRE
-      gsap.to('.data-pulse', {
-        strokeDashoffset: -150, 
-        ease: 'none',
-        duration: 1, 
-        repeat: -1
+        tl.to('.vein-track', { opacity: 1, duration: 1.5, ease: 'power2.inOut' }, '-=0.8');
+        tl.to('.data-pulse', { opacity: 1, duration: 1 }, '-=0.5');
+        tl.to('.core-beam', { height: '200px', opacity: 1, duration: 1.5, ease: 'power2.out' }, '-=0.5');
+
+        // El bucle infinito es un poco más lento (duration 2) para darle respiro al GPU
+        gsap.to('.data-pulse', {
+          strokeDashoffset: -150, 
+          ease: 'none',
+          duration: 2, 
+          repeat: -1
+        });
       });
 
+      return () => mm.revert();
     },
     { scope: root }
   );
 
   return (
-    <section ref={root} id="plataforma" className="relative w-full py-32 md:py-48 overflow-hidden bg-[#020202] flex flex-col items-center justify-center perspective-[2000px]">
+    // Se ajustó a py-16 para móviles y py-32 para escritorio (menos espacios vacíos en celular)
+    <section ref={root} id="plataforma" className="relative w-full py-16 md:py-32 overflow-hidden flex flex-col items-center justify-center perspective-[2000px]">
       
       {/* =========================================
-          TITULAR (Efecto Apple)
+          TITULAR (Efecto Apple optimizado)
           ========================================= */}
-            <div className="pf-headline relative w-full flex flex-col items-center justify-center z-30 pointer-events-none mt-10 mb-16 md:mb-24 px-4 text-center">
+      <div className="pf-headline relative w-full flex flex-col items-center justify-center z-30 pointer-events-none mt-10 mb-16 md:mb-24 px-4 text-center">
         
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 mb-6 shadow-[inset_0_1px_4px_rgba(255,255,255,0.1)] backdrop-blur-md">
-          {/* El punto ahora usa el azul principal de tu marca */}
-          <span className="w-1.5 h-1.5 rounded-full bg-[#0175ff] shadow-[0_0_10px_rgba(1,117,255,0.8)]" />
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 mb-6 shadow-[inset_0_1px_4px_rgba(255,255,255,0.1)] md:backdrop-blur-md">
+          
           <span className="text-[10px] font-medium text-white/80 uppercase tracking-[0.08em]">Interconexión en Tiempo Real</span>
         </div>
         
         <h2 className="font-display font-semibold text-white text-balance tracking-[-0.03em]" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', lineHeight: 1.1 }}>
           <span className="block pb-1">Toda tu operación.</span>
-          {/* Aquí aplicamos el gradiente exacto (Azul a Dorado) */}
           <span className="block bg-gradient-to-r from-[#0175ff] to-[#ffcd7d] bg-clip-text text-transparent pb-2">
             Centralizada en un solo ecosistema.
           </span>
@@ -198,7 +242,8 @@ export function Platform() {
                     className="relative flex flex-col items-center gap-3 z-10 text-center"
                     style={{ transform: 'translateZ(15px)' }} 
                   >
-                    <div className={`w-11 h-11 rounded-xl flex items-center justify-center backdrop-blur-md border ${mod.isCore ? 'bg-blue-500/10 border-blue-400/40 shadow-[0_0_20px_rgba(59,130,246,0.3)]' : 'bg-white/5 border-white/10'}`}>
+                    {/* Quitamos el backdrop-blur en celulares y solo lo activamos en md: */}
+                    <div className={`w-11 h-11 rounded-xl flex items-center justify-center md:backdrop-blur-md border ${mod.isCore ? 'bg-[#1a2235] md:bg-blue-500/10 border-blue-400/40 shadow-[0_0_20px_rgba(59,130,246,0.3)]' : 'bg-white/10 md:bg-white/5 border-white/10'}`}>
                       <Icon size={20} className={mod.isCore ? "text-blue-300 drop-shadow-[0_0_8px_rgba(96,165,250,1)]" : "text-white/60"} />
                     </div>
                     <div>

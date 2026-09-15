@@ -15,35 +15,68 @@ export function Footer() {
   const footerRef = useRef<HTMLElement>(null);
 
   useGSAP(() => {
-    const tl = gsap.timeline({
-      scrollTrigger: { trigger: footerRef.current, start: 'top 80%' }
+    let mm = gsap.matchMedia();
+
+    // ESCRITORIO
+    mm.add("(min-width: 768px)", () => {
+      const tl = gsap.timeline({
+        scrollTrigger: { trigger: footerRef.current, start: 'top 80%' }
+      });
+      
+      tl.fromTo('h2 > span', 
+        { opacity: 0, filter: 'blur(16px)', y: 30 },
+        { opacity: 1, filter: 'blur(0px)', y: 0, duration: 1.5, stagger: 0.15, ease: 'power2.out' }
+      )
+      .fromTo('.footer-sub',
+        { opacity: 0, filter: 'blur(16px)', y: 20 },
+        { opacity: 1, filter: 'blur(0px)', y: 0, duration: 1, ease: 'power2.out' },
+        '-=1'
+      )
+      .fromTo('.footer-cta',
+        { opacity: 0, scale: 0.9, y: 20 },
+        { opacity: 1, scale: 1, y: 0, duration: 1, ease: 'back.out(1.5)' },
+        '-=0.8'
+      )
+      .fromTo('.footer-giant-bg',
+        { opacity: 0, filter: 'blur(40px)' },
+        { opacity: 1, filter: 'blur(0px)', duration: 2.5, ease: 'power2.inOut' },
+        '-=1.5'
+      );
     });
-    
-    tl.fromTo('h2 > span', 
-      { opacity: 0, filter: 'blur(16px)', y: 30 },
-      { opacity: 1, filter: 'blur(0px)', y: 0, duration: 1.5, stagger: 0.15, ease: 'power2.out' }
-    )
-    .fromTo('.footer-sub',
-      { opacity: 0, filter: 'blur(16px)', y: 20 },
-      { opacity: 1, filter: 'blur(0px)', y: 0, duration: 1, ease: 'power2.out' },
-      '-=1'
-    )
-    .fromTo('.footer-cta',
-      { opacity: 0, scale: 0.9, y: 20 },
-      { opacity: 1, scale: 1, y: 0, duration: 1, ease: 'back.out(1.5)' },
-      '-=0.8'
-    )
-    .fromTo('.footer-giant-bg',
-      { opacity: 0, filter: 'blur(40px)' },
-      { opacity: 1, filter: 'blur(0px)', duration: 2.5, ease: 'power2.inOut' },
-      '-=1.5'
-    );
+
+    // MÓVIL
+    mm.add("(max-width: 767px)", () => {
+      const tl = gsap.timeline({
+        scrollTrigger: { trigger: footerRef.current, start: 'top 90%' }
+      });
+      
+      tl.fromTo('h2 > span', 
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 1, stagger: 0.1, ease: 'power2.out' }
+      )
+      .fromTo('.footer-sub',
+        { opacity: 0, y: 15 },
+        { opacity: 1, y: 0, duration: 1, ease: 'power2.out' },
+        '-=0.8'
+      )
+      .fromTo('.footer-cta',
+        { opacity: 0, scale: 0.95, y: 15 },
+        { opacity: 1, scale: 1, y: 0, duration: 1, ease: 'back.out(1.2)' },
+        '-=0.8'
+      )
+      .fromTo('.footer-giant-bg',
+        { opacity: 0 },
+        { opacity: 1, duration: 1.5, ease: 'power2.inOut' },
+        '-=1'
+      );
+    });
+
+    return () => mm.revert();
   }, { scope: footerRef });
 
   return (
-    <footer ref={footerRef} className="relative bg-[#020202] pt-32 pb-8 overflow-hidden font-sans border-t border-white/5">
+    <footer ref={footerRef} className="relative pt-16 md:pt-32 pb-8 overflow-hidden font-sans">
       
-      {/* 1. TOP CTA SECTION */}
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center mb-16 flex flex-col items-center">
         
         <h2>
@@ -55,7 +88,6 @@ export function Footer() {
           Construimos el ecosistema exacto que tu empresa necesita para captar clientes, procesar ventas y operar 24/7 sin depender de ti.
         </p>
         
-        {/* BOTÓN CTA CORREGIDO PARA MÓVILES */}
         <a 
           href="https://w.app/5vug7u" 
           className="footer-cta group inline-flex items-center justify-center gap-2 px-6 py-3 md:px-10 md:py-4 rounded-[12px] md:rounded-[16px] bg-[#020202] border border-white/40 text-white font-medium text-sm md:text-lg transition-transform hover:scale-[1.02] active:scale-95 shadow-2xl"
@@ -68,8 +100,7 @@ export function Footer() {
         </a>
       </div>
 
-      {/* 2. GIANT TEXT & ABSTRACT BACKGROUND IMAGE */}
-      <div className="footer-giant-bg relative w-full py-32 flex items-center justify-center overflow-hidden mb-20 pointer-events-none">
+      <div className="footer-giant-bg relative w-full py-16 md:py-32 flex items-center justify-center overflow-hidden mb-16 md:mb-20 pointer-events-none">
         
         <div className="absolute inset-0 z-0 flex items-center justify-center">
           <img 
@@ -87,7 +118,7 @@ export function Footer() {
           <span className="text-[28vw] md:text-[22vw] font-display font-bold text-white/10 uppercase tracking-tighter leading-none select-none">
             A BLANK
           </span>
-          <span className="text-[28vw] md:text-[22vw] font-display font-bold text-white uppercase tracking-tighter leading-none select-none drop-shadow-[0_0_30px_rgba(255,255,255,0.2)]">
+          <span className="text-[28vw] md:text-[22vw] font-display font-bold text-white uppercase tracking-tighter leading-none select-none drop-shadow-none md:drop-shadow-[0_0_30px_rgba(255,255,255,0.2)]">
             A BLANK
           </span>
           <span className="text-[28vw] md:text-[22vw] font-display font-bold text-white/10 uppercase tracking-tighter leading-none select-none">
@@ -96,49 +127,45 @@ export function Footer() {
         </div>
       </div>
 
-      {/* 3. LINKS SECTION */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-16 mb-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16 mb-16 md:mb-20">
         
         <div className="flex flex-col">
-          <h4 className="text-white font-medium mb-6">Navegación</h4>
+          <h4 className="text-white font-medium mb-4 md:mb-6">Navegación</h4>
           <nav className="flex flex-col">
             <FooterLink href="#plataforma">Plataforma</FooterLink>
             <FooterLink href="#soluciones">Soluciones</FooterLink>
             <FooterLink href="#simulador">Simulador</FooterLink>
-            <FooterLink href="#proceso">Proceso</FooterLink>
+            <FooterLink href="#faq">FAQ</FooterLink>
           </nav>
         </div>
 
         <div className="flex flex-col">
-          <h4 className="text-white font-medium mb-6">Contacto</h4>
+          <h4 className="text-white font-medium mb-4 md:mb-6">Contacto</h4>
           <nav className="flex flex-col">
             <FooterLink href="mailto:hello@ablank.com.mx">hello@ablank.mx</FooterLink>
-            <FooterLink href="tel:5576048470">+52 7604 8470</FooterLink>
+            <FooterWALink href="tel:5576048470">55 7604 8470</FooterWALink>
           </nav>
         </div>
 
         <div className="flex flex-col">
-          <h4 className="text-white font-medium mb-6">Ubicación</h4>
+          <h4 className="text-white font-medium mb-4 md:mb-6">Headquarters</h4>
           <div className="text-[#9ba9c4] text-[15px] leading-relaxed py-2">
             Rubén Darío 43<br />
-            Rincón del Bosque, Polanco V Secc<br />
-            Miguel Hidalgo, 11580<br />
+            Rincón del Bosque, Polanco V Secc.<br />
             Ciudad de México, CDMX
           </div>
         </div>
 
       </div>
 
-      {/* 4. BOTTOM LINE */}
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <div className="w-full h-px bg-[#7da4ff]/10 mb-8" />
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-[#9ba9c4] text-[15px]">
-            Todos los derechos reservados para @A BLANK
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+          <p className="text-[#9ba9c4] text-[14px] md:text-[15px]">
+            © 2026 A BLΛNK. All rights reserved.
           </p>
           <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-[#0175ff] shadow-[0_0_10px_#0175ff] animate-pulse" />
-            <span className="text-[#9ba9c4] text-[15px]">Sistemas activos en línea</span>
+            <span className="text-[#9ba9c4] text-[14px] md:text-[15px]">Design & Developed in Mexico</span>
           </div>
         </div>
       </div>
@@ -147,12 +174,24 @@ export function Footer() {
   );
 }
 
-// Componente auxiliar interno para links
 function FooterLink({ href, children }: { href: string; children: React.ReactNode }) {
   return (
     <a 
       href={href} 
-      className="group flex items-center justify-between py-2 transition-colors"
+      className="group flex items-center justify-start md:justify-between py-2 transition-colors"
+    >
+      <span className="text-[#9ba9c4] text-[15px] group-hover:text-white transition-colors">
+        {children}
+      </span>
+    </a>
+  );
+}
+function FooterWALink({ href, children }: { href: string; children: React.ReactNode }) {
+  return (
+    <a 
+      href={"https://w.app/5vug7u"} 
+      target="_blank" 
+      className="group flex items-center justify-start md:justify-between py-2 transition-colors"
     >
       <span className="text-[#9ba9c4] text-[15px] group-hover:text-white transition-colors">
         {children}

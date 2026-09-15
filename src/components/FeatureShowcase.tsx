@@ -5,9 +5,25 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import { Globe, Users, Zap, Bot, BarChart3, Link2, Target, MessageSquare, Database, ArrowRight } from 'lucide-react';
+import { 
+  SiZapier, SiNotion, SiFigma,
+  SiMeta, SiGoogle, SiMailchimp, SiWhatsapp, SiShopify, SiDiscord, SiLinear 
+} from 'react-icons/si';
+import { FaSlack, FaStripe, FaSalesforce, FaGithub, FaHubspot } from 'react-icons/fa';
+
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
+}
+const handleWhatsAppStartClick = () => {
+    const msg = `Hola! Estoy listo para evolucionar mi negocio. Me interesa empezar a armar nuestro sistema central. ¿Cuáles son los siguientes pasos?`;
+
+    window.open(`https://wa.me/5576048470?text=${encodeURIComponent(msg)}`, '_blank');
+  };
+
+const handleWhatsAppSalesClick = () => {
+  const msg = `¡Hola! Estuve viendo sus soluciones en la página. Me gustaría contarles un poco sobre mi negocio para ver qué opciones tienen para ayudarnos a escalar."`;
+  window.open(`https://wa.me/5576048470?text=${encodeURIComponent(msg)}`, '_blank');
 }
 
 export function FeatureShowcase() {
@@ -15,33 +31,69 @@ export function FeatureShowcase() {
 
   useGSAP(
     () => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: root.current,
-          start: 'top 65%',
-          toggleActions: 'play none none none',
-        },
+      let mm = gsap.matchMedia();
+
+      // ==========================================
+      // ESCRITORIO (768px+): Animación Premium con Blur
+      // ==========================================
+      mm.add("(min-width: 768px)", () => {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: root.current,
+            start: 'top 65%',
+            toggleActions: 'play none none none',
+          },
+        });
+
+        tl.fromTo('.fs-header', 
+          { opacity: 0, filter: 'blur(16px)', y: 30 },
+          { opacity: 1, filter: 'blur(0px)', y: 0, duration: 2.5, ease: 'power2.out' }
+        );
+
+        tl.fromTo('.bento-card',
+          { opacity: 0, filter: 'blur(16px)', y: 40 },
+          { opacity: 1, filter: 'blur(0px)', y: 0, duration: 2, stagger: 0.15, ease: 'power3.out' },
+          '-=1.5'
+        );
+        
+        tl.fromTo('.fs-cta',
+          { opacity: 0, filter: 'blur(16px)', y: 30 },
+          { opacity: 1, filter: 'blur(0px)', y: 0, duration: 2, ease: 'power2.out' },
+          '-=1'
+        );
       });
 
-      // 1. Animación Apple del Titular
-      tl.fromTo('.fs-header', 
-        { opacity: 0, filter: 'blur(16px)', y: 30 },
-        { opacity: 1, filter: 'blur(0px)', y: 0, duration: 2.5, ease: 'power2.out' }
-      );
+      // ==========================================
+      // MÓVILES (-768px): Animación Ultra-Ligera (60fps)
+      // ==========================================
+      mm.add("(max-width: 767px)", () => {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: root.current,
+            start: 'top 75%',
+            toggleActions: 'play none none none',
+          },
+        });
 
-      // 2. Las Bento Cards en cascada
-      tl.fromTo('.bento-card',
-        { opacity: 0, filter: 'blur(16px)', y: 40 },
-        { opacity: 1, filter: 'blur(0px)', y: 0, duration: 2, stagger: 0.15, ease: 'power3.out' },
-        '-=1.5'
-      );
-      
-      // 3. CTA final
-      tl.fromTo('.fs-cta',
-        { opacity: 0, filter: 'blur(16px)', y: 30 },
-        { opacity: 1, filter: 'blur(0px)', y: 0, duration: 2, ease: 'power2.out' },
-        '-=1'
-      );
+        tl.fromTo('.fs-header', 
+          { opacity: 0, y: 20 },
+          { opacity: 1, y: 0, duration: 1, ease: 'power2.out' }
+        );
+
+        tl.fromTo('.bento-card',
+          { opacity: 0, y: 25 },
+          { opacity: 1, y: 0, duration: 1, stagger: 0.1, ease: 'power3.out' },
+          '-=0.8'
+        );
+        
+        tl.fromTo('.fs-cta',
+          { opacity: 0, y: 20 },
+          { opacity: 1, y: 0, duration: 1, ease: 'power2.out' },
+          '-=0.5'
+        );
+      });
+
+      return () => mm.revert();
     },
     { scope: root }
   );
@@ -92,13 +144,12 @@ export function FeatureShowcase() {
   ];
 
   return (
-    <section id="soluciones"  ref={root} className="relative w-full py-32 bg-[#020202] overflow-hidden">
+    <section id="soluciones" ref={root} className="relative w-full py-16 md:py-32 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         
-        {/* HEADER */}
         <div className="fs-header text-center mb-20 relative z-10 flex flex-col items-center">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 mb-6 shadow-[inset_0_1px_4px_rgba(255,255,255,0.1)]">
-            <Globe size={12} className="text-blue-400" />
+           
             <span className="text-[10px] font-medium text-white/80 uppercase tracking-[0.08em]">Características Core</span>
           </div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-6 tracking-tight leading-tight text-balance">
@@ -107,7 +158,6 @@ export function FeatureShowcase() {
           </h2>
         </div>
 
-        {/* BENTO GRID */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           {features.map((feature) => (
             <div 
@@ -120,7 +170,7 @@ export function FeatureShowcase() {
               </div>
 
               <div className="absolute bottom-6 left-6 right-6 z-10">
-                <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.5)] transition-transform duration-500 group-hover:-translate-y-2">
+                <div className="p-6 rounded-2xl bg-black/80 md:bg-white/5 md:backdrop-blur-md border border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.5)] transition-transform duration-500 group-hover:-translate-y-2">
                   <h4 className="text-xl font-display font-semibold text-white mb-2">{feature.title}</h4>
                   <p className="text-white/60 text-sm leading-relaxed">{feature.description}</p>
                 </div>
@@ -129,7 +179,6 @@ export function FeatureShowcase() {
           ))}
         </div>
 
-        {/* BOTTOM CTA */}
         <div className="fs-cta relative w-full mt-24 rounded-[32px] overflow-hidden bg-gradient-to-br from-[#0a0a0c] to-[#040405] border border-white/10 p-10 md:p-16 flex flex-col items-center text-center shadow-2xl">
           <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'url("https://framerusercontent.com/images/6mcf62RlDfRfU61Yg5vb2pefpi4.png")', backgroundSize: '128px auto', backgroundRepeat: 'repeat' }} />
           
@@ -137,8 +186,8 @@ export function FeatureShowcase() {
           <p className="relative z-10 text-white/50 mb-10 max-w-lg">Hagamos esto realidad. Tu sistema central te está esperando.</p>
           
           <div className="relative z-10 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
-            {/* BOTÓN CON ESTILO UNIFICADO PREMIUM */}
             <button 
+              onClick={handleWhatsAppStartClick}
               className="group relative inline-flex items-center justify-center gap-2 px-10 py-4 text-white font-medium text-lg transition-transform hover:scale-[1.02] active:scale-95 w-full sm:w-auto"
               style={{
                 borderRadius: '16px',
@@ -151,20 +200,15 @@ export function FeatureShowcase() {
               <ArrowRight size={18} className="relative z-10 group-hover:translate-x-1 transition-transform" />
             </button>
 
-            <button className="px-8 py-4 rounded-[16px] bg-white/5 border border-white/10 text-white font-medium hover:bg-white/10 transition-all w-full sm:w-auto">
+            <button onClick={handleWhatsAppSalesClick}  className="px-8 py-4 rounded-[16px] bg-white/5 border border-white/10 text-white font-medium hover:bg-white/10 transition-all w-full sm:w-auto">
               Hablar con ventas
             </button>
           </div>
         </div>
-
       </div>
     </section>
   );
 }
-
-/* =========================================
-   VISUALES ABSTRACTOS PARA LAS BENTO CARDS
-   ========================================= */
 
 function WebsiteVisual() {
   return (
@@ -184,16 +228,15 @@ function WebsiteVisual() {
            <div className="w-2 h-2 rounded-full bg-white/20" />
         </div>
         <div className="flex-1 relative overflow-hidden bg-gradient-to-br from-blue-900/40 via-[#0a0a0c] to-[#0a0a0c] p-6 flex flex-col items-center justify-center text-center gap-4">
-           <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-32 h-32 bg-blue-500/30 blur-[40px] rounded-full" />
+           <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-32 h-32 bg-blue-500/30 blur-[20px] md:blur-[40px] rounded-full" />
            
-           {/* Skeleton animado simulando carga */}
            <div className="w-3/4 h-5 bg-white/80 rounded shadow-[0_0_15px_rgba(255,255,255,0.2)] animate-shimmer-pulse" />
            <div className="w-1/2 h-3 bg-white/40 rounded animate-shimmer-pulse" style={{ animationDelay: '200ms' }} />
            
            <div className="absolute bottom-3 left-0 w-full flex justify-center gap-2">
-             <div className="w-16 h-10 rounded-lg bg-white/5 border border-white/10 backdrop-blur-md animate-shimmer-pulse" style={{ animationDelay: '400ms' }} />
-             <div className="w-16 h-10 rounded-lg bg-white/5 border border-white/10 backdrop-blur-md animate-shimmer-pulse" style={{ animationDelay: '600ms' }} />
-             <div className="w-16 h-10 rounded-lg bg-white/5 border border-white/10 backdrop-blur-md animate-shimmer-pulse" style={{ animationDelay: '800ms' }} />
+             <div className="w-16 h-10 rounded-lg bg-[#1a1a24] md:bg-white/5 border border-white/10 md:backdrop-blur-md animate-shimmer-pulse" style={{ animationDelay: '400ms' }} />
+             <div className="w-16 h-10 rounded-lg bg-[#1a1a24] md:bg-white/5 border border-white/10 md:backdrop-blur-md animate-shimmer-pulse" style={{ animationDelay: '600ms' }} />
+             <div className="w-16 h-10 rounded-lg bg-[#1a1a24] md:bg-white/5 border border-white/10 md:backdrop-blur-md animate-shimmer-pulse" style={{ animationDelay: '800ms' }} />
            </div>
         </div>
       </div>
@@ -227,7 +270,7 @@ function CRMVisual() {
       .animate-deal-won { animation: deal-won 6s infinite ease-out; }
     `}</style>
     <div className="absolute inset-0 flex items-start justify-center opacity-100 transition-transform duration-700 group-hover:scale-105 pointer-events-none pt-10">
-       <div className="absolute w-48 h-48 rounded-full bg-indigo-500/15 blur-[50px]" />
+       <div className="absolute w-48 h-48 rounded-full bg-indigo-500/15 blur-[25px] md:blur-[50px]" />
        
        <div className="absolute top-10 w-[75%] max-w-[220px] rounded-xl bg-white/5 border border-white/10 p-3 shadow-lg transform -rotate-3 scale-95 opacity-50">
           <div className="flex items-center gap-3 mb-3">
@@ -240,11 +283,8 @@ function CRMVisual() {
           </div>
        </div>
 
-       {/* Tarjeta de Prospecto que respira/flota */}
        <div className="relative z-10 w-[85%] max-w-[250px] rounded-2xl bg-[#0a0a0c] border border-white/20 p-4 shadow-[0_20px_50px_rgba(0,0,0,0.6)] mt-8 animate-float">
-          
-          {/* Notificación flotante emergente al cerrar el trato */}
-          <div className="absolute -top-4 -right-2 px-3 py-1.5 rounded-lg bg-green-500/20 border border-green-500/50 backdrop-blur-md flex items-center gap-1.5 shadow-[0_0_20px_rgba(34,197,94,0.4)] animate-deal-won z-20">
+          <div className="absolute -top-4 -right-2 px-3 py-1.5 rounded-lg bg-[#0f1b13] md:bg-green-500/20 border border-green-500/50 md:backdrop-blur-md flex items-center gap-1.5 shadow-[0_0_20px_rgba(34,197,94,0.4)] animate-deal-won z-20">
              <div className="w-2 h-2 rounded-full bg-green-400 shadow-[0_0_8px_rgba(34,197,94,0.8)]" />
              <span className="text-[9px] font-bold text-green-400 tracking-wider">DEAL WON</span>
           </div>
@@ -314,10 +354,9 @@ function AIVisual() {
     `}</style>
     <div className="absolute top-0 left-0 right-0 bottom-[130px] flex items-center justify-center opacity-100 transition-transform duration-700 group-hover:scale-105 pointer-events-none">
       
-      <div className="absolute w-64 h-64 rounded-full bg-blue-600/15 blur-[60px]" />
+      <div className="absolute w-64 h-64 rounded-full bg-blue-600/15 blur-[30px] md:blur-[60px]" />
       
       <div className="relative z-10 w-[90%] max-w-[300px] flex flex-col gap-3">
-        
         <div className="self-end max-w-[85%] flex items-end gap-2 animate-user-msg">
            <div className="px-4 py-2.5 rounded-2xl rounded-br-sm bg-blue-600 border border-blue-500 shadow-[0_5px_15px_rgba(59,130,246,0.2)]">
              <p className="text-[10px] text-white font-medium leading-snug">¡Hola! ¿Tienen disponibilidad para una demo?</p>
@@ -325,7 +364,6 @@ function AIVisual() {
         </div>
         
         <div className="relative self-start max-w-[95%] w-full min-h-[90px]">
-           
            <div className="absolute top-0 left-0 flex gap-2 animate-typing">
              <div className="w-6 h-6 shrink-0 rounded-full bg-gradient-to-br from-blue-400 to-purple-600 flex items-center justify-center shadow-lg border border-white/20 mt-1">
                 <Bot size={10} className="text-white" />
@@ -351,7 +389,6 @@ function AIVisual() {
                 </div>
              </div>
            </div>
-
         </div>
       </div>
     </div>
@@ -385,7 +422,7 @@ function AutomationVisual() {
            <path d="M 300 120 C 390 120, 390 192, 510 192" fill="none" stroke="rgba(59,130,246,0.8)" strokeWidth="2" className="animate-flow-h" />
         </svg>
 
-        <div className="absolute left-[15%] top-[50%] -translate-x-1/2 -translate-y-1/2 z-10 w-20 sm:w-28 rounded-xl bg-[#0a0a0c] border border-white/10 p-1.5 sm:p-2 shadow-lg flex items-center gap-1.5 sm:gap-2 backdrop-blur-md">
+        <div className="absolute left-[15%] top-[50%] -translate-x-1/2 -translate-y-1/2 z-10 w-20 sm:w-28 rounded-xl bg-[#0a0a0c] border border-white/10 p-1.5 sm:p-2 shadow-lg flex items-center gap-1.5 sm:gap-2">
            <div className="w-5 h-5 sm:w-6 sm:h-6 rounded bg-purple-500/20 border border-purple-500/30 flex items-center justify-center shrink-0">
               <Globe size={10} className="text-purple-400" />
            </div>
@@ -394,7 +431,7 @@ function AutomationVisual() {
            </div>
         </div>
 
-        <div className="absolute left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2 z-10 w-24 sm:w-32 rounded-xl bg-[#0a0a0c] border border-white/10 p-1.5 sm:p-2 shadow-[0_10px_30px_rgba(0,0,0,0.4)] flex items-center gap-1.5 sm:gap-2 backdrop-blur-md">
+        <div className="absolute left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2 z-10 w-24 sm:w-32 rounded-xl bg-[#0a0a0c] border border-white/10 p-1.5 sm:p-2 shadow-[0_10px_30px_rgba(0,0,0,0.4)] flex items-center gap-1.5 sm:gap-2">
            <div className="w-5 h-5 sm:w-6 sm:h-6 rounded bg-blue-500/20 border border-blue-500/30 flex items-center justify-center shrink-0">
               <Bot size={10} className="text-blue-400" />
            </div>
@@ -413,7 +450,7 @@ function AutomationVisual() {
            <span className="text-[5px] sm:text-[7px] text-white/50 font-medium uppercase tracking-wider">Email Drip</span>
         </div>
 
-        <div className="absolute left-[85%] top-[80%] -translate-x-1/2 -translate-y-1/2 z-10 w-16 sm:w-24 h-6 sm:h-8 rounded-lg bg-blue-900/30 border border-blue-500/40 flex items-center justify-center gap-1 sm:gap-1.5 shadow-[0_0_20px_rgba(59,130,246,0.4)] backdrop-blur-md animate-node-success">
+        <div className="absolute left-[85%] top-[80%] -translate-x-1/2 -translate-y-1/2 z-10 w-16 sm:w-24 h-6 sm:h-8 rounded-lg bg-[#0a1122] md:bg-blue-900/30 border border-blue-500/40 flex items-center justify-center gap-1 sm:gap-1.5 shadow-[0_0_20px_rgba(59,130,246,0.4)] md:backdrop-blur-md animate-node-success">
            <MessageSquare size={8} className="text-blue-400" />
            <span className="text-[5px] sm:text-[7px] text-blue-400 font-bold uppercase tracking-wider">Notificar</span>
         </div>
@@ -472,8 +509,9 @@ function AnalyticsVisual() {
 }
 
 function IntegrationsVisual() {
-  const toolsTop = ['slack', 'stripe', 'hubspot', 'zapier', 'openai', 'notion', 'github', 'figma'];
-  const toolsBottom = ['meta', 'google', 'mailchimp', 'whatsapp', 'shopify', 'salesforce', 'discord', 'linear'];
+  // Mezclamos los de FontAwesome (Fa) con los de SimpleIcons (Si)
+  const toolsTop = [FaSlack, FaStripe, FaHubspot, SiZapier, SiNotion, FaGithub, SiFigma];
+  const toolsBottom = [SiMeta, SiGoogle, SiMailchimp, SiWhatsapp, SiShopify, FaSalesforce, SiDiscord, SiLinear];
 
   const loopTop = [...toolsTop, ...toolsTop];
   const loopBottom = [...toolsBottom, ...toolsBottom]; 
@@ -496,17 +534,17 @@ function IntegrationsVisual() {
       <div className="absolute inset-x-0 top-0 bottom-[140px] flex flex-col justify-center gap-5 overflow-hidden pointer-events-none [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
         
         <div className="flex gap-4 animate-marquee-left w-[200%] pl-4">
-          {loopTop.map((tool, i) => (
-            <div key={`top-${i}`} className="w-14 h-14 shrink-0 rounded-2xl bg-white/[0.04] border border-white/10 flex items-center justify-center shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)] transition-transform duration-700 group-hover:scale-110">
-              <img src={`https://cdn.simpleicons.org/${tool}/white`} alt={tool} className="w-6 h-6 opacity-70" />
+          {loopTop.map((Icon, i) => (
+            <div key={`top-${i}`} className="w-14 h-14 shrink-0 rounded-2xl bg-white/[0.04] border border-white/10 flex items-center justify-center shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)] transition-transform duration-700 group-hover:scale-110 text-white/70">
+              <Icon size={24} />
             </div>
           ))}
         </div>
         
         <div className="flex gap-4 animate-marquee-right w-[200%] pl-4">
-          {loopBottom.map((tool, i) => (
-            <div key={`bottom-${i}`} className="w-14 h-14 shrink-0 rounded-2xl bg-white/[0.04] border border-white/10 flex items-center justify-center shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)] transition-transform duration-700 group-hover:scale-110">
-              <img src={`https://cdn.simpleicons.org/${tool}/white`} alt={tool} className="w-6 h-6 opacity-70" />
+          {loopBottom.map((Icon, i) => (
+            <div key={`bottom-${i}`} className="w-14 h-14 shrink-0 rounded-2xl bg-white/[0.04] border border-white/10 flex items-center justify-center shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)] transition-transform duration-700 group-hover:scale-110 text-white/70">
+              <Icon size={24} />
             </div>
           ))}
         </div>

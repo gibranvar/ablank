@@ -64,10 +64,10 @@ export function LostSalesSimulator() {
 - Potencial de automatización estimado: ${automationRate}%
 
 *Mi Diagnóstico:*
-💸 Costo mensual de trabajo manual: ${formatCurrency(calc.monthlyCost)}
-⏱️ Horas manuales al mes: ${calc.monthlyHours.toFixed(1)}
-🤖 Ahorro potencial mensual: ${formatCurrency(calc.recoverableMonthlyCost)}
-📅 Ahorro potencial anual: ${formatCurrency(calc.annualRecoverableCost)}
+Costo mensual de trabajo manual: ${formatCurrency(calc.monthlyCost)}
+Horas manuales al mes: ${calc.monthlyHours.toFixed(1)}
+Ahorro potencial mensual: ${formatCurrency(calc.recoverableMonthlyCost)}
+Ahorro potencial anual: ${formatCurrency(calc.annualRecoverableCost)}
 
 Quiero identificar qué procesos conviene automatizar y cuánto ahorro podría obtener.`;
 
@@ -76,32 +76,54 @@ Quiero identificar qué procesos conviene automatizar y cuánto ahorro podría o
 
   // --- ANIMACIONES GSAP (Estándar unificado de desenfoque) ---
   useGSAP(() => {
-    const tl = gsap.timeline({
-      scrollTrigger: { trigger: rootRef.current, start: 'top 75%' }
+    let mm = gsap.matchMedia();
+
+    // ESCRITORIO
+    mm.add("(min-width: 768px)", () => {
+      const tl = gsap.timeline({
+        scrollTrigger: { trigger: rootRef.current, start: 'top 75%' }
+      });
+      
+      tl.fromTo(['.sim-badge', 'h2 > span', '.sim-sub'], 
+        { opacity: 0, filter: 'blur(16px)', y: 30 },
+        { opacity: 1, filter: 'blur(0px)', y: 0, duration: 1.5, stagger: 0.15, ease: 'power2.out' }
+      )
+      .fromTo('.sim-panel',
+        { opacity: 0, filter: 'blur(16px)', y: 30 },
+        { opacity: 1, filter: 'blur(0px)', y: 0, duration: 1.5, stagger: 0.2, ease: 'power2.out' },
+        '-=1'
+      );
     });
-    
-    // Anima en cascada: Badge -> Línea 1 -> Línea 2 -> Subtítulo
-    tl.fromTo(['.sim-badge', 'h2 > span', '.sim-sub'], 
-      { opacity: 0, filter: 'blur(16px)', y: 30 },
-      { opacity: 1, filter: 'blur(0px)', y: 0, duration: 1.5, stagger: 0.15, ease: 'power2.out' }
-    )
-    // Luego entran los paneles de la calculadora
-    .fromTo('.sim-panel',
-      { opacity: 0, filter: 'blur(16px)', y: 30 },
-      { opacity: 1, filter: 'blur(0px)', y: 0, duration: 1.5, stagger: 0.2, ease: 'power2.out' },
-      '-=1'
-    );
+
+    // MÓVIL
+    mm.add("(max-width: 767px)", () => {
+      const tl = gsap.timeline({
+        scrollTrigger: { trigger: rootRef.current, start: 'top 85%' }
+      });
+      
+      tl.fromTo(['.sim-badge', 'h2 > span', '.sim-sub'], 
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 1, stagger: 0.1, ease: 'power2.out' }
+      )
+      .fromTo('.sim-panel',
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 1, stagger: 0.15, ease: 'power2.out' },
+        '-=0.8'
+      );
+    });
+
+    return () => mm.revert();
   }, { scope: rootRef });
 
   return (
-    <section id="simulador" ref={rootRef} className="relative w-full py-32 overflow-hidden font-sans">
+    <section id="simulador" ref={rootRef} className="relative w-full py-16 md:py-32 overflow-hidden font-sans">
       
       <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
         
         {/* ================= HEADER ================= */}
-        <div className="text-center mb-20 flex flex-col items-center">
-          <div className="sim-badge inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 mb-6 shadow-[inset_0_1px_4px_rgba(255,255,255,0.1)] backdrop-blur-md">
-            <Target size={12} className="text-red-400" />
+        <div className="text-center mb-16 md:mb-20 flex flex-col items-center">
+          <div className="sim-badge inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-black/80 md:bg-white/5 mb-6 shadow-[inset_0_1px_4px_rgba(255,255,255,0.1)] md:backdrop-blur-md">
+            
             <span className="text-[10px] font-medium text-white/80 uppercase tracking-[0.08em]">Calculadora de Automatización</span>
           </div>
           
@@ -121,9 +143,9 @@ Quiero identificar qué procesos conviene automatizar y cuánto ahorro podría o
           
           {/* ----- COLUMNA IZQUIERDA: FORMULARIO ----- */}
           <div className="sim-panel lg:col-span-7 space-y-6">
-            <div className="bg-white/5 border border-white/10 rounded-[32px] p-8 relative overflow-hidden backdrop-blur-xl shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+            <div className="bg-[#06070a] md:bg-white/5 border border-white/10 rounded-[32px] p-6 md:p-8 relative overflow-hidden md:backdrop-blur-xl shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
               
-              <div className="absolute -top-32 -left-32 w-64 h-64 bg-blue-500/10 blur-[100px] rounded-full pointer-events-none" />
+              <div className="absolute -top-32 -left-32 w-64 h-64 bg-blue-500/10 blur-[50px] md:blur-[100px] rounded-full pointer-events-none" />
               
               <div className="space-y-10 relative z-10">
                 
@@ -190,9 +212,9 @@ Quiero identificar qué procesos conviene automatizar y cuánto ahorro podría o
 
           {/* ----- COLUMNA DERECHA: DASHBOARD DE IMPACTO ----- */}
           <div className="lg:col-span-5 relative">
-            <div className="sim-panel sticky top-8 bg-gradient-to-b from-[#0a0a0c] to-[#040405] border border-white/10 rounded-[32px] p-8 shadow-[0_20px_50px_rgba(0,0,0,0.8)] overflow-hidden">
+            <div className="sim-panel sticky top-8 bg-gradient-to-b from-[#0a0a0c] to-[#040405] border border-white/10 rounded-[32px] p-6 md:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.8)] overflow-hidden">
               
-              <div className="absolute -top-32 -right-32 w-64 h-64 bg-red-500/10 blur-[90px] rounded-full pointer-events-none" />
+              <div className="absolute -top-32 -right-32 w-64 h-64 bg-red-500/10 blur-[45px] md:blur-[90px] rounded-full pointer-events-none" />
               
               <h3 className="text-xl font-display font-medium text-white mb-8 relative z-10">El costo real de hacerlo manualmente</h3>
 
@@ -222,7 +244,7 @@ Quiero identificar qué procesos conviene automatizar y cuánto ahorro podría o
                 <p className="text-[13px] text-white/50 mt-3 leading-relaxed max-w-sm">
                   No es una promesa de ahorro: es una referencia del valor que podrías liberar si automatizas aproximadamente el {calc.automationRate}% de estas tareas.
                 </p>
-                <div className="mt-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-blue-500/10 border border-blue-500/20 backdrop-blur-md">
+                <div className="mt-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#06070a] md:bg-blue-500/10 border border-blue-500/20 md:backdrop-blur-md">
                   <TrendingUp size={14} className="text-blue-400" />
                   <span className="text-xs font-medium text-blue-300">
                     {calc.recoverableHours.toFixed(1)} horas / mes · {formatCurrency(calc.annualRecoverableCost)} / año
@@ -232,7 +254,7 @@ Quiero identificar qué procesos conviene automatizar y cuánto ahorro podría o
 
               <button
                 onClick={handleWhatsAppClick}
-                className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 text-sm font-semibold text-white transition-transform hover:scale-[1.02] active:scale-95"
+                className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 text-sm font-semibold text-white transition-transform hover:scale-[1.02] active:scale-95 w-full md:w-auto"
                 style={{
                   borderRadius: '16px',
                   backgroundColor: '#000',

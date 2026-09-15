@@ -7,7 +7,7 @@
 :root {
   /* ===== COLOR TOKEN SYSTEM ===== */
   /* Dark premium base */
-  --bg-base: #0a0a0b;
+  --bg-base: black;
   --bg-surface: #111113;
   --bg-elevated: #18181b;
   --bg-surface-2: #1c1c20;

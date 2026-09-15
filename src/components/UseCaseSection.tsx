@@ -143,34 +143,67 @@ export function UseCaseSection() {
 
   useGSAP(
     () => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: root.current,
-          start: 'top 70%',
-          toggleActions: 'play none none none',
-        },
+      let mm = gsap.matchMedia();
+
+      // ESCRITORIO
+      mm.add("(min-width: 768px)", () => {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: root.current,
+            start: 'top 70%',
+            toggleActions: 'play none none none',
+          },
+        });
+
+        tl.fromTo('.uc-header',
+          { opacity: 0, filter: 'blur(16px)', y: 30 },
+          { opacity: 1, filter: 'blur(0px)', y: 0, duration: 2, ease: 'power2.out' }
+        )
+        .fromTo('.uc-tabs',
+          { opacity: 0, y: 20 },
+          { opacity: 1, y: 0, duration: 1.5, ease: 'power3.out' },
+          '-=1.5'
+        )
+        .fromTo('.uc-content-area',
+          { opacity: 0, filter: 'blur(16px)', y: 40 },
+          { opacity: 1, filter: 'blur(0px)', y: 0, duration: 2, ease: 'power3.out' },
+          '-=1.2'
+        );
       });
 
-      tl.fromTo('.uc-header',
-        { opacity: 0, filter: 'blur(16px)', y: 30 },
-        { opacity: 1, filter: 'blur(0px)', y: 0, duration: 2, ease: 'power2.out' }
-      )
-      .fromTo('.uc-tabs',
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 1.5, ease: 'power3.out' },
-        '-=1.5'
-      )
-      .fromTo('.uc-content-area',
-        { opacity: 0, filter: 'blur(16px)', y: 40 },
-        { opacity: 1, filter: 'blur(0px)', y: 0, duration: 2, ease: 'power3.out' },
-        '-=1.2'
-      );
+      // MÓVIL (Animación ligera)
+      mm.add("(max-width: 767px)", () => {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: root.current,
+            start: 'top 80%',
+            toggleActions: 'play none none none',
+          },
+        });
+
+        tl.fromTo('.uc-header',
+          { opacity: 0, y: 20 },
+          { opacity: 1, y: 0, duration: 1, ease: 'power2.out' }
+        )
+        .fromTo('.uc-tabs',
+          { opacity: 0, y: 15 },
+          { opacity: 1, y: 0, duration: 1, ease: 'power3.out' },
+          '-=0.8'
+        )
+        .fromTo('.uc-content-area',
+          { opacity: 0, y: 25 },
+          { opacity: 1, y: 0, duration: 1, ease: 'power3.out' },
+          '-=0.8'
+        );
+      });
+
+      return () => mm.revert();
     },
     { scope: root }
   );
 
   return (
-    <section ref={root} className="relative py-32 md:py-48 bg-[#020202] overflow-hidden">
+    <section ref={root} className="relative py-16 md:py-32 overflow-hidden">
       {/* Patrón de fondo tecnológico */}
       <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0)', backgroundSize: '40px 40px' }} />
 
@@ -179,7 +212,7 @@ export function UseCaseSection() {
         {/* Encabezado */}
         <div className="uc-header text-center mb-12 lg:mb-16 relative z-10 flex flex-col items-center">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 mb-6 shadow-[inset_0_1px_4px_rgba(255,255,255,0.1)]">
-            <Sparkles size={12} className="text-blue-400" />
+           
             <span className="text-[10px] font-medium text-white/80 uppercase tracking-[0.08em]">Casos de Uso</span>
           </div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white tracking-tight leading-tight text-balance">
@@ -188,9 +221,10 @@ export function UseCaseSection() {
           </h2>
         </div>
 
-        {/* Menú de Pestañas (Pills) */}
-        <div className="uc-tabs flex justify-start md:justify-center overflow-x-auto hide-scrollbar pb-4 mb-10 lg:mb-16 -mx-4 px-4 md:mx-0 md:px-0">
-          <div className="flex items-center gap-2 p-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md w-max mx-auto shadow-2xl">
+              {/* Menú de Pestañas (Pills) */}
+        <div className="uc-tabs flex justify-start lg:justify-center overflow-x-auto hide-scrollbar pb-4 mb-10 lg:mb-16 -mx-4 px-4 lg:mx-0 lg:px-0">
+          {/* Quitamos el mx-auto en móviles/tablets para evitar el corte y añadimos padding fantasma al final (after) para que no se pegue al borde derecho al terminar el scroll */}
+          <div className="flex items-center gap-2 p-1.5 rounded-full bg-black/80 md:bg-white/5 border border-white/10 md:backdrop-blur-md w-max lg:mx-auto shadow-2xl after:content-[''] after:w-2 lg:after:hidden">
             {useCases.map((uc) => {
               const Icon = uc.icon;
               const isActive = uc.id === activeId;
@@ -211,7 +245,6 @@ export function UseCaseSection() {
             })}
           </div>
         </div>
-
         {/* Área de Contenido con Crossfade CSS Grid */}
         <div className="uc-content-area grid" style={{ gridTemplateColumns: '1fr' }}>
           {useCases.map((uc) => (
@@ -219,8 +252,8 @@ export function UseCaseSection() {
               key={uc.id}
               className={`grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-20 items-center transition-all duration-700 ease-out ${
                 uc.id === activeId 
-                  ? 'opacity-100 translate-y-0 blur-none z-10 pointer-events-auto' 
-                  : 'opacity-0 translate-y-12 blur-md z-0 pointer-events-none'
+                  ? 'opacity-100 translate-y-0 md:blur-none z-10 pointer-events-auto' 
+                  : 'opacity-0 translate-y-12 md:blur-md z-0 pointer-events-none'
               }`}
               style={{ gridArea: '1 / 1' }}
             >
@@ -237,7 +270,7 @@ export function UseCaseSection() {
                  {/* Grid de Métricas (VISIBLE SÓLO EN DESKTOP) */}
                  <div className="hidden lg:grid grid-cols-3 gap-4">
                    {uc.metrics.map((m, i) => (
-                     <div key={i} className="rounded-2xl bg-white/5 border border-white/10 p-6 backdrop-blur-sm shadow-lg hover:bg-white/10 transition-colors duration-300">
+                     <div key={i} className="rounded-2xl bg-[#06070a] md:bg-white/5 border border-white/10 p-6 md:backdrop-blur-sm shadow-lg hover:bg-white/10 transition-colors duration-300">
                        <div className="text-3xl font-bold bg-gradient-to-br from-white to-white/40 bg-clip-text text-transparent mb-2">
                          {m.value}
                        </div>
@@ -254,7 +287,7 @@ export function UseCaseSection() {
                  
                  {/* Tarjeta del Workflow */}
                  <div className="relative w-full rounded-[24px] lg:rounded-[32px] bg-[#06070a] border border-white/10 p-6 lg:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden group">
-                    <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 blur-[80px] rounded-full pointer-events-none transition-transform duration-700 group-hover:scale-150" />
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 blur-[40px] md:blur-[80px] rounded-full pointer-events-none transition-transform duration-700 group-hover:scale-150" />
                     
                     <div className="flex items-center gap-2 mb-8 lg:mb-10 relative z-10">
                       <div className="px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 flex items-center gap-1.5 shadow-[0_0_15px_rgba(59,130,246,0.2)]">
@@ -264,7 +297,7 @@ export function UseCaseSection() {
                     </div>
 
                     <div className="relative z-10 space-y-6 lg:space-y-8">
-                      {/* Línea vertical conectora adaptada (left-15px en mobile, left-19px en desktop) */}
+                      {/* Línea vertical conectora adaptada */}
                       <div className="absolute left-[15px] lg:left-[19px] top-6 bottom-6 w-px bg-white/10 overflow-hidden">
                         <div className="w-full h-24 bg-gradient-to-b from-transparent via-blue-500 to-transparent opacity-0 animate-data-travel" />
                       </div>
@@ -290,7 +323,7 @@ export function UseCaseSection() {
                  {/* Grid de Métricas (VISIBLE SÓLO EN MOBILE, DEBAJO DEL WORKFLOW) */}
                  <div className="grid lg:hidden grid-cols-3 gap-2 sm:gap-4">
                    {uc.metrics.map((m, i) => (
-                     <div key={i} className="rounded-xl bg-white/5 border border-white/10 p-3 sm:p-4 backdrop-blur-sm shadow-lg text-center flex flex-col items-center justify-center hover:bg-white/10 transition-colors duration-300">
+                     <div key={i} className="rounded-xl bg-black/40 border border-white/10 p-3 sm:p-4 shadow-lg text-center flex flex-col items-center justify-center transition-colors duration-300">
                        <div className="text-lg sm:text-2xl font-bold bg-gradient-to-br from-white to-white/40 bg-clip-text text-transparent mb-1">
                          {m.value}
                        </div>
