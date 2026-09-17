@@ -4,8 +4,9 @@ import { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Logo } from './Logo'; 
+
 import { ArrowRight } from 'lucide-react';
+import { pushToDataLayer } from '../utils/analytics';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -15,7 +16,7 @@ export function Footer() {
   const footerRef = useRef<HTMLElement>(null);
 
   useGSAP(() => {
-    let mm = gsap.matchMedia();
+    const mm = gsap.matchMedia();
 
     // ESCRITORIO
     mm.add("(min-width: 768px)", () => {
@@ -90,6 +91,7 @@ export function Footer() {
         
         <a 
           href="https://w.app/5vug7u" 
+          onClick={() => pushToDataLayer('click_whatsapp', { location: 'footer_cta' })}
           className="footer-cta group inline-flex items-center justify-center gap-2 px-6 py-3 md:px-10 md:py-4 rounded-[12px] md:rounded-[16px] bg-[#020202] border border-white/40 text-white font-medium text-sm md:text-lg transition-transform hover:scale-[1.02] active:scale-95 shadow-2xl"
           style={{
             boxShadow: '0px 11px 11px -3px rgba(0,0,0,0.14), 0px 28px 28px -3.75px rgba(0,0,0,0.06), inset -4px 3px 9px 0px #0175ff, inset 3px -2px 8px 0px #ffcd7d, 0 0 40px rgba(1,117,255,0.3)'
@@ -186,11 +188,12 @@ function FooterLink({ href, children }: { href: string; children: React.ReactNod
     </a>
   );
 }
-function FooterWALink({ href, children }: { href: string; children: React.ReactNode }) {
+function FooterWALink({ children }: { href?: string; children: React.ReactNode }) {
   return (
     <a 
       href={"https://w.app/5vug7u"} 
       target="_blank" 
+      onClick={() => pushToDataLayer('click_whatsapp', { location: 'footer_link' })}
       className="group flex items-center justify-start md:justify-between py-2 transition-colors"
     >
       <span className="text-[#9ba9c4] text-[15px] group-hover:text-white transition-colors">

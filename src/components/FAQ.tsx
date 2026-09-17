@@ -4,7 +4,7 @@ import { useState, useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { MessageSquare, Plus } from 'lucide-react';
+import { Plus } from 'lucide-react';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -58,6 +58,7 @@ function FaqItem({ q, a }: { q: string; a: string }) {
       
       <button 
         onClick={() => setIsOpen(!isOpen)} 
+        aria-expanded={isOpen}
         className="w-full text-left px-5 md:px-8 flex justify-between items-center gap-4 md:gap-6 group relative z-10 min-h-[76px] md:min-h-[104px]"
       >
         <span className="font-medium text-[15px] md:text-[18px] text-white leading-snug">
@@ -84,7 +85,7 @@ export function FAQ() {
   const rootRef = useRef<HTMLElement>(null);
 
   useGSAP(() => {
-    let mm = gsap.matchMedia();
+    const mm = gsap.matchMedia();
 
     // ESCRITORIO
     mm.add("(min-width: 768px)", () => {

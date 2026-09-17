@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef } from 'react';
-import { ArrowRight, Play } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
@@ -16,7 +16,7 @@ export function Hero() {
 
   useGSAP(
     () => {
-      let mm = gsap.matchMedia();
+      const mm = gsap.matchMedia();
 
       // ESCRITORIO
       mm.add("(min-width: 768px)", () => {
@@ -201,7 +201,7 @@ export function Hero() {
                     <img 
             src="https://res.cloudinary.com/p9tnym3u/image/upload/f_auto,q_auto/v1789087899/A_BLANK_1.png" 
             alt="Interfaz de la plataforma" 
-            fetchPriority="high"
+            fetchpriority="high"
             className="w-full h-auto object-cover block"
           />
         </div>

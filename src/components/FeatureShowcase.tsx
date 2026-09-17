@@ -4,24 +4,28 @@ import { useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
-import { Globe, Users, Zap, Bot, BarChart3, Link2, Target, MessageSquare, Database, ArrowRight } from 'lucide-react';
+import { Globe, Users, Bot, Target, MessageSquare, Database, ArrowRight } from 'lucide-react';
 import { 
   SiZapier, SiNotion, SiFigma,
   SiMeta, SiGoogle, SiMailchimp, SiWhatsapp, SiShopify, SiDiscord, SiLinear 
 } from 'react-icons/si';
 import { FaSlack, FaStripe, FaSalesforce, FaGithub, FaHubspot } from 'react-icons/fa';
+import { pushToDataLayer } from '../utils/analytics';
 
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
 }
 const handleWhatsAppStartClick = () => {
+    pushToDataLayer('click_whatsapp', { location: 'feature_showcase_start' });
     const msg = `Hola! Estoy listo para evolucionar mi negocio. Me interesa empezar a armar nuestro sistema central. ¿Cuáles son los siguientes pasos?`;
+
 
     window.open(`https://wa.me/5576048470?text=${encodeURIComponent(msg)}`, '_blank');
   };
 
 const handleWhatsAppSalesClick = () => {
+  pushToDataLayer('click_whatsapp', { location: 'feature_showcase_sales' });
   const msg = `¡Hola! Estuve viendo sus soluciones en la página. Me gustaría contarles un poco sobre mi negocio para ver qué opciones tienen para ayudarnos a escalar."`;
   window.open(`https://wa.me/5576048470?text=${encodeURIComponent(msg)}`, '_blank');
 }
@@ -31,7 +35,7 @@ export function FeatureShowcase() {
 
   useGSAP(
     () => {
-      let mm = gsap.matchMedia();
+      const mm = gsap.matchMedia();
 
       // ==========================================
       // ESCRITORIO (768px+): Animación Premium con Blur

@@ -6,8 +6,9 @@ import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { 
   MessageSquare, TrendingUp, AlertTriangle, ArrowRight, 
-  Clock, Target, DollarSign, Zap
+  Clock, DollarSign, Zap
 } from 'lucide-react';
+import { pushToDataLayer } from '../utils/analytics';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -53,9 +54,19 @@ export function LostSalesSimulator() {
   const formatCurrency = (val: number) => 
     new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN', maximumFractionDigits: 0 }).format(val);
 
-  // --- WHATSAPP LEAD GENERATOR ---
   const handleWhatsAppClick = () => {
+    pushToDataLayer('click_whatsapp', {
+      location: 'simulator',
+      sim_people: people,
+      sim_hours: hoursPerWeek,
+      sim_cost: hourlyCost,
+      sim_automation_rate: automationRate,
+      sim_monthly_cost: calc.monthlyCost,
+      sim_recoverable: calc.recoverableMonthlyCost
+    });
+    
     const msg = `Hola, completé el análisis de costo de procesos manuales.
+
 
 *Mi Operación Actual:*
 - Personas involucradas: ${people}
@@ -76,7 +87,7 @@ Quiero identificar qué procesos conviene automatizar y cuánto ahorro podría o
 
   // --- ANIMACIONES GSAP (Estándar unificado de desenfoque) ---
   useGSAP(() => {
-    let mm = gsap.matchMedia();
+    const mm = gsap.matchMedia();
 
     // ESCRITORIO
     mm.add("(min-width: 768px)", () => {

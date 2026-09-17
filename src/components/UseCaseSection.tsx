@@ -143,7 +143,7 @@ export function UseCaseSection() {
 
   useGSAP(
     () => {
-      let mm = gsap.matchMedia();
+      const mm = gsap.matchMedia();
 
       // ESCRITORIO
       mm.add("(min-width: 768px)", () => {

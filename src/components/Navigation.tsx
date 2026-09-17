@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { Menu, X, ArrowRight } from 'lucide-react';
+import { pushToDataLayer } from '../utils/analytics';
 
 const navLinks = [
   { label: 'Plataforma', href: '#plataforma' },
@@ -62,6 +63,8 @@ export function Navigation() {
 
           <a
             href="https://w.app/5vug7u" target="_blank" rel="noopener noreferrer"
+            onClick={() => pushToDataLayer('click_whatsapp', { location: 'navbar_desktop' })}
+
             className="hidden lg:inline-flex group relative items-center justify-center gap-2 px-6 py-2.5 text-sm font-semibold text-white transition-transform hover:scale-[1.02] active:scale-95"
             style={{
               borderRadius: '14px',
@@ -147,7 +150,10 @@ export function Navigation() {
         >
           <a
             href="https://w.app/5vug7u"
-            onClick={() => setMenuOpen(false)}
+            onClick={() => {
+              setMenuOpen(false);
+              pushToDataLayer('click_whatsapp', { location: 'navbar_mobile' });
+            }}
             className="inline-flex items-center justify-center gap-2 px-8 py-4 w-full text-base font-semibold text-white transition-all active:scale-95"
             style={{
               borderRadius: '16px',

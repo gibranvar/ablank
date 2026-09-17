@@ -4,7 +4,7 @@ import { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Shield, Server, Lock, ShieldCheck } from 'lucide-react';
+import { Shield, Server, Lock, } from 'lucide-react';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -22,7 +22,7 @@ export function Security() {
 
   // --- ANIMACIONES GSAP (Estética FeatureShowcase / Simulator) ---
   useGSAP(() => {
-    let mm = gsap.matchMedia();
+    const mm = gsap.matchMedia();
 
     // ESCRITORIO
     mm.add("(min-width: 768px)", () => {

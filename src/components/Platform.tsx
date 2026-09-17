@@ -42,7 +42,7 @@ export function Platform() {
 
   useGSAP(
     () => {
-      let mm = gsap.matchMedia();
+      const mm = gsap.matchMedia();
 
       // ==========================================
       // ESTADO INICIAL COMPARTIDO

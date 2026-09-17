@@ -5,13 +5,9 @@ import { Platform } from '@/components/Platform';
 import { FeatureShowcase } from '@/components/FeatureShowcase';
 import { UseCaseSection } from '@/components/UseCaseSection';
 import { ProductShowcase } from '@/components/ProductShowcase';
-import { AutomationSection } from '@/components/AutomationSection';
 import { LostSalesSimulator } from '@/components/Simulator';
-import { Solutions } from '@/components/Solutions';
-import { Process } from '@/components/Process';
 import { Security } from '@/components/Security';
 import { FAQ } from '@/components/FAQ';
-import { FinalCTA } from '@/components/FinalCTA';
 import { Footer } from '@/components/Footer';
 import { CookieBanner } from './components/CookieBanner';
 

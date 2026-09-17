@@ -15,7 +15,7 @@ export function Positioning() {
 
   useGSAP(
     () => {
-      let mm = gsap.matchMedia();
+      const mm = gsap.matchMedia();
 
       // ESTADO INICIAL COMPARTIDO
       gsap.set('.core-beam', { height: 0, opacity: 0 });

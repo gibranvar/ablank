@@ -163,7 +163,7 @@ export function ProductShowcase() {
 
   // --- 1. ANIMACIÓN DE ENTRADA (ScrollTrigger Optimizado) ---
   useGSAP(() => {
-    let mm = gsap.matchMedia();
+    const mm = gsap.matchMedia();
 
     // ESCRITORIO
     mm.add("(min-width: 768px)", () => {
