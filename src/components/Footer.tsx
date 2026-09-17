@@ -91,6 +91,7 @@ export function Footer() {
         
         <a 
           href="https://w.app/5vug7u" 
+          target="_blank"
           onClick={() => pushToDataLayer('click_whatsapp', { location: 'footer_cta' })}
           className="footer-cta group inline-flex items-center justify-center gap-2 px-6 py-3 md:px-10 md:py-4 rounded-[12px] md:rounded-[16px] bg-[#020202] border border-white/40 text-white font-medium text-sm md:text-lg transition-transform hover:scale-[1.02] active:scale-95 shadow-2xl"
           style={{
