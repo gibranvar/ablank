@@ -157,7 +157,7 @@ export function Hero() {
 
         {/* Subtexto */}
         <p className="hero-sub mt-6 max-w-2xl text-balance text-white/70 font-light" style={{ fontSize: 'clamp(1.125rem, 2vw, 1.25rem)', lineHeight: 1.6 }}>
-          Desarrollo web a medida, automatización de procesos y conexión entre tu CRM y WhatsApp. Construimos la tecnología que tu empresa necesita para escalar.
+          Tu equipo pierde horas todos los días en tareas mecánicas. Construimos la infraestructura tecnológica para que operes sin cuellos de botella: ecosistemas web, automatizaciones a medida y tu CRM conectado a WhatsApp.
         </p>
 
         {/* CTAs Centrados */}
