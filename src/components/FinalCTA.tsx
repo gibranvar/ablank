@@ -124,12 +124,18 @@ export function FinalCTA() {
         </p>
 
         <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a href="#contacto" className="cta-btn btn-primary text-base px-8 py-4">
-            Construir mi sistema
-            <ArrowRight size={16} />
+          <a href="#contacto" className="cta-btn btn-primary group relative overflow-hidden text-base px-8 py-4">
+            {/* Destello de luz que cruza (Shine) */}
+            <div className="absolute inset-0 -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-[1.5s] ease-in-out pointer-events-none" style={{ backgroundImage: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)' }} />
+            <span className="relative z-10 flex items-center gap-2">
+              Hablar con un experto
+              <ArrowRight size={16} />
+            </span>
           </a>
-          <a href="#simulador" className="cta-btn btn-secondary text-base px-8 py-4">
-            Probar el simulador
+          <a href="#simulador" className="cta-btn btn-secondary group relative overflow-hidden text-base px-8 py-4">
+            {/* Destello de luz que cruza (Shine) */}
+            <div className="absolute inset-0 -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-[1.5s] ease-in-out pointer-events-none" style={{ backgroundImage: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent)' }} />
+            <span className="relative z-10">Probar el simulador</span>
           </a>
         </div>
 

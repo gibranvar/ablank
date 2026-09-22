@@ -136,8 +136,8 @@ export function Positioning() {
             <span className="text-[10px] font-medium text-white/80 uppercase tracking-[0.08em]">Infraestructura Rota</span>
           </div>
           <h2 className="font-display font-semibold text-white text-balance tracking-[-0.03em]" style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)', lineHeight: 1.1 }}>
-            <span className="block pb-1">Herramientas flotando</span>
-            <span className="block text-white/40 font-light">sin orden ni conexión.</span>
+            <span className="block pb-1">Chats saturados y</span>
+            <span className="block text-white/40 font-light">operación manual en Excel.</span>
           </h2>
         </div>
 
@@ -146,8 +146,8 @@ export function Positioning() {
             <span className="text-[10px] font-medium text-white/80 uppercase tracking-[0.08em]">Arquitectura Sólida</span>
           </div>
           <h2 className="font-display font-semibold text-white text-balance tracking-[-0.03em]" style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)', lineHeight: 1.1 }}>
-            <span className="block pb-1">Un Stack Tecnológico</span>
-            <span className="block bg-gradient-to-r from-[#0175ff] to-[#ffcd7d] bg-clip-text text-transparent pb-2">perfectamente apilado.</span>
+            <span className="block pb-1">Un Sistema Central</span>
+            <span className="block bg-gradient-to-r from-[#0175ff] to-[#ffcd7d] bg-clip-text text-transparent pb-2">construido a tu medida.</span>
           </h2>
         </div>
       </div>

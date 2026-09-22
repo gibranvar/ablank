@@ -150,21 +150,21 @@ export function Hero() {
         {/* Titular */}
         <div className="max-w-4xl">
           <h1 className="font-display font-semibold text-white text-balance tracking-[-0.03em]" style={{ fontSize: 'clamp(3rem, 7vw, 5.5rem)', lineHeight: 1.05 }}>
-            <span className="hero-line block will-change-transform pb-2">Tu negocio,</span>
-            <span className="hero-line block will-change-transform pb-2">convertido en sistema.</span>
+            <span className="hero-line block will-change-transform pb-2">Escala tu negocio,</span>
+            <span className="hero-line block will-change-transform pb-2">no tu caos.</span>
           </h1>
         </div>
 
         {/* Subtexto */}
         <p className="hero-sub mt-6 max-w-2xl text-balance text-white/70 font-light" style={{ fontSize: 'clamp(1.125rem, 2vw, 1.25rem)', lineHeight: 1.6 }}>
-          Digitalizamos, automatizamos y conectamos las operaciones de tu negocio en un solo sistema.
+          Desarrollo web a medida, automatización de procesos y conexión entre tu CRM y WhatsApp. Construimos la tecnología que tu empresa necesita para escalar.
         </p>
 
         {/* CTAs Centrados */}
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 w-full">
           <a 
             href="#casos" 
-            className="hero-cta group relative inline-flex items-center justify-center gap-2 px-8 py-4 text-sm font-semibold text-white transition-transform hover:scale-[1.02] active:scale-95"
+            className="hero-cta group relative inline-flex items-center justify-center gap-2 px-8 py-4 text-sm font-semibold text-white transition-transform hover:scale-[1.02] active:scale-95 overflow-hidden"
             style={{
               borderRadius: '16px',
               backgroundColor: '#000',
@@ -180,8 +180,32 @@ export function Hero() {
               `
             }}
           >
-            Ver simulación
-            <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+            {/* Destello de luz que cruza (Shine) */}
+            <div className="absolute inset-0 -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-[1.5s] ease-in-out pointer-events-none" style={{ backgroundImage: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)' }} />
+            
+            <span className="relative z-10 flex items-center gap-2">
+              Ver simulación
+              <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+            </span>
+          </a>
+
+          <a 
+            href="https://wa.me/525576048470?text=Hola,%20vi%20su%20anuncio.%20Me%20interesa%20automatizar%20los%20procesos%20de%20mi%20empresa." 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hero-cta group relative inline-flex items-center justify-center px-8 py-4 text-sm font-semibold text-white transition-all duration-500 hover:scale-[1.02] active:scale-95 overflow-hidden bg-white/[0.02] hover:bg-white/[0.05] border border-white/[0.08] hover:border-white/[0.2] backdrop-blur-xl shadow-[inset_0_1px_2px_rgba(255,255,255,0.15),_0_10px_20px_rgba(0,0,0,0.4)]"
+            style={{ borderRadius: '16px' }}
+          >
+            {/* Reflejo de volumen (borde superior interno) */}
+            <div className="absolute inset-0 rounded-[16px] bg-gradient-to-b from-white/[0.08] to-transparent pointer-events-none" />
+            
+            {/* Resplandor líquido que reacciona al hover */}
+            <div className="absolute -top-1/2 -left-1/2 w-[200%] h-[200%] bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.12)_0%,transparent_50%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+            
+            {/* Destello de luz que cruza de izquierda a derecha (Shine) */}
+            <div className="absolute inset-0 -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-[1.5s] ease-in-out pointer-events-none" style={{ backgroundImage: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent)' }} />
+            
+            <span className="relative z-10 tracking-wide">Agendar diagnóstico</span>
           </a>
         </div>
       </div>

@@ -90,16 +90,22 @@ export function Footer() {
         </p>
         
         <a 
-          href="https://w.app/5vug7u" 
+          href="https://wa.me/525576048470?text=Hola,%20llegué%20al%20final%20de%20su%20sitio%20web.%20Quiero%20agendar%20una%20asesoría." 
           target="_blank"
+          rel="noopener noreferrer"
           onClick={() => pushToDataLayer('click_whatsapp', { location: 'footer_cta' })}
-          className="footer-cta group inline-flex items-center justify-center gap-2 px-6 py-3 md:px-10 md:py-4 rounded-[12px] md:rounded-[16px] bg-[#020202] border border-white/40 text-white font-medium text-sm md:text-lg transition-transform hover:scale-[1.02] active:scale-95 shadow-2xl"
+          className="footer-cta group relative overflow-hidden inline-flex items-center justify-center gap-2 px-6 py-3 md:px-10 md:py-4 rounded-[12px] md:rounded-[16px] bg-[#020202] border border-white/40 text-white font-medium text-sm md:text-lg transition-transform hover:scale-[1.02] active:scale-95 shadow-2xl"
           style={{
             boxShadow: '0px 11px 11px -3px rgba(0,0,0,0.14), 0px 28px 28px -3.75px rgba(0,0,0,0.06), inset -4px 3px 9px 0px #0175ff, inset 3px -2px 8px 0px #ffcd7d, 0 0 40px rgba(1,117,255,0.3)'
           }}
         >
-          Iniciar mi diagnóstico
-          <ArrowRight className="w-4 h-4 md:w-5 md:h-5 transition-transform group-hover:translate-x-1" />
+          {/* Destello de luz que cruza (Shine) */}
+          <div className="absolute inset-0 -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-[1.5s] ease-in-out pointer-events-none" style={{ backgroundImage: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)' }} />
+          
+          <span className="relative z-10 flex items-center gap-2">
+            Agendar asesoría por WhatsApp
+            <ArrowRight className="w-4 h-4 md:w-5 md:h-5 transition-transform group-hover:translate-x-1" />
+          </span>
         </a>
       </div>
 
@@ -192,8 +198,9 @@ function FooterLink({ href, children }: { href: string; children: React.ReactNod
 function FooterWALink({ children }: { href?: string; children: React.ReactNode }) {
   return (
     <a 
-      href={"https://w.app/5vug7u"} 
+      href="https://wa.me/525576048470?text=Hola,%20me%20gustaría%20más%20información." 
       target="_blank" 
+      rel="noopener noreferrer"
       onClick={() => pushToDataLayer('click_whatsapp', { location: 'footer_link' })}
       className="group flex items-center justify-start md:justify-between py-2 transition-colors"
     >

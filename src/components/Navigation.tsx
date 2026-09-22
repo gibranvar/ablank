@@ -62,10 +62,10 @@ export function Navigation() {
           </div>
 
           <a
-            href="https://w.app/5vug7u" target="_blank" rel="noopener noreferrer"
+            href="https://wa.me/525576048470?text=Hola,%20vengo%20de%20su%20sitio%20web.%20Me%20gustaría%20hablar%20sobre%20mi%20proyecto." target="_blank" rel="noopener noreferrer"
             onClick={() => pushToDataLayer('click_whatsapp', { location: 'navbar_desktop' })}
 
-            className="hidden lg:inline-flex group relative items-center justify-center gap-2 px-6 py-2.5 text-sm font-semibold text-white transition-transform hover:scale-[1.02] active:scale-95"
+            className="hidden lg:inline-flex group relative items-center justify-center gap-2 px-6 py-2.5 text-sm font-semibold text-white transition-transform hover:scale-[1.02] active:scale-95 overflow-hidden"
             style={{
               borderRadius: '14px',
               backgroundColor: '#000',
@@ -81,8 +81,13 @@ export function Navigation() {
               `
             }}
           >
-            Construir mi sistema
-            <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+            {/* Destello de luz que cruza (Shine) */}
+            <div className="absolute inset-0 -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-[1.5s] ease-in-out pointer-events-none" style={{ backgroundImage: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)' }} />
+            
+            <span className="relative z-10 flex items-center gap-2">
+              Hablar con un experto
+              <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+            </span>
           </a>
 
           <button
@@ -149,12 +154,13 @@ export function Navigation() {
           }}
         >
           <a
-            href="https://w.app/5vug7u"
+            href="https://wa.me/525576048470?text=Hola,%20vengo%20de%20su%20sitio%20web.%20Me%20gustaría%20hablar%20sobre%20mi%20proyecto."
+            target="_blank" rel="noopener noreferrer"
             onClick={() => {
               setMenuOpen(false);
               pushToDataLayer('click_whatsapp', { location: 'navbar_mobile' });
             }}
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 w-full text-base font-semibold text-white transition-all active:scale-95"
+            className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 w-full text-base font-semibold text-white transition-all active:scale-95 overflow-hidden"
             style={{
               borderRadius: '16px',
               backgroundColor: '#000',
@@ -162,8 +168,13 @@ export function Navigation() {
               boxShadow: `inset -4px 3px 9px 0px #0175ff, inset 3px -2px 8px 0px #ffcd7d`,
             }}
           >
-            Construir mi sistema
-            <ArrowRight size={18} />
+            {/* Destello de luz que cruza (Shine) */}
+            <div className="absolute inset-0 -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-[1.5s] ease-in-out pointer-events-none" style={{ backgroundImage: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)' }} />
+            
+            <span className="relative z-10 flex items-center gap-2">
+              Hablar con un experto
+              <ArrowRight size={18} />
+            </span>
           </a>
 
           {/* Estado del sistema (Cierra el espacio vacío) */}

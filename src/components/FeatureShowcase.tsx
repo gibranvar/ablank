@@ -114,7 +114,7 @@ export function FeatureShowcase() {
       id: 'crm',
       colSpan: 'lg:col-span-4',
       title: 'CRM & Leads',
-      description: 'Captura y organiza cada oportunidad. Desde el primer contacto hasta el cierre, todo queda registrado.',
+      description: 'Olvida el caos en Excel. Captura, califica y centraliza cada lead de WhatsApp directamente en un sistema propio.',
       visual: <CRMVisual />,
     },
     {
@@ -128,7 +128,7 @@ export function FeatureShowcase() {
       id: 'automation',
       colSpan: 'lg:col-span-8',
       title: 'Automation',
-      description: 'Automatiza respuestas, seguimientos y asignaciones sin intervención humana.',
+      description: 'Desde cotizaciones automáticas hasta seguimientos. Operamos tu negocio en piloto automático sin perder el toque humano.',
       visual: <AutomationVisual />,
     },
     {
@@ -157,8 +157,8 @@ export function FeatureShowcase() {
             <span className="text-[10px] font-medium text-white/80 uppercase tracking-[0.08em]">Características Core</span>
           </div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-6 tracking-tight leading-tight text-balance">
-            Cada pieza del sistema,<br/>
-            <span className="text-white/30">como un producto.</span>
+            No somos otro SaaS genérico.<br/>
+            <span className="text-white/30">Somos los arquitectos de tu operación.</span>
           </h2>
         </div>
 
@@ -192,7 +192,7 @@ export function FeatureShowcase() {
           <div className="relative z-10 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
             <button 
               onClick={handleWhatsAppStartClick}
-              className="group relative inline-flex items-center justify-center gap-2 px-10 py-4 text-white font-medium text-lg transition-transform hover:scale-[1.02] active:scale-95 w-full sm:w-auto"
+              className="group relative inline-flex items-center justify-center gap-2 px-10 py-4 text-white font-medium text-lg transition-transform hover:scale-[1.02] active:scale-95 w-full sm:w-auto overflow-hidden"
               style={{
                 borderRadius: '16px',
                 backgroundColor: '#020202',
@@ -200,12 +200,18 @@ export function FeatureShowcase() {
                 boxShadow: '0px 11px 11px -3px rgba(0,0,0,0.14), 0px 28px 28px -3.75px rgba(0,0,0,0.06), inset -4px 3px 9px 0px #0175ff, inset 3px -2px 8px 0px #ffcd7d, 0 0 40px rgba(1,117,255,0.3)'
               }}
             >
-              <span className="relative z-10">Empezar ahora</span>
+              {/* Destello de luz que cruza (Shine) */}
+              <div className="absolute inset-0 -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-[1.5s] ease-in-out pointer-events-none" style={{ backgroundImage: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)' }} />
+              
+              <span className="relative z-10">Diseñar mi sistema</span>
               <ArrowRight size={18} className="relative z-10 group-hover:translate-x-1 transition-transform" />
             </button>
 
-            <button onClick={handleWhatsAppSalesClick}  className="px-8 py-4 rounded-[16px] bg-white/5 border border-white/10 text-white font-medium hover:bg-white/10 transition-all w-full sm:w-auto">
-              Hablar con ventas
+            <button onClick={handleWhatsAppSalesClick} className="group relative overflow-hidden px-8 py-4 rounded-[16px] bg-white/5 border border-white/10 text-white font-medium hover:bg-white/10 transition-all w-full sm:w-auto">
+              {/* Destello de luz que cruza (Shine) */}
+              <div className="absolute inset-0 -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-[1.5s] ease-in-out pointer-events-none" style={{ backgroundImage: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent)' }} />
+              
+              <span className="relative z-10">Resolver dudas</span>
             </button>
           </div>
         </div>

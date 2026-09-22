@@ -44,8 +44,8 @@ const useCases: UseCase[] = [
     id: 'sales',
     icon: ShoppingCart,
     label: 'Sales',
-    title: 'Convierte cada oportunidad en venta',
-    description: 'Pipeline visible, seguimiento automático, cotizaciones instantáneas. El vendedor enfocado en cerrar.',
+    title: 'Sistema de cotizaciones y ventas por WhatsApp',
+    description: 'Pipeline visible, seguimiento automático y presupuestos en segundos. Tu equipo enfocado solo en cerrar tratos.',
     workflow: [
       { step: 'Lead asignado', detail: 'Distribución automática' },
       { step: 'Cotización enviada', detail: 'Cotizador conectado' },
