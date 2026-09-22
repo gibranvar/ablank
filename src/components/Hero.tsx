@@ -22,7 +22,7 @@ export function Hero() {
       mm.add("(min-width: 768px)", () => {
         const tl = gsap.timeline();
 
-        tl.fromTo(['.hero-badge', '.hero-line', '.hero-sub', '.hero-cta'], 
+        tl.fromTo(['.hero-badge', '.hero-line', '.hero-sub', '.hero-ctas-wrapper'], 
           { opacity: 0, filter: 'blur(16px)', y: 30 },
           { opacity: 1, filter: 'blur(0px)', y: 0, duration: 1.5, stagger: 0.15, ease: 'power2.out' }
         )
@@ -63,7 +63,7 @@ export function Hero() {
       mm.add("(max-width: 767px)", () => {
         const tl = gsap.timeline();
 
-        tl.fromTo(['.hero-badge', '.hero-line', '.hero-sub', '.hero-cta'], 
+        tl.fromTo(['.hero-badge', '.hero-line', '.hero-sub', '.hero-ctas-wrapper'], 
           { opacity: 0, y: 20 },
           { opacity: 1, y: 0, duration: 1, stagger: 0.1, ease: 'power2.out' }
         )
@@ -161,7 +161,7 @@ export function Hero() {
         </p>
 
         {/* CTAs Centrados */}
-        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 w-full">
+        <div className="hero-ctas-wrapper mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 w-full">
           <a 
             href="#casos" 
             className="hero-cta group relative inline-flex items-center justify-center gap-2 px-8 py-4 text-sm font-semibold text-white transition-transform hover:scale-[1.02] active:scale-95 overflow-hidden"

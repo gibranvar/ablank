@@ -160,9 +160,9 @@ export function Navigation() {
               setMenuOpen(false);
               pushToDataLayer('click_whatsapp', { location: 'navbar_mobile' });
             }}
-            className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 w-full text-base font-semibold text-white transition-all active:scale-95 overflow-hidden"
+            className="group relative inline-flex items-center justify-center gap-2 px-6 py-3 w-full text-sm font-semibold text-white transition-all active:scale-95 overflow-hidden"
             style={{
-              borderRadius: '16px',
+              borderRadius: '14px',
               backgroundColor: '#000',
               border: '1px solid rgba(255, 255, 255, 0.2)',
               boxShadow: `inset -4px 3px 9px 0px #0175ff, inset 3px -2px 8px 0px #ffcd7d`,
@@ -173,7 +173,7 @@ export function Navigation() {
             
             <span className="relative z-10 flex items-center gap-2">
               Hablar con un experto
-              <ArrowRight size={18} />
+              <ArrowRight size={16} />
             </span>
           </a>
 
