@@ -4,15 +4,16 @@ import { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
 import { ArrowRight } from 'lucide-react';
 import { pushToDataLayer } from '../utils/analytics';
+import { useTranslation } from 'react-i18next';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
 }
 
 export function Footer() {
+  const { t } = useTranslation();
   const footerRef = useRef<HTMLElement>(null);
 
   useGSAP(() => {
@@ -81,16 +82,16 @@ export function Footer() {
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center mb-16 flex flex-col items-center">
         
         <h2>
-          <span>Delega el caos operativo.</span>
-          <span>Escala con inteligencia.</span>
+          <span className="block">{t('footer.title1')}</span>
+          <span className="block">{t('footer.title2')}</span>
         </h2>
         
         <p className="footer-sub text-[#9ba9c4] text-lg md:text-xl max-w-2xl mx-auto mb-10 text-balance">
-          Construimos el ecosistema exacto que tu empresa necesita para captar clientes, procesar ventas y operar 24/7 sin depender de ti.
+          {t('footer.subtitle')}
         </p>
         
         <a 
-          href="https://wa.me/525576048470?text=Hola,%20llegué%20al%20final%20de%20su%20sitio%20web.%20Quiero%20agendar%20una%20asesoría." 
+          href={`https://wa.me/525576048470?text=${encodeURIComponent(t('footer.ctaMsg'))}`} 
           target="_blank"
           rel="noopener noreferrer"
           onClick={() => pushToDataLayer('click_whatsapp', { location: 'footer_cta' })}
@@ -103,7 +104,7 @@ export function Footer() {
           <div className="absolute inset-0 -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-[1.5s] ease-in-out pointer-events-none" style={{ backgroundImage: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)' }} />
           
           <span className="relative z-10 flex items-center gap-2">
-            Agendar asesoría por WhatsApp
+            {t('footer.cta')}
             <ArrowRight className="w-4 h-4 md:w-5 md:h-5 transition-transform group-hover:translate-x-1" />
           </span>
         </a>
@@ -139,29 +140,29 @@ export function Footer() {
       <div className="relative z-10 max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16 mb-16 md:mb-20">
         
         <div className="flex flex-col">
-          <h4 className="text-white font-medium mb-4 md:mb-6">Navegación</h4>
+          <h4 className="text-white font-medium mb-4 md:mb-6">{t('footer.navTitle')}</h4>
           <nav className="flex flex-col">
-            <FooterLink href="#plataforma">Plataforma</FooterLink>
-            <FooterLink href="#soluciones">Soluciones</FooterLink>
-            <FooterLink href="#simulador">Simulador</FooterLink>
-            <FooterLink href="#faq">FAQ</FooterLink>
+            <FooterLink href="#plataforma">{t('footer.nav1')}</FooterLink>
+            <FooterLink href="#soluciones">{t('footer.nav2')}</FooterLink>
+            <FooterLink href="#simulador">{t('footer.nav3')}</FooterLink>
+            <FooterLink href="#faq">{t('footer.nav4')}</FooterLink>
           </nav>
         </div>
 
         <div className="flex flex-col">
-          <h4 className="text-white font-medium mb-4 md:mb-6">Contacto</h4>
+          <h4 className="text-white font-medium mb-4 md:mb-6">{t('footer.contactTitle')}</h4>
           <nav className="flex flex-col">
-            <FooterLink href="mailto:hello@ablank.com.mx">hello@ablank.mx</FooterLink>
-            <FooterWALink href="tel:5576048470">55 7604 8470</FooterWALink>
+            <FooterLink href="mailto:hello@ablank.mx">hello@ablank.mx</FooterLink>
+            <FooterWALink href="tel:5576048470" msg={t('footer.ctaMsg')}>55 7604 8470</FooterWALink>
           </nav>
         </div>
 
         <div className="flex flex-col">
-          <h4 className="text-white font-medium mb-4 md:mb-6">Headquarters</h4>
+          <h4 className="text-white font-medium mb-4 md:mb-6">{t('footer.hqTitle')}</h4>
           <div className="text-[#9ba9c4] text-[15px] leading-relaxed py-2">
-            Rubén Darío 43<br />
-            Rincón del Bosque, Polanco V Secc.<br />
-            Ciudad de México, CDMX
+            {t('footer.address1')}<br />
+            {t('footer.address2')}<br />
+            {t('footer.address3')}
           </div>
         </div>
 
@@ -171,10 +172,10 @@ export function Footer() {
         <div className="w-full h-px bg-[#7da4ff]/10 mb-8" />
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
           <p className="text-[#9ba9c4] text-[14px] md:text-[15px]">
-            © 2026 A BLΛNK. All rights reserved.
+            {t('footer.rights')}
           </p>
           <div className="flex items-center gap-2">
-            <span className="text-[#9ba9c4] text-[14px] md:text-[15px]">Design & Developed in Mexico</span>
+            <span className="text-[#9ba9c4] text-[14px] md:text-[15px]">{t('footer.design')}</span>
           </div>
         </div>
       </div>
@@ -195,10 +196,10 @@ function FooterLink({ href, children }: { href: string; children: React.ReactNod
     </a>
   );
 }
-function FooterWALink({ children }: { href?: string; children: React.ReactNode }) {
+function FooterWALink({ href, msg, children }: { href?: string; msg: string; children: React.ReactNode }) {
   return (
     <a 
-      href="https://wa.me/525576048470?text=Hola,%20me%20gustaría%20más%20información." 
+      href={`https://wa.me/525576048470?text=${encodeURIComponent(msg)}`} 
       target="_blank" 
       rel="noopener noreferrer"
       onClick={() => pushToDataLayer('click_whatsapp', { location: 'footer_link' })}

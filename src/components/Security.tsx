@@ -5,20 +5,22 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Shield, Server, Lock, } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
 }
 
-// Lista ultracorta y directa
-const trustItems = [
-  { icon: Server, title: 'Infraestructura 99.9% Uptime' },
-  { icon: Lock, title: 'Encriptación Militar AES-256' },
-  { icon: Shield, title: 'Monitoreo y Prevención 24/7' },
-];
-
 export function Security() {
+  const { t } = useTranslation();
   const rootRef = useRef<HTMLElement>(null);
+
+  // Mover el arreglo adentro para tener acceso a `t`
+  const trustItems = [
+    { icon: Server, title: t('security.items.0', 'Infraestructura 99.9% Uptime') },
+    { icon: Lock, title: t('security.items.1', 'Encriptación Militar AES-256') },
+    { icon: Shield, title: t('security.items.2', 'Monitoreo y Prevención 24/7') },
+  ];
 
   // --- ANIMACIONES GSAP (Estética FeatureShowcase / Simulator) ---
   useGSAP(() => {
@@ -75,18 +77,18 @@ export function Security() {
           {/* Badge optimizado con bg sólido oscuro en móvil */}
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-black/80 md:bg-white/5 mb-6 shadow-[inset_0_1px_4px_rgba(255,255,255,0.1)] md:backdrop-blur-md">
             
-            <span className="text-[10px] font-medium text-white/80 uppercase tracking-[0.08em]">Seguridad Grado Empresarial</span>
+            <span className="text-[10px] font-medium text-white/80 uppercase tracking-[0.08em]">{t('security.badge')}</span>
           </div>
           
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6 tracking-tight leading-tight text-balance">
-            <span className="block text-white">Tu negocio, en</span>
+            <span className="block text-white">{t('security.title1')}</span>
             <span className="block bg-gradient-to-r from-[#0175ff] to-[#ffcd7d] bg-clip-text text-transparent pb-2">
-              infraestructura blindada.
+              {t('security.title2')}
             </span>
           </h2>
           
           <p className="text-lg text-white/50 max-w-xl mx-auto text-balance">
-            Protegemos tu operación con seguridad multicapa. Desde la encriptación de datos hasta el monitoreo continuo, no dejamos cabos sueltos.
+            {t('security.subtitle')}
           </p>
         </div>
 
@@ -101,10 +103,10 @@ export function Security() {
               <div className="absolute -top-32 -left-32 w-64 h-64 bg-blue-500/10 blur-[50px] md:blur-[100px] rounded-full pointer-events-none" />
               
               <div className="space-y-4 relative z-10">
-                {trustItems.map((item) => {
+                {trustItems.map((item, index) => {
                   const Icon = item.icon;
                   return (
-                    <div key={item.title} className="flex items-center gap-4 md:gap-5 py-6 border-b border-white/10 last:border-0">
+                    <div key={index} className="flex items-center gap-4 md:gap-5 py-6 border-b border-white/10 last:border-0">
                       <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-black/50 border border-white/10 flex items-center justify-center shrink-0 shadow-[inset_0_2px_4px_rgba(0,0,0,0.2)]">
                         <Icon size={24} className="text-blue-400" />
                       </div>
@@ -137,9 +139,9 @@ export function Security() {
               <div className="p-6 md:p-8 relative z-10">
                 
                 <div className="mb-8 md:mb-10">
-                  <div className="text-[12px] font-medium text-white/50 uppercase tracking-widest mb-2">Network Status</div>
+                  <div className="text-[12px] font-medium text-white/50 uppercase tracking-widest mb-2">{t('security.networkStatus')}</div>
                   <div className="text-3xl md:text-4xl font-display font-light text-white tracking-tight flex items-center gap-4">
-                    Protected
+                    {t('security.protected')}
                     <div className="relative flex h-2.5 w-2.5">
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-50"></span>
                       <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.5)]"></span>
@@ -163,12 +165,12 @@ export function Security() {
                 {/* Etiquetas de Módulos */}
                 <div className="grid grid-cols-2 gap-4">
                   <div className="p-4 rounded-2xl bg-white/5 border border-white/10 shadow-[inset_0_1px_4px_rgba(255,255,255,0.05)]">
-                    <div className="text-[10px] font-mono text-blue-400 uppercase mb-1.5">Active</div>
-                    <div className="text-sm font-medium text-white">AES-256 Auth</div>
+                    <div className="text-[10px] font-mono text-blue-400 uppercase mb-1.5">{t('security.activeLabel')}</div>
+                    <div className="text-sm font-medium text-white">{t('security.activeValue')}</div>
                   </div>
                   <div className="p-4 rounded-2xl bg-white/5 border border-white/10 shadow-[inset_0_1px_4px_rgba(255,255,255,0.05)]">
-                    <div className="text-[10px] font-mono text-blue-400 uppercase mb-1.5">Secured</div>
-                    <div className="text-sm font-medium text-white">API Gateway</div>
+                    <div className="text-[10px] font-mono text-blue-400 uppercase mb-1.5">{t('security.securedLabel')}</div>
+                    <div className="text-sm font-medium text-white">{t('security.securedValue')}</div>
                   </div>
                 </div>
 

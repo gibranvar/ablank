@@ -5,6 +5,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import { Globe, Users, MessageSquare, Bot } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -12,6 +13,7 @@ if (typeof window !== 'undefined') {
 
 export function Positioning() {
   const containerRef = useRef<HTMLElement>(null);
+  const { t } = useTranslation();
 
   useGSAP(
     () => {
@@ -102,10 +104,10 @@ export function Positioning() {
   );
 
   const stackLayers = [
-    { icon: Bot, label: 'IA Central', desc: 'Procesamiento Core' },
-    { icon: MessageSquare, label: 'WhatsApp', desc: 'Mensajería Unificada' },
-    { icon: Users, label: 'CRM Leads', desc: 'Gestión Inteligente' },
-    { icon: Globe, label: 'Web & Shop', desc: 'Escaparate Digital' },
+    { icon: Bot, label: t('positioning.layers.layer0.label'), desc: t('positioning.layers.layer0.desc') },
+    { icon: MessageSquare, label: t('positioning.layers.layer1.label'), desc: t('positioning.layers.layer1.desc') },
+    { icon: Users, label: t('positioning.layers.layer2.label'), desc: t('positioning.layers.layer2.desc') },
+    { icon: Globe, label: t('positioning.layers.layer3.label'), desc: t('positioning.layers.layer3.desc') },
   ];
 
   return (
@@ -133,21 +135,21 @@ export function Positioning() {
         
         <div className="text-problem absolute inset-0 flex flex-col items-center justify-center text-center px-4">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 mb-4 shadow-[inset_0_1px_4px_rgba(255,255,255,0.1)] md:backdrop-blur-md">
-            <span className="text-[10px] font-medium text-white/80 uppercase tracking-[0.08em]">Infraestructura Rota</span>
+            <span className="text-[10px] font-medium text-white/80 uppercase tracking-[0.08em]">{t('positioning.badge1')}</span>
           </div>
           <h2 className="font-display font-semibold text-white text-balance tracking-[-0.03em]" style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)', lineHeight: 1.1 }}>
-            <span className="block pb-1">Chats saturados y</span>
-            <span className="block text-white/40 font-light">operación manual en Excel.</span>
+            <span className="block pb-1">{t('positioning.title1_1')}</span>
+            <span className="block text-white/40 font-light">{t('positioning.title1_2')}</span>
           </h2>
         </div>
 
         <div className="text-solution absolute inset-0 flex flex-col items-center justify-center text-center px-4 opacity-0">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 mb-4 shadow-[inset_0_1px_4px_rgba(255,255,255,0.1)] md:backdrop-blur-md">
-            <span className="text-[10px] font-medium text-white/80 uppercase tracking-[0.08em]">Arquitectura Sólida</span>
+            <span className="text-[10px] font-medium text-white/80 uppercase tracking-[0.08em]">{t('positioning.badge2')}</span>
           </div>
           <h2 className="font-display font-semibold text-white text-balance tracking-[-0.03em]" style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)', lineHeight: 1.1 }}>
-            <span className="block pb-1">Un Sistema Central</span>
-            <span className="block bg-gradient-to-r from-[#0175ff] to-[#ffcd7d] bg-clip-text text-transparent pb-2">construido a tu medida.</span>
+            <span className="block pb-1">{t('positioning.title2_1')}</span>
+            <span className="block bg-gradient-to-r from-[#0175ff] to-[#ffcd7d] bg-clip-text text-transparent pb-2">{t('positioning.title2_2')}</span>
           </h2>
         </div>
       </div>

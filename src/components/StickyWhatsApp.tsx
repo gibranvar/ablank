@@ -1,8 +1,10 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export function StickyWhatsApp() {
+  const { t } = useTranslation();
   const [isCookieVisible, setIsCookieVisible] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -25,7 +27,7 @@ export function StickyWhatsApp() {
   if (!isVisible) return null;
 
   const phoneNumber = "525576048470"; 
-  const presetMessage = encodeURIComponent("Hola, me interesa agendar una llamada para escalar la infraestructura tecnológica de mi empresa.");
+  const presetMessage = encodeURIComponent(t('whatsapp.msg'));
   const waLink = `https://wa.me/${phoneNumber}?text=${presetMessage}`;
 
   return (

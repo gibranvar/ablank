@@ -1,18 +1,25 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Menu, X, ArrowRight } from 'lucide-react';
+import { Menu, X, ArrowRight, Globe } from 'lucide-react';
 import { pushToDataLayer } from '../utils/analytics';
-
-const navLinks = [
-  { label: 'Plataforma', href: '#plataforma' },
-  { label: 'Soluciones', href: '#soluciones' },
-  { label: 'Simulador', href: '#simulador' },
-  { label: 'FAQ', href: '#faq' },
-];
+import { useTranslation } from 'react-i18next';
 
 export function Navigation() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { t, i18n } = useTranslation();
+
+  const navLinks = [
+    { label: t('nav.platform'), href: '#plataforma' },
+    { label: t('nav.solutions'), href: '#soluciones' },
+    { label: t('nav.simulator'), href: '#simulador' },
+    { label: t('nav.faq'), href: '#faq' },
+  ];
+
+  const toggleLanguage = () => {
+    const newLang = i18n.language.startsWith('es') ? 'en' : 'es';
+    i18n.changeLanguage(newLang);
+  };
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
@@ -60,48 +67,60 @@ export function Navigation() {
               ))}
             </nav>
           </div>
+          
+          <div className="hidden lg:flex items-center gap-3">
+            <button
+              onClick={toggleLanguage}
+              className="flex items-center justify-center w-10 h-10 rounded-full text-white/70 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 backdrop-blur-md transition-all"
+              aria-label="Change language"
+            >
+              <Globe size={18} />
+              <span className="ml-1 text-xs font-semibold">{i18n.language.startsWith('es') ? 'EN' : 'ES'}</span>
+            </button>
 
-          <a
-            href="https://wa.me/525576048470?text=Hola,%20vengo%20de%20su%20sitio%20web.%20Me%20gustaría%20hablar%20sobre%20mi%20proyecto." target="_blank" rel="noopener noreferrer"
-            onClick={() => pushToDataLayer('click_whatsapp', { location: 'navbar_desktop' })}
+            <a
+              href="https://wa.me/525576048470?text=Hola,%20vengo%20de%20su%20sitio%20web.%20Me%20gustaría%20hablar%20sobre%20mi%20proyecto." target="_blank" rel="noopener noreferrer"
+              onClick={() => pushToDataLayer('click_whatsapp', { location: 'navbar_desktop' })}
 
-            className="hidden lg:inline-flex group relative items-center justify-center gap-2 px-6 py-2.5 text-sm font-semibold text-white transition-transform hover:scale-[1.02] active:scale-95 overflow-hidden"
-            style={{
-              borderRadius: '14px',
-              backgroundColor: '#000',
-              border: '1px solid rgba(255, 255, 255, 0.2)',
-              boxShadow: `
-                0px 0.8px 0.8px -0.75px rgba(0, 0, 0, 0.18), 
-                0px 2.2px 2.2px -1.5px rgba(0, 0, 0, 0.18), 
-                0px 5px 5px -2.25px rgba(0, 0, 0, 0.17), 
-                0px 11px 11px -3px rgba(0, 0, 0, 0.14), 
-                0px 28px 28px -3.75px rgba(0, 0, 0, 0.06), 
-                inset -4px 3px 9px 0px #0175ff, 
-                inset 3px -2px 8px 0px #ffcd7d
-              `
-            }}
-          >
-            {/* Destello de luz que cruza (Shine) */}
-            <div className="absolute inset-0 -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-[1.5s] ease-in-out pointer-events-none" style={{ backgroundImage: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)' }} />
-            
-            <span className="relative z-10 flex items-center gap-2">
-              Hablar con un experto
-              <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
-            </span>
-          </a>
+              className="inline-flex group relative items-center justify-center gap-2 px-6 py-2.5 text-sm font-semibold text-white transition-transform hover:scale-[1.02] active:scale-95 overflow-hidden"
+              style={{
+                borderRadius: '14px',
+                backgroundColor: '#000',
+                border: '1px solid rgba(255, 255, 255, 0.2)',
+                boxShadow: `
+                  0px 0.8px 0.8px -0.75px rgba(0, 0, 0, 0.18), 
+                  0px 2.2px 2.2px -1.5px rgba(0, 0, 0, 0.18), 
+                  0px 5px 5px -2.25px rgba(0, 0, 0, 0.17), 
+                  0px 11px 11px -3px rgba(0, 0, 0, 0.14), 
+                  0px 28px 28px -3.75px rgba(0, 0, 0, 0.06), 
+                  inset -4px 3px 9px 0px #0175ff, 
+                  inset 3px -2px 8px 0px #ffcd7d
+                `
+              }}
+            >
+              <div className="absolute inset-0 -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-[1.5s] ease-in-out pointer-events-none" style={{ backgroundImage: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)' }} />
+              
+              <span className="relative z-10 flex items-center gap-2">
+                {t('nav.talkToExpert')}
+                <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+              </span>
+            </a>
+          </div>
 
-          <button
-            className="lg:hidden flex items-center justify-center w-11 h-11 rounded-full text-white bg-white/5 border border-white/10 backdrop-blur-md transition-active active:scale-95 pointer-events-auto"
-            onClick={() => setMenuOpen(true)}
-            aria-label="Abrir menú"
-          >
-            <Menu size={20} strokeWidth={1.8} />
-          </button>
+          <div className="lg:hidden flex items-center gap-3">
+            <button
+              className="flex items-center justify-center w-11 h-11 rounded-full text-white bg-white/5 border border-white/10 backdrop-blur-md transition-active active:scale-95 pointer-events-auto"
+              onClick={() => setMenuOpen(true)}
+              aria-label="Abrir menú"
+            >
+              <Menu size={20} strokeWidth={1.8} />
+            </button>
+          </div>
         </div>
       </header>
 
       {/* =====================================================
-          MOBILE/TABLET MENU (Arquitectura nueva, diseño tuyo)
+          MOBILE/TABLET MENU
           ===================================================== */}
       <div
         className={`fixed inset-0 z-[100] flex flex-col bg-[#050505] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
@@ -123,7 +142,6 @@ export function Navigation() {
           </button>
         </div>
 
-        {/* CONTENEDOR FLEX PARA CENTRAR LOS LINKS */}
         <nav className="flex-1 flex flex-col justify-center px-8">
           {navLinks.map((link, index) => (
             <a
@@ -143,7 +161,6 @@ export function Navigation() {
           ))}
         </nav>
 
-        {/* FOOTER DEL MENÚ (Tu CTA original y los datos abajo) */}
         <div 
           className="px-8 pb-10 pt-4"
           style={{
@@ -160,7 +177,7 @@ export function Navigation() {
               setMenuOpen(false);
               pushToDataLayer('click_whatsapp', { location: 'navbar_mobile' });
             }}
-            className="group relative inline-flex items-center justify-center gap-2 px-6 py-3 w-full text-sm font-semibold text-white transition-all active:scale-95 overflow-hidden"
+            className="group relative inline-flex items-center justify-center gap-2 px-6 py-3 w-full text-sm font-semibold text-white transition-all active:scale-95 overflow-hidden mb-6"
             style={{
               borderRadius: '14px',
               backgroundColor: '#000',
@@ -168,18 +185,26 @@ export function Navigation() {
               boxShadow: `inset -4px 3px 9px 0px #0175ff, inset 3px -2px 8px 0px #ffcd7d`,
             }}
           >
-            {/* Destello de luz que cruza (Shine) */}
             <div className="absolute inset-0 -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-[1.5s] ease-in-out pointer-events-none" style={{ backgroundImage: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)' }} />
             
             <span className="relative z-10 flex items-center gap-2">
-              Hablar con un experto
+              {t('nav.talkToExpert')}
               <ArrowRight size={16} />
             </span>
           </a>
 
-          {/* Estado del sistema (Cierra el espacio vacío) */}
-          <div className="mt-8 flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between text-[11px] text-white/40 font-medium tracking-wide uppercase">
-            <a href="mailto:hello@ablank.mx" className="hover:text-white transition-colors">
+          <div className="flex items-center justify-between mt-4">
+            <button
+              onClick={() => {
+                toggleLanguage();
+                setMenuOpen(false);
+              }}
+              className="flex items-center gap-2 px-4 py-2 rounded-full text-white/70 hover:text-white bg-white/5 border border-white/10 transition-colors"
+            >
+              <Globe size={18} />
+              <span className="text-sm font-medium">{i18n.language.startsWith('es') ? 'Switch to English' : 'Cambiar a Español'}</span>
+            </button>
+            <a href="mailto:hello@ablank.mx" className="text-[11px] text-white/40 font-medium tracking-wide uppercase hover:text-white transition-colors">
               hello@ablank.mx
             </a>
           </div>

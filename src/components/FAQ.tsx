@@ -5,48 +5,11 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Plus } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
 }
-
-const faqsCol1 = [
-  {
-    q: '¿Qué hace exactamente su empresa?',
-    a: 'Diseñamos y desarrollamos soluciones digitales para empresas: desde sitios web y sistemas a medida hasta automatizaciones, integraciones e inteligencia artificial.'
-  },
-  {
-    q: '¿Solo hacen páginas web?',
-    a: 'No. Una web es solo una parte de lo que hacemos. También automatizamos procesos, conectamos herramientas y desarrollamos sistemas que ayudan a las empresas a operar mejor.'
-  },
-  {
-    q: '¿Qué tipo de procesos pueden automatizar?',
-    a: 'Prácticamente cualquier proceso repetitivo o que dependa demasiado de trabajo manual: seguimiento de prospectos, captura de información, notificaciones, generación de documentos, atención, sincronización de datos e integraciones entre plataformas.'
-  },
-  {
-    q: '¿Pueden desarrollar algo que no aparece en sus servicios?',
-    a: 'Sí. Trabajamos a partir del problema y no de una solución prefabricada. Si tu empresa necesita una herramienta, integración o flujo específico, podemos diseñarlo y desarrollarlo a medida.'
-  }
-];
-
-const faqsCol2 = [
-  {
-    q: '¿Trabajan con las herramientas que ya utiliza mi empresa?',
-    a: 'Sí. Podemos integrar sistemas y plataformas existentes para evitar cambiar toda tu operación. La idea es hacer que las herramientas que ya utilizas trabajen juntas.'
-  },
-  {
-    q: '¿Cómo es el proceso para empezar un proyecto?',
-    a: 'Primero entendemos tu negocio, identificamos qué se puede mejorar y definimos la solución adecuada. Después diseñamos, desarrollamos e implementamos, buscando que todo quede integrado y listo para operar.'
-  },
-  {
-    q: '¿Trabajan con empresas de cualquier tamaño?',
-    a: 'Sí. Podemos crear desde una presencia digital desde cero hasta sistemas y automatizaciones más complejas para operaciones que ya están creciendo.'
-  },
-  {
-    q: '¿Por qué elegirlos a ustedes?',
-    a: 'Porque no nos limitamos a entregar una web o una automatización aislada. Buscamos entender cómo funciona tu negocio y construir soluciones que realmente mejoren la forma en que vende, opera y crece.'
-  }
-];
 
 function FaqItem({ q, a }: { q: string; a: string }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -82,7 +45,13 @@ function FaqItem({ q, a }: { q: string; a: string }) {
 }
 
 export function FAQ() {
+  const { t } = useTranslation();
   const rootRef = useRef<HTMLElement>(null);
+  
+  const allFaqs = t('faq.questions', { returnObjects: true }) as Array<{ q: string, a: string }>;
+  const half = Math.ceil(allFaqs.length / 2);
+  const faqsCol1 = allFaqs.slice(0, half);
+  const faqsCol2 = allFaqs.slice(half);
 
   useGSAP(() => {
     const mm = gsap.matchMedia();
@@ -134,18 +103,18 @@ export function FAQ() {
         <div className="faq-header text-center mb-16 md:mb-20 flex flex-col items-center">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-black/80 md:bg-white/5 mb-6 shadow-[inset_0_1px_4px_rgba(255,255,255,0.1)] md:backdrop-blur-md">
             
-            <span className="text-[10px] font-medium text-white/80 uppercase tracking-[0.08em]">Preguntas Frecuentes</span>
+            <span className="text-[10px] font-medium text-white/80 uppercase tracking-[0.08em]">{t('faq.badge')}</span>
           </div>
           
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6 tracking-tight leading-tight text-balance">
-            <span className="block text-white">¿Tienes dudas sobre</span>
+            <span className="block text-white">{t('faq.title1')}</span>
             <span className="block bg-gradient-to-r from-[#0175ff] to-[#ffcd7d] bg-clip-text text-transparent pb-2">
-              cómo trabajamos?
+              {t('faq.title2')}
             </span>
           </h2>
           
           <p className="text-[16px] md:text-[18px] text-white/50 max-w-xl mx-auto text-balance">
-            Respuestas a las preguntas más comunes sobre nuestros servicios, procesos e integraciones empresariales.
+            {t('faq.subtitle')}
           </p>
         </div>
 

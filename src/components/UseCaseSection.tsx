@@ -5,141 +5,133 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import { Megaphone, ShoppingCart, Settings, Headphones, ClipboardList, BarChart3, ArrowRight, Sparkles } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
 }
 
-interface UseCase {
-  id: string;
-  icon: typeof Megaphone;
-  label: string;
-  title: string;
-  description: string;
-  workflow: { step: string; detail: string }[];
-  metrics: { label: string; value: string }[];
-}
-
-const useCases: UseCase[] = [
-  {
-    id: 'marketing',
-    icon: Megaphone,
-    label: 'Marketing',
-    title: 'Captura y nutre leads automáticamente',
-    description: 'Desde el primer click hasta el CRM. Cada campaña, cada landing, cada contacto — sincronizado.',
-    workflow: [
-      { step: 'Campaña activa', detail: 'Google Ads + Meta Ads' },
-      { step: 'Landing dinámica', detail: 'Optimizada por AI' },
-      { step: 'Lead capturado', detail: 'Form → CRM automático' },
-      { step: 'Nurture sequence', detail: 'Email + WhatsApp' },
-      { step: 'Lead scored', detail: 'AI clasifica intención' },
-    ],
-    metrics: [
-      { label: 'Costo por lead', value: '-42%' },
-      { label: 'Leads/mes', value: '1,240' },
-      { label: 'Calificación', value: 'Auto' },
-    ],
-  },
-  {
-    id: 'sales',
-    icon: ShoppingCart,
-    label: 'Sales',
-    title: 'Sistema de cotizaciones y ventas por WhatsApp',
-    description: 'Pipeline visible, seguimiento automático y presupuestos en segundos. Tu equipo enfocado solo en cerrar tratos.',
-    workflow: [
-      { step: 'Lead asignado', detail: 'Distribución automática' },
-      { step: 'Cotización enviada', detail: 'Cotizador conectado' },
-      { step: 'Seguimiento', detail: 'WhatsApp + email reminders' },
-      { step: 'Propuesta aceptada', detail: 'Firma digital' },
-      { step: 'Venta cerrada', detail: 'Sync con facturación' },
-    ],
-    metrics: [
-      { label: 'Conversión', value: '32%' },
-      { label: 'Ciclo venta', value: '-5 días' },
-      { label: 'Ticket prom.', value: '$3.2k' },
-    ],
-  },
-  {
-    id: 'operations',
-    icon: Settings,
-    label: 'Operations',
-    title: 'Automatiza procesos internos',
-    description: 'Inventario, órdenes, proveedores, logística. Lo que hoy requiere supervisiones — funciona solo.',
-    workflow: [
-      { step: 'Orden recibida', detail: 'Ecommerce + API' },
-      { step: 'Stock validado', detail: 'Sincronización automática' },
-      { step: 'Proveedor notificado', detail: 'Reorder automático' },
-      { step: 'Logística asignada', detail: 'Ruta optimizada por AI' },
-      { step: 'Entrega confirmada', detail: 'WhatsApp al cliente' },
-    ],
-    metrics: [
-      { label: 'Procesos auto', value: '87%' },
-      { label: 'Errores', value: '-94%' },
-      { label: 'Tiempo op.', value: '-60%' },
-    ],
-  },
-  {
-    id: 'service',
-    icon: Headphones,
-    label: 'Customer Service',
-    title: 'Respuestas inmediatas, 24/7',
-    description: 'AI responde consultas frecuentes. Escala a humano cuando hace falta. Todo queda registrado.',
-    workflow: [
-      { step: 'Consulta recibida', detail: 'WhatsApp + Web + Email' },
-      { step: 'AI responde', detail: 'Contexto del CRM' },
-      { step: 'Ticket creado', detail: 'Si requiere humano' },
-      { step: 'Agente asignado', detail: 'Por especialidad' },
-      { step: 'Resolución', detail: 'Feedback al sistema' },
-    ],
-    metrics: [
-      { label: 'Respuesta', value: '<30s' },
-      { label: 'Auto-resuelve', value: '78%' },
-      { label: 'Satisfacción', value: '4.8/5' },
-    ],
-  },
-  {
-    id: 'admin',
-    icon: ClipboardList,
-    label: 'Administration',
-    title: 'Control total del negocio',
-    description: 'Facturación, reportes, cumplimiento, accesos. Una sola plataforma para todo el back-office.',
-    workflow: [
-      { step: 'Venta registrada', detail: 'Sync automático' },
-      { step: 'Factura generada', detail: 'Cumplimiento fiscal' },
-      { step: 'Reporte consolidado', detail: 'Dashboard en tiempo real' },
-      { step: 'Auditoría', detail: 'Log de cada acción' },
-      { step: 'Pagos reconciliados', detail: 'Bank API + Stripe' },
-    ],
-    metrics: [
-      { label: 'Automatización', value: '92%' },
-      { label: 'Error manual', value: '-98%' },
-      { label: 'Reportes', value: 'Tiempo real' },
-    ],
-  },
-  {
-    id: 'analytics',
-    icon: BarChart3,
-    label: 'Analytics',
-    title: 'Decisiones con datos, no intuición',
-    description: 'Cada área del negocio visible en dashboards. Métricas que se actualizan solas.',
-    workflow: [
-      { step: 'Datos consolidados', detail: 'Todas las fuentes' },
-      { step: 'Procesamiento AI', detail: 'Patrones y tendencias' },
-      { step: 'Dashboard unificado', detail: 'KPIs por área' },
-      { step: 'Alertas inteligentes', detail: 'Anomalías detectadas' },
-      { step: 'Reportes automáticos', detail: 'Periodicos a stakeholders' },
-    ],
-    metrics: [
-      { label: 'Fuentes', value: '14+' },
-      { label: 'Update', value: 'Real-time' },
-      { label: 'Insights', value: 'Auto' },
-    ],
-  },
-];
-
 export function UseCaseSection() {
   const [activeId, setActiveId] = useState('marketing');
   const root = useRef<HTMLElement>(null);
+  const { t } = useTranslation();
+
+  const useCases = [
+    {
+      id: 'marketing',
+      icon: Megaphone,
+      label: t('useCases.marketing.label'),
+      title: t('useCases.marketing.title'),
+      description: t('useCases.marketing.desc'),
+      workflow: [
+        { step: t('useCases.marketing.workflow.0.step'), detail: t('useCases.marketing.workflow.0.detail') },
+        { step: t('useCases.marketing.workflow.1.step'), detail: t('useCases.marketing.workflow.1.detail') },
+        { step: t('useCases.marketing.workflow.2.step'), detail: t('useCases.marketing.workflow.2.detail') },
+        { step: t('useCases.marketing.workflow.3.step'), detail: t('useCases.marketing.workflow.3.detail') },
+        { step: t('useCases.marketing.workflow.4.step'), detail: t('useCases.marketing.workflow.4.detail') },
+      ],
+      metrics: [
+        { label: t('useCases.marketing.metrics.0.label'), value: t('useCases.marketing.metrics.0.value') },
+        { label: t('useCases.marketing.metrics.1.label'), value: t('useCases.marketing.metrics.1.value') },
+        { label: t('useCases.marketing.metrics.2.label'), value: t('useCases.marketing.metrics.2.value') },
+      ],
+    },
+    {
+      id: 'sales',
+      icon: ShoppingCart,
+      label: t('useCases.sales.label'),
+      title: t('useCases.sales.title'),
+      description: t('useCases.sales.desc'),
+      workflow: [
+        { step: t('useCases.sales.workflow.0.step'), detail: t('useCases.sales.workflow.0.detail') },
+        { step: t('useCases.sales.workflow.1.step'), detail: t('useCases.sales.workflow.1.detail') },
+        { step: t('useCases.sales.workflow.2.step'), detail: t('useCases.sales.workflow.2.detail') },
+        { step: t('useCases.sales.workflow.3.step'), detail: t('useCases.sales.workflow.3.detail') },
+        { step: t('useCases.sales.workflow.4.step'), detail: t('useCases.sales.workflow.4.detail') },
+      ],
+      metrics: [
+        { label: t('useCases.sales.metrics.0.label'), value: t('useCases.sales.metrics.0.value') },
+        { label: t('useCases.sales.metrics.1.label'), value: t('useCases.sales.metrics.1.value') },
+        { label: t('useCases.sales.metrics.2.label'), value: t('useCases.sales.metrics.2.value') },
+      ],
+    },
+    {
+      id: 'operations',
+      icon: Settings,
+      label: t('useCases.operations.label'),
+      title: t('useCases.operations.title'),
+      description: t('useCases.operations.desc'),
+      workflow: [
+        { step: t('useCases.operations.workflow.0.step'), detail: t('useCases.operations.workflow.0.detail') },
+        { step: t('useCases.operations.workflow.1.step'), detail: t('useCases.operations.workflow.1.detail') },
+        { step: t('useCases.operations.workflow.2.step'), detail: t('useCases.operations.workflow.2.detail') },
+        { step: t('useCases.operations.workflow.3.step'), detail: t('useCases.operations.workflow.3.detail') },
+        { step: t('useCases.operations.workflow.4.step'), detail: t('useCases.operations.workflow.4.detail') },
+      ],
+      metrics: [
+        { label: t('useCases.operations.metrics.0.label'), value: t('useCases.operations.metrics.0.value') },
+        { label: t('useCases.operations.metrics.1.label'), value: t('useCases.operations.metrics.1.value') },
+        { label: t('useCases.operations.metrics.2.label'), value: t('useCases.operations.metrics.2.value') },
+      ],
+    },
+    {
+      id: 'service',
+      icon: Headphones,
+      label: t('useCases.service.label'),
+      title: t('useCases.service.title'),
+      description: t('useCases.service.desc'),
+      workflow: [
+        { step: t('useCases.service.workflow.0.step'), detail: t('useCases.service.workflow.0.detail') },
+        { step: t('useCases.service.workflow.1.step'), detail: t('useCases.service.workflow.1.detail') },
+        { step: t('useCases.service.workflow.2.step'), detail: t('useCases.service.workflow.2.detail') },
+        { step: t('useCases.service.workflow.3.step'), detail: t('useCases.service.workflow.3.detail') },
+        { step: t('useCases.service.workflow.4.step'), detail: t('useCases.service.workflow.4.detail') },
+      ],
+      metrics: [
+        { label: t('useCases.service.metrics.0.label'), value: t('useCases.service.metrics.0.value') },
+        { label: t('useCases.service.metrics.1.label'), value: t('useCases.service.metrics.1.value') },
+        { label: t('useCases.service.metrics.2.label'), value: t('useCases.service.metrics.2.value') },
+      ],
+    },
+    {
+      id: 'admin',
+      icon: ClipboardList,
+      label: t('useCases.admin.label'),
+      title: t('useCases.admin.title'),
+      description: t('useCases.admin.desc'),
+      workflow: [
+        { step: t('useCases.admin.workflow.0.step'), detail: t('useCases.admin.workflow.0.detail') },
+        { step: t('useCases.admin.workflow.1.step'), detail: t('useCases.admin.workflow.1.detail') },
+        { step: t('useCases.admin.workflow.2.step'), detail: t('useCases.admin.workflow.2.detail') },
+        { step: t('useCases.admin.workflow.3.step'), detail: t('useCases.admin.workflow.3.detail') },
+        { step: t('useCases.admin.workflow.4.step'), detail: t('useCases.admin.workflow.4.detail') },
+      ],
+      metrics: [
+        { label: t('useCases.admin.metrics.0.label'), value: t('useCases.admin.metrics.0.value') },
+        { label: t('useCases.admin.metrics.1.label'), value: t('useCases.admin.metrics.1.value') },
+        { label: t('useCases.admin.metrics.2.label'), value: t('useCases.admin.metrics.2.value') },
+      ],
+    },
+    {
+      id: 'analytics',
+      icon: BarChart3,
+      label: t('useCases.analytics.label'),
+      title: t('useCases.analytics.title'),
+      description: t('useCases.analytics.desc'),
+      workflow: [
+        { step: t('useCases.analytics.workflow.0.step'), detail: t('useCases.analytics.workflow.0.detail') },
+        { step: t('useCases.analytics.workflow.1.step'), detail: t('useCases.analytics.workflow.1.detail') },
+        { step: t('useCases.analytics.workflow.2.step'), detail: t('useCases.analytics.workflow.2.detail') },
+        { step: t('useCases.analytics.workflow.3.step'), detail: t('useCases.analytics.workflow.3.detail') },
+        { step: t('useCases.analytics.workflow.4.step'), detail: t('useCases.analytics.workflow.4.detail') },
+      ],
+      metrics: [
+        { label: t('useCases.analytics.metrics.0.label'), value: t('useCases.analytics.metrics.0.value') },
+        { label: t('useCases.analytics.metrics.1.label'), value: t('useCases.analytics.metrics.1.value') },
+        { label: t('useCases.analytics.metrics.2.label'), value: t('useCases.analytics.metrics.2.value') },
+      ],
+    },
+  ];
 
   useGSAP(
     () => {
@@ -213,11 +205,11 @@ export function UseCaseSection() {
         <div className="uc-header text-center mb-12 lg:mb-16 relative z-10 flex flex-col items-center">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 mb-6 shadow-[inset_0_1px_4px_rgba(255,255,255,0.1)]">
            
-            <span className="text-[10px] font-medium text-white/80 uppercase tracking-[0.08em]">Casos de Uso</span>
+            <span className="text-[10px] font-medium text-white/80 uppercase tracking-[0.08em]">{t('useCases.badge')}</span>
           </div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white tracking-tight leading-tight text-balance">
-            Un sistema central.<br/>
-            <span className="text-white/30">Para cada área del negocio.</span>
+            {t('useCases.title1')}<br/>
+            <span className="text-white/30">{t('useCases.title2')}</span>
           </h2>
         </div>
 
@@ -292,7 +284,7 @@ export function UseCaseSection() {
                     <div className="flex items-center gap-2 mb-8 lg:mb-10 relative z-10">
                       <div className="px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 flex items-center gap-1.5 shadow-[0_0_15px_rgba(59,130,246,0.2)]">
                          <Sparkles size={12} className="text-blue-400" />
-                         <span className="text-[10px] font-bold text-blue-400 uppercase tracking-widest">Workflow Engine</span>
+                         <span className="text-[10px] font-bold text-blue-400 uppercase tracking-widest">{t('useCases.workflowEngine')}</span>
                       </div>
                     </div>
 

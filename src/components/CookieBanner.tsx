@@ -1,8 +1,10 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export function CookieBanner() {
+  const { t } = useTranslation();
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -56,22 +58,23 @@ export function CookieBanner() {
             <div className="flex items-center gap-3 w-full md:w-auto px-4 md:px-0 pt-2 md:pt-0">
              
               <p className="text-white/70 text-[11px] sm:text-xs font-medium tracking-wide leading-relaxed pr-2">
-  <span className="text-white font-bold">Usamos cookies.</span> Las utilizamos para optimizar tu experiencia, personalizar contenido y analizar nuestro tráfico. Al aceptar, confirmas nuestra política.
-</p>
+                {t('cookie.text')}
+              </p>
             </div>
 
             <div className="flex items-center gap-2 w-full md:w-auto">
+              {/* Optional: Add decline translation if needed, omitting for now or assuming the English version doesn't have a decline explicitly stated in the JSON, wait I'll just use 'Decline' */}
               <button 
                 onClick={handleDecline}
                 className="flex-1 md:flex-none px-5 py-2.5 rounded-full bg-transparent text-white/50 text-xs font-semibold hover:bg-white/5 hover:text-white transition-colors"
               >
-                Rechazar
+                {t('cookie.decline', 'Rechazar')}
               </button>
               <button 
                 onClick={handleAccept}
                 className="flex-1 md:flex-none px-6 py-2.5 rounded-full bg-white text-black text-xs font-bold hover:scale-105 active:scale-95 transition-transform shadow-[0_0_15px_rgba(255,255,255,0.2)]"
               >
-                Aceptar
+                {t('cookie.accept')}
               </button>
             </div>
 

@@ -5,6 +5,7 @@ import { ArrowRight } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
+import { useTranslation } from 'react-i18next';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -15,6 +16,7 @@ export function Hero() {
   const dashboardRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoFailed, setVideoFailed] = useState(false);
+  const { t } = useTranslation();
 
   // Intentar forzar la reproducción para detectar si el celular la bloquea (Ahorro de batería)
   useEffect(() => {
@@ -172,21 +174,21 @@ export function Hero() {
         {/* Badge */}
         <div className="hero-badge mb-6 inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-black/80 md:bg-white/5 md:backdrop-blur-md">
           <span className="text-[10px] sm:text-xs font-medium text-white/80 uppercase tracking-[0.05em]">
-            Desarrollo de Sistemas a la Medida
+            {t('hero.badge')}
           </span>
         </div>
 
         {/* Titular */}
         <div className="max-w-4xl">
           <h1 className="font-display font-semibold text-white text-balance tracking-[-0.03em]" style={{ fontSize: 'clamp(3rem, 7vw, 5.5rem)', lineHeight: 1.05 }}>
-            <span className="hero-line block will-change-transform pb-2">Escala tu negocio,</span>
-            <span className="hero-line block will-change-transform pb-2">no tu caos.</span>
+            <span className="hero-line block will-change-transform pb-2">{t('hero.title1')}</span>
+            <span className="hero-line block will-change-transform pb-2">{t('hero.title2')}</span>
           </h1>
         </div>
 
         {/* Subtexto */}
         <p className="hero-sub mt-6 max-w-2xl text-balance text-white/70 font-light" style={{ fontSize: 'clamp(1.125rem, 2vw, 1.25rem)', lineHeight: 1.6 }}>
-          Tu equipo pierde horas todos los días en tareas mecánicas. Construimos la infraestructura tecnológica para que operes sin cuellos de botella: ecosistemas web, automatizaciones a medida y tu CRM conectado a WhatsApp.
+          {t('hero.subtitle')}
         </p>
 
         {/* CTAs Centrados */}
@@ -213,7 +215,7 @@ export function Hero() {
             <div className="absolute inset-0 -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-[1.5s] ease-in-out pointer-events-none" style={{ backgroundImage: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)' }} />
             
             <span className="relative z-10 flex items-center gap-2">
-              Ver simulación
+              {t('hero.cta1')}
               <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
             </span>
           </a>
@@ -234,7 +236,7 @@ export function Hero() {
             {/* Destello de luz que cruza de izquierda a derecha (Shine) */}
             <div className="absolute inset-0 -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-[1.5s] ease-in-out pointer-events-none" style={{ backgroundImage: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent)' }} />
             
-            <span className="relative z-10 tracking-wide">Agendar diagnóstico</span>
+            <span className="relative z-10 tracking-wide">{t('hero.cta2')}</span>
           </a>
         </div>
       </div>
@@ -267,10 +269,10 @@ export function Hero() {
         <div className="stats-outer-border relative rounded-2xl md:rounded-3xl p-[1px] bg-gradient-to-b from-white/15 via-white/5 to-transparent shadow-[0_8px_32px_rgba(0,0,0,0.3)]">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-px rounded-[23px] overflow-hidden bg-[#06070a] md:bg-white/5 md:backdrop-blur-xl">
             {[
-              { value: '14+', label: 'Sistemas integrados', sub: 'CRM, ERP y canales' },
-              { value: '99.9%', label: 'Disponibilidad', sub: 'Operación ininterrumpida' },
-              { value: '100%', label: 'Sincronización', sub: 'Datos en tiempo real' },
-              { value: '01', label: 'Núcleo centralizado', sub: 'Control total de negocio' },
+              { value: '14+', label: t('hero.stats.systems'), sub: t('hero.stats.systemsSub') },
+              { value: '99.9%', label: t('hero.stats.uptime'), sub: t('hero.stats.uptimeSub') },
+              { value: '100%', label: t('hero.stats.sync'), sub: t('hero.stats.syncSub') },
+              { value: '01', label: t('hero.stats.core'), sub: t('hero.stats.coreSub') },
             ].map((stat, i) => (
               <div
                 key={i}

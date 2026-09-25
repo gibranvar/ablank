@@ -9,12 +9,14 @@ import {
   Clock, DollarSign, Zap
 } from 'lucide-react';
 import { pushToDataLayer } from '../utils/analytics';
+import { useTranslation } from 'react-i18next';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
 }
 
 export function LostSalesSimulator() {
+  const { t } = useTranslation();
   const [people, setPeople] = useState<number>(2);
   const [hoursPerWeek, setHoursPerWeek] = useState<number>(15);
   const [hourlyCost, setHourlyCost] = useState<number>(150);
@@ -135,7 +137,7 @@ Quiero identificar qué procesos conviene automatizar y cuánto ahorro podría o
         <div className="text-center mb-16 md:mb-20 flex flex-col items-center">
           <div className="sim-badge inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-black/80 md:bg-white/5 mb-6 shadow-[inset_0_1px_4px_rgba(255,255,255,0.1)] md:backdrop-blur-md">
             
-            <span className="text-[10px] font-medium text-white/80 uppercase tracking-[0.08em]">Calculadora de Automatización</span>
+            <span className="text-[10px] font-medium text-white/80 uppercase tracking-[0.08em]">{t('simulator.badge')}</span>
           </div>
           
           {/* Título usando el nuevo CSS Global */}
@@ -145,7 +147,7 @@ Quiero identificar qué procesos conviene automatizar y cuánto ahorro podría o
           </h2>
 
           <p className="sim-sub text-lg text-white/50 max-w-xl mx-auto text-balance font-light">
-            Calcula cuánto tiempo y dinero estás destinando cada mes a tareas que podrían automatizarse.
+            {t('simulator.subtitle')}
           </p>
         </div>
 
@@ -164,9 +166,9 @@ Quiero identificar qué procesos conviene automatizar y cuánto ahorro podría o
                 <div>
                   <label className="block text-sm font-medium text-white mb-2 flex items-center gap-2">
                     <MessageSquare size={16} className="text-white/50" />
-                    ¿Cuántas personas participan en estos procesos?
+                    {t('simulator.q1.label')}
                   </label>
-                  <p className="text-xs text-white/40 mb-4">Incluye a todas las personas que intervienen aunque solo sea parte de su jornada.</p>
+                  <p className="text-xs text-white/40 mb-4">{t('simulator.q1.desc')}</p>
                   <div className="flex items-center gap-2 max-w-[200px]">
                     <input type="number" min="1" value={people || ''} onChange={e => setPeople(Number(e.target.value))} className="bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white w-full focus:outline-none focus:border-white/40 transition-colors shadow-[inset_0_2px_4px_rgba(0,0,0,0.2)]"/>
                   </div>
@@ -176,12 +178,12 @@ Quiero identificar qué procesos conviene automatizar y cuánto ahorro podría o
                 <div>
                   <label className="block text-sm font-medium text-white mb-2 flex items-center gap-2">
                     <Clock size={16} className="text-white/50" />
-                    ¿Cuántas horas por semana consumen en total?
+                    {t('simulator.q2.label')}
                   </label>
-                  <p className="text-xs text-white/40 mb-4">Suma las horas que todas las personas dedican a estos procesos durante una semana.</p>
+                  <p className="text-xs text-white/40 mb-4">{t('simulator.q2.desc')}</p>
                   <div className="flex items-center gap-2 max-w-[200px]">
                     <input type="number" min="0" value={hoursPerWeek || ''} onChange={e => setHoursPerWeek(Number(e.target.value))} className="bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white w-full focus:outline-none focus:border-white/40 transition-colors shadow-[inset_0_2px_4px_rgba(0,0,0,0.2)]"/>
-                    <span className="text-white/50 text-sm">h/sem</span>
+                    <span className="text-white/50 text-sm">{t('simulator.q2.suffix')}</span>
                   </div>
                 </div>
 
@@ -189,9 +191,9 @@ Quiero identificar qué procesos conviene automatizar y cuánto ahorro podría o
                 <div>
                   <label className="block text-sm font-medium text-white mb-2 flex items-center gap-2">
                     <DollarSign size={16} className="text-white/50" />
-                    ¿Cuál es el costo aproximado por hora?
+                    {t('simulator.q3.label')}
                   </label>
-                  <p className="text-xs text-white/40 mb-4">Usa salario, prestaciones y costo operativo aproximado; no necesitas tener una cifra exacta.</p>
+                  <p className="text-xs text-white/40 mb-4">{t('simulator.q3.desc')}</p>
                   <div className="flex items-center gap-2 max-w-[200px] relative">
                     <span className="absolute left-4 text-white/50">$</span>
                     <input type="number" min="0" value={hourlyCost || ''} onChange={e => setHourlyCost(Number(e.target.value))} className="bg-black/50 border border-white/10 rounded-xl pl-8 pr-4 py-3 text-white w-full focus:outline-none focus:border-white/40 transition-colors shadow-[inset_0_2px_4px_rgba(0,0,0,0.2)]"/>
@@ -202,9 +204,9 @@ Quiero identificar qué procesos conviene automatizar y cuánto ahorro podría o
                 <div>
                   <label className="block text-sm font-medium text-white mb-2 flex items-center gap-2">
                     <Zap size={16} className="text-white/50" />
-                    ¿Qué parte de este trabajo crees que podría automatizarse?
+                    {t('simulator.q4.label')}
                   </label>
-                  <p className="text-xs text-white/40 mb-4">Para una estimación prudente, empieza con 50%. Después podremos validar qué parte es realmente automatizable.</p>
+                  <p className="text-xs text-white/40 mb-4">{t('simulator.q4.desc')}</p>
                   <div className="grid grid-cols-4 gap-2 mb-3">
                     {[25, 50, 75, 90].map(v => (
                       <button key={v} onClick={() => setAutomationRate(v)} className={`py-2.5 rounded-xl border text-sm transition-all ${automationRate === v ? 'bg-white text-black border-white font-medium shadow-[0_0_15px_rgba(255,255,255,0.3)]' : 'bg-black/30 border-white/10 text-white/60 hover:bg-white/10'}`}>
@@ -227,18 +229,18 @@ Quiero identificar qué procesos conviene automatizar y cuánto ahorro podría o
               
               <div className="absolute -top-32 -right-32 w-64 h-64 bg-red-500/10 blur-[45px] md:blur-[90px] rounded-full pointer-events-none" />
               
-              <h3 className="text-xl font-display font-medium text-white mb-8 relative z-10">El costo real de hacerlo manualmente</h3>
+              <h3 className="text-xl font-display font-medium text-white mb-8 relative z-10">{t('simulator.resultTitle')}</h3>
 
               {/* Costo mensual */}
               <div className="mb-8 relative z-10">
                 <p className="text-[12px] text-white/50 uppercase tracking-[0.1em] font-semibold mb-3 flex items-center gap-2">
-                  <AlertTriangle size={14} className="text-red-400"/> Costo mensual del trabajo manual
+                  <AlertTriangle size={14} className="text-red-400"/> {t('simulator.costLabel')}
                 </p>
                 <div className="text-5xl lg:text-6xl font-display font-semibold text-red-400 tracking-tight drop-shadow-[0_0_15px_rgba(248,113,113,0.3)]">
                   {formatCurrency(calc.monthlyCost)}
                 </div>
                 <p className="text-[13px] text-white/50 mt-4 leading-relaxed max-w-sm">
-                  Es el valor mensual del tiempo que hoy inviertes en estos procesos. No incluye el costo de errores, retrabajo ni oportunidades perdidas.
+                  {t('simulator.costDesc')}
                 </p>
               </div>
 
@@ -247,18 +249,18 @@ Quiero identificar qué procesos conviene automatizar y cuánto ahorro podría o
               {/* Potencial recuperable */}
               <div className="mb-10 relative z-10">
                 <p className="text-[12px] text-white/50 uppercase tracking-[0.1em] font-semibold mb-3 flex items-center gap-2">
-                  <Zap size={14} className="text-blue-400"/> Valor mensual potencialmente recuperable
+                  <Zap size={14} className="text-blue-400"/> {t('simulator.recoverableLabel')}
                 </p>
                 <div className="text-3xl md:text-4xl font-display font-medium text-white tracking-tight">
                   {formatCurrency(calc.recoverableMonthlyCost)}
                 </div>
                 <p className="text-[13px] text-white/50 mt-3 leading-relaxed max-w-sm">
-                  No es una promesa de ahorro: es una referencia del valor que podrías liberar si automatizas aproximadamente el {calc.automationRate}% de estas tareas.
+                  {t('simulator.recoverableDesc', { rate: calc.automationRate })}
                 </p>
                 <div className="mt-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#06070a] md:bg-blue-500/10 border border-blue-500/20 md:backdrop-blur-md">
                   <TrendingUp size={14} className="text-blue-400" />
                   <span className="text-xs font-medium text-blue-300">
-                    {calc.recoverableHours.toFixed(1)} horas / mes · {formatCurrency(calc.annualRecoverableCost)} / año
+                    {t('simulator.hoursMonth', { hours: calc.recoverableHours.toFixed(1) })} · {t('simulator.yearLabel', { cost: formatCurrency(calc.annualRecoverableCost) })}
                   </span>
                 </div>
               </div>
@@ -281,7 +283,7 @@ Quiero identificar qué procesos conviene automatizar y cuánto ahorro podría o
                   `
                 }}
               >
-                <span className="relative z-10">Quiero automatizar estos procesos</span>
+                <span className="relative z-10">{t('simulator.cta')}</span>
                 <ArrowRight
                   size={16}
                   className="relative z-10 transition-transform group-hover:translate-x-1"
@@ -289,8 +291,8 @@ Quiero identificar qué procesos conviene automatizar y cuánto ahorro podría o
               </button>
 
               <div className="mt-5 flex justify-between text-[11px] text-white/40 font-medium px-1 relative z-10">
-                <span>{calc.people} personas · {calc.monthlyHours.toFixed(1)} h/mes</span>
-                <span>{formatCurrency(calc.annualCost)} / año actual</span>
+                <span>{t('simulator.bottomText1', { people: calc.people, hours: calc.monthlyHours.toFixed(1) })}</span>
+                <span>{t('simulator.bottomText2', { cost: formatCurrency(calc.annualCost) })}</span>
               </div>
             </div>
           </div>

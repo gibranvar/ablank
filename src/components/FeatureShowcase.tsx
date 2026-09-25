@@ -11,27 +11,28 @@ import {
 } from 'react-icons/si';
 import { FaSlack, FaStripe, FaSalesforce, FaGithub, FaHubspot } from 'react-icons/fa';
 import { pushToDataLayer } from '../utils/analytics';
+import { useTranslation } from 'react-i18next';
 
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
 }
-const handleWhatsAppStartClick = () => {
-    pushToDataLayer('click_whatsapp', { location: 'feature_showcase_start' });
-    const msg = `Hola! Estoy listo para evolucionar mi negocio. Me interesa empezar a armar nuestro sistema central. ¿Cuáles son los siguientes pasos?`;
-
-
-    window.open(`https://wa.me/5576048470?text=${encodeURIComponent(msg)}`, '_blank');
-  };
-
-const handleWhatsAppSalesClick = () => {
-  pushToDataLayer('click_whatsapp', { location: 'feature_showcase_sales' });
-  const msg = `¡Hola! Estuve viendo sus soluciones en la página. Me gustaría contarles un poco sobre mi negocio para ver qué opciones tienen para ayudarnos a escalar."`;
-  window.open(`https://wa.me/5576048470?text=${encodeURIComponent(msg)}`, '_blank');
-}
 
 export function FeatureShowcase() {
   const root = useRef<HTMLElement>(null);
+  const { t } = useTranslation();
+
+  const handleWhatsAppStartClick = () => {
+    pushToDataLayer('click_whatsapp', { location: 'feature_showcase_start' });
+    const msg = `Hola! Estoy listo para evolucionar mi negocio. Me interesa empezar a armar nuestro sistema central. ¿Cuáles son los siguientes pasos?`;
+    window.open(`https://wa.me/5576048470?text=${encodeURIComponent(msg)}`, '_blank');
+  };
+
+  const handleWhatsAppSalesClick = () => {
+    pushToDataLayer('click_whatsapp', { location: 'feature_showcase_sales' });
+    const msg = `¡Hola! Estuve viendo sus soluciones en la página. Me gustaría contarles un poco sobre mi negocio para ver qué opciones tienen para ayudarnos a escalar.`;
+    window.open(`https://wa.me/5576048470?text=${encodeURIComponent(msg)}`, '_blank');
+  }
 
   useGSAP(
     () => {
@@ -106,43 +107,43 @@ export function FeatureShowcase() {
     {
       id: 'website',
       colSpan: 'lg:col-span-8',
-      title: 'Website & Digital Experience',
-      description: 'Creamos experiencias digitales de alta conversión. Tu web no es un folleto — es la puerta de entrada al sistema.',
+      title: t('features.items.website.title'),
+      description: t('features.items.website.desc'),
       visual: <WebsiteVisual />,
     },
     {
       id: 'crm',
       colSpan: 'lg:col-span-4',
-      title: 'CRM & Leads',
-      description: 'Olvida el caos en Excel. Captura, califica y centraliza cada lead de WhatsApp directamente en un sistema propio.',
-      visual: <CRMVisual />,
+      title: t('features.items.crm.title'),
+      description: t('features.items.crm.desc'),
+      visual: <CRMVisual t={t} />,
     },
     {
       id: 'ai',
       colSpan: 'lg:col-span-4',
-      title: 'Inteligencia Artificial',
-      description: 'Clasificación de leads, respuestas automáticas y análisis predictivo integrado en tus flujos.',
-      visual: <AIVisual />,
+      title: t('features.items.ai.title'),
+      description: t('features.items.ai.desc'),
+      visual: <AIVisual t={t} />,
     },
     {
       id: 'automation',
       colSpan: 'lg:col-span-8',
-      title: 'Automation',
-      description: 'Desde cotizaciones automáticas hasta seguimientos. Operamos tu negocio en piloto automático sin perder el toque humano.',
-      visual: <AutomationVisual />,
+      title: t('features.items.automation.title'),
+      description: t('features.items.automation.desc'),
+      visual: <AutomationVisual t={t} />,
     },
     {
       id: 'analytics',
       colSpan: 'lg:col-span-6',
-      title: 'Analytics',
-      description: 'Convierte la actividad del negocio en información útil. Dashboards reales, no reportes estáticos.',
+      title: t('features.items.analytics.title'),
+      description: t('features.items.analytics.desc'),
       visual: <AnalyticsVisual />,
     },
     {
       id: 'integrations',
       colSpan: 'lg:col-span-6',
-      title: 'Integrations',
-      description: 'Conecta las herramientas que tu negocio ya usa. APIs, webhooks y sincronización bidireccional.',
+      title: t('features.items.integrations.title'),
+      description: t('features.items.integrations.desc'),
       visual: <IntegrationsVisual />,
     },
   ];
@@ -154,11 +155,11 @@ export function FeatureShowcase() {
         <div className="fs-header text-center mb-20 relative z-10 flex flex-col items-center">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 mb-6 shadow-[inset_0_1px_4px_rgba(255,255,255,0.1)]">
            
-            <span className="text-[10px] font-medium text-white/80 uppercase tracking-[0.08em]">Características Core</span>
+            <span className="text-[10px] font-medium text-white/80 uppercase tracking-[0.08em]">{t('features.badge')}</span>
           </div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-6 tracking-tight leading-tight text-balance">
-            No somos otro SaaS genérico.<br/>
-            <span className="text-white/30">Somos los arquitectos de tu operación.</span>
+            {t('features.title1')}<br/>
+            <span className="text-white/30">{t('features.title2')}</span>
           </h2>
         </div>
 
@@ -186,8 +187,8 @@ export function FeatureShowcase() {
         <div className="fs-cta relative w-full mt-24 rounded-[32px] overflow-hidden bg-gradient-to-br from-[#0a0a0c] to-[#040405] border border-white/10 p-10 md:p-16 flex flex-col items-center text-center shadow-2xl">
           <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'url("https://framerusercontent.com/images/6mcf62RlDfRfU61Yg5vb2pefpi4.png")', backgroundSize: '128px auto', backgroundRepeat: 'repeat' }} />
           
-          <h3 className="relative z-10 text-3xl md:text-5xl font-display font-semibold text-white mb-4 tracking-tight">¿Listo para evolucionar?</h3>
-          <p className="relative z-10 text-white/50 mb-10 max-w-lg">Hagamos esto realidad. Tu sistema central te está esperando.</p>
+          <h3 className="relative z-10 text-3xl md:text-5xl font-display font-semibold text-white mb-4 tracking-tight">{t('features.cta.title')}</h3>
+          <p className="relative z-10 text-white/50 mb-10 max-w-lg">{t('features.cta.subtitle')}</p>
           
           <div className="relative z-10 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
             <button 
@@ -203,7 +204,7 @@ export function FeatureShowcase() {
               {/* Destello de luz que cruza (Shine) */}
               <div className="absolute inset-0 -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-[1.5s] ease-in-out pointer-events-none" style={{ backgroundImage: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)' }} />
               
-              <span className="relative z-10">Diseñar mi sistema</span>
+              <span className="relative z-10">{t('features.cta.btn1')}</span>
               <ArrowRight size={18} className="relative z-10 group-hover:translate-x-1 transition-transform" />
             </button>
 
@@ -211,7 +212,7 @@ export function FeatureShowcase() {
               {/* Destello de luz que cruza (Shine) */}
               <div className="absolute inset-0 -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-[1.5s] ease-in-out pointer-events-none" style={{ backgroundImage: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent)' }} />
               
-              <span className="relative z-10">Resolver dudas</span>
+              <span className="relative z-10">{t('features.cta.btn2')}</span>
             </button>
           </div>
         </div>
@@ -255,7 +256,7 @@ function WebsiteVisual() {
   );
 }
 
-function CRMVisual() {
+function CRMVisual({ t }: { t: any }) {
   return (
     <>
     <style>{`
@@ -312,15 +313,15 @@ function CRMVisual() {
                 </div>
              </div>
              <div className="px-2 py-1 rounded bg-orange-500/20 border border-orange-500/30 text-[7px] text-orange-400 font-bold uppercase tracking-wider">
-                Hot Lead
+                {t('features.visuals.crm.hotLead')}
              </div>
           </div>
           
           <div className="w-full space-y-1.5">
              <div className="flex justify-between text-[7px] text-white/50 px-1 font-medium">
-                <span>Captura</span>
-                <span>Cotización</span>
-                <span>Cierre</span>
+                <span>{t('features.visuals.crm.capture')}</span>
+                <span>{t('features.visuals.crm.quote')}</span>
+                <span>{t('features.visuals.crm.close')}</span>
              </div>
              <div className="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
                 <div className="h-full bg-indigo-500 rounded-full animate-pipeline" />
@@ -332,7 +333,7 @@ function CRMVisual() {
   );
 }
 
-function AIVisual() {
+function AIVisual({ t }: { t: any }) {
   return (
     <>
     <style>{`
@@ -369,7 +370,7 @@ function AIVisual() {
       <div className="relative z-10 w-[90%] max-w-[300px] flex flex-col gap-3">
         <div className="self-end max-w-[85%] flex items-end gap-2 animate-user-msg">
            <div className="px-4 py-2.5 rounded-2xl rounded-br-sm bg-blue-600 border border-blue-500 shadow-[0_5px_15px_rgba(59,130,246,0.2)]">
-             <p className="text-[10px] text-white font-medium leading-snug">¡Hola! ¿Tienen disponibilidad para una demo?</p>
+             <p className="text-[10px] text-white font-medium leading-snug">{t('features.visuals.ai.msg1')}</p>
            </div>
         </div>
         
@@ -391,11 +392,11 @@ function AIVisual() {
              </div>
              <div className="flex-1 px-4 py-3 rounded-2xl rounded-tl-sm bg-[#111116] border border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
                 <p className="text-[10px] text-white/80 leading-snug mb-2.5">
-                   ¡Claro! Tengo 2 espacios libres este jueves. ¿Prefieres AM o PM?
+                   {t('features.visuals.ai.msg2')}
                 </p>
                 <div className="flex gap-2">
-                   <div className="px-2 py-1 rounded border border-blue-500/30 bg-blue-500/10 text-[8px] text-blue-300 font-medium">Jueves AM</div>
-                   <div className="px-2 py-1 rounded border border-white/10 bg-white/5 text-[8px] text-white/50 font-medium">Jueves PM</div>
+                   <div className="px-2 py-1 rounded border border-blue-500/30 bg-blue-500/10 text-[8px] text-blue-300 font-medium">{t('features.visuals.ai.opt1')}</div>
+                   <div className="px-2 py-1 rounded border border-white/10 bg-white/5 text-[8px] text-white/50 font-medium">{t('features.visuals.ai.opt2')}</div>
                 </div>
              </div>
            </div>
@@ -406,7 +407,7 @@ function AIVisual() {
   );
 }
 
-function AutomationVisual() {
+function AutomationVisual({ t }: { t: any }) {
   return (
     <>
     <style>{`
@@ -437,7 +438,7 @@ function AutomationVisual() {
               <Globe size={10} className="text-purple-400" />
            </div>
            <div>
-              <div className="text-[7px] sm:text-[9px] font-bold text-white tracking-wide">Web Lead</div>
+              <div className="text-[7px] sm:text-[9px] font-bold text-white tracking-wide">{t('features.visuals.automation.webLead')}</div>
            </div>
         </div>
 
@@ -446,23 +447,23 @@ function AutomationVisual() {
               <Bot size={10} className="text-blue-400" />
            </div>
            <div className="flex-1">
-              <div className="text-[7px] sm:text-[9px] font-bold text-white tracking-wide">IA Router</div>
+              <div className="text-[7px] sm:text-[9px] font-bold text-white tracking-wide">{t('features.visuals.automation.aiRouter')}</div>
            </div>
         </div>
 
         <div className="absolute left-[85%] top-[20%] -translate-x-1/2 -translate-y-1/2 z-10 w-16 sm:w-24 h-6 sm:h-8 rounded-lg bg-[#0a0a0c] border border-white/10 flex items-center justify-center gap-1 sm:gap-1.5 shadow-lg">
            <Database size={8} className="text-white/50" />
-           <span className="text-[5px] sm:text-[7px] text-white/50 font-medium uppercase tracking-wider">Crear Deal</span>
+           <span className="text-[5px] sm:text-[7px] text-white/50 font-medium uppercase tracking-wider">{t('features.visuals.automation.createDeal')}</span>
         </div>
 
         <div className="absolute left-[85%] top-[50%] -translate-x-1/2 -translate-y-1/2 z-10 w-16 sm:w-24 h-6 sm:h-8 rounded-lg bg-[#0a0a0c] border border-white/10 flex items-center justify-center gap-1 sm:gap-1.5 shadow-lg">
            <Target size={8} className="text-white/50" />
-           <span className="text-[5px] sm:text-[7px] text-white/50 font-medium uppercase tracking-wider">Email Drip</span>
+           <span className="text-[5px] sm:text-[7px] text-white/50 font-medium uppercase tracking-wider">{t('features.visuals.automation.emailDrip')}</span>
         </div>
 
         <div className="absolute left-[85%] top-[80%] -translate-x-1/2 -translate-y-1/2 z-10 w-16 sm:w-24 h-6 sm:h-8 rounded-lg bg-[#0a1122] md:bg-blue-900/30 border border-blue-500/40 flex items-center justify-center gap-1 sm:gap-1.5 shadow-[0_0_20px_rgba(59,130,246,0.4)] md:backdrop-blur-md animate-node-success">
            <MessageSquare size={8} className="text-blue-400" />
-           <span className="text-[5px] sm:text-[7px] text-blue-400 font-bold uppercase tracking-wider">Notificar</span>
+           <span className="text-[5px] sm:text-[7px] text-blue-400 font-bold uppercase tracking-wider">{t('features.visuals.automation.notify')}</span>
         </div>
 
       </div>

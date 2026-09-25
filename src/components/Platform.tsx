@@ -5,6 +5,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import { Globe, Users, MessageSquare, Zap, Cpu, BarChart3, Target, Database, Code } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -12,19 +13,20 @@ if (typeof window !== 'undefined') {
 
 export function Platform() {
   const root = useRef<HTMLElement>(null);
+  const { t } = useTranslation();
 
   const modules = [
-    { icon: Globe, label: 'Website', desc: 'Front-end' },
-    { icon: Target, label: 'Ads', desc: 'Captación' },
-    { icon: Users, label: 'CRM', desc: 'Gestión' },
+    { icon: Globe, label: t('platform.modules.mod0.label'), desc: t('platform.modules.mod0.desc') },
+    { icon: Target, label: t('platform.modules.mod1.label'), desc: t('platform.modules.mod1.desc') },
+    { icon: Users, label: t('platform.modules.mod2.label'), desc: t('platform.modules.mod2.desc') },
     
-    { icon: Database, label: 'Data', desc: 'Almacén' },
-    { icon: Cpu, label: 'A Blank', desc: 'Núcleo Central', isCore: true }, 
-    { icon: BarChart3, label: 'Analytics', desc: 'Métricas' },
+    { icon: Database, label: t('platform.modules.mod3.label'), desc: t('platform.modules.mod3.desc') },
+    { icon: Cpu, label: t('platform.modules.mod4.label'), desc: t('platform.modules.mod4.desc'), isCore: true }, 
+    { icon: BarChart3, label: t('platform.modules.mod5.label'), desc: t('platform.modules.mod5.desc') },
     
-    { icon: MessageSquare, label: 'WhatsApp', desc: 'Chat' },
-    { icon: Zap, label: 'Auto', desc: 'Triggers' },
-    { icon: Code, label: 'Software', desc: 'API' },
+    { icon: MessageSquare, label: t('platform.modules.mod6.label'), desc: t('platform.modules.mod6.desc') },
+    { icon: Zap, label: t('platform.modules.mod7.label'), desc: t('platform.modules.mod7.desc') },
+    { icon: Code, label: t('platform.modules.mod8.label'), desc: t('platform.modules.mod8.desc') },
   ];
 
   const connectionPaths = [
@@ -149,13 +151,13 @@ export function Platform() {
         
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 mb-6 shadow-[inset_0_1px_4px_rgba(255,255,255,0.1)] md:backdrop-blur-md">
           
-          <span className="text-[10px] font-medium text-white/80 uppercase tracking-[0.08em]">Interconexión en Tiempo Real</span>
+          <span className="text-[10px] font-medium text-white/80 uppercase tracking-[0.08em]">{t('platform.badge')}</span>
         </div>
         
         <h2 className="font-display font-semibold text-white text-balance tracking-[-0.03em]" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', lineHeight: 1.1 }}>
-          <span className="block pb-1">Toda tu operación.</span>
+          <span className="block pb-1">{t('platform.title1')}</span>
           <span className="block bg-gradient-to-r from-[#0175ff] to-[#ffcd7d] bg-clip-text text-transparent pb-2">
-            Centralizada en un solo ecosistema.
+            {t('platform.title2')}
           </span>
         </h2>
         
