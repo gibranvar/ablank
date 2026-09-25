@@ -10,6 +10,7 @@ import { Security } from '@/components/Security';
 import { FAQ } from '@/components/FAQ';
 import { Footer } from '@/components/Footer';
 import { CookieBanner } from './components/CookieBanner';
+import { StickyWhatsApp } from './components/StickyWhatsApp';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Security />
         <FAQ />
         <CookieBanner />
+        <StickyWhatsApp />
       </main>
       <Footer />
     </div>

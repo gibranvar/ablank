@@ -8,7 +8,10 @@ export function CookieBanner() {
   useEffect(() => {
     const consent = localStorage.getItem('cookieConsent');
     if (!consent) {
-      const timer = setTimeout(() => setIsVisible(true), 1500);
+      const timer = setTimeout(() => {
+        setIsVisible(true);
+        window.dispatchEvent(new CustomEvent('cookieBannerVisibility', { detail: true }));
+      }, 1500);
       return () => clearTimeout(timer);
     }
   }, []);
@@ -16,11 +19,13 @@ export function CookieBanner() {
   const handleAccept = () => {
     localStorage.setItem('cookieConsent', 'accepted');
     setIsVisible(false);
+    window.dispatchEvent(new CustomEvent('cookieBannerVisibility', { detail: false }));
   };
 
   const handleDecline = () => {
     localStorage.setItem('cookieConsent', 'declined');
     setIsVisible(false);
+    window.dispatchEvent(new CustomEvent('cookieBannerVisibility', { detail: false }));
   };
 
   if (!isVisible) return null;
