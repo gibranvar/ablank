@@ -408,24 +408,24 @@
     "title1": "El ecosistema funcionando.",
     "title2": "En tiempo real.",
     "subtitle": "Elige un caso de uso y observa cómo la inteligencia artificial interactúa con el cliente mientras actualiza tu sistema automáticamente.",
-    "chatAIHeader": "AI Agent",
-    "chatOnline": "Online",
+    "chatAIHeader": "Agente AI",
+    "chatOnline": "En línea",
     "typeMsg": "Escribe un mensaje...",
-    "systemLog": "System Log (Real-time)",
-    "activeListening": "Active & Listening",
-    "automations": "Automations",
+    "systemLog": "Registro del Sistema (En Vivo)",
+    "activeListening": "Activo y Procesando",
+    "automations": "Automatizaciones",
     "originLabel": "Origen",
     "generatedAI": "Generado por AI",
     "scenarios": [
       {
         "label": "Cotización B2B",
         "contactName": "Carlos Mendoza",
-        "statusOld": "NEW LEAD",
-        "statusNew": "SALE WON",
-        "kpiTitle": "Pipeline Revenue",
+        "statusOld": "NUEVO LEAD",
+        "statusNew": "VENTA CERRADA",
+        "kpiTitle": "Pipeline de Ventas",
         "extractedLabel": "Volumen Req.",
         "extractedOld": "--",
-        "extractedNew": "50k uds (Ext. AI)",
+        "extractedNew": "50k uds (Extracción AI)",
         "origin": "Google Ads (Search)",
         "chat": [
           {
@@ -472,7 +472,10 @@
             "title": "Venta Cerrada (WON)",
             "desc": "Orden de producción generada · +k"
           }
-        ]
+        ],
+        "kpiOld": "$450,000",
+        "kpiNew": "+$575,000",
+        "contactPhone": "+52 55 1234 5678"
       },
       {
         "label": "Facturación",
@@ -529,7 +532,10 @@
             "title": "Ticket Resuelto",
             "desc": "Tiempo de resolución: 1m 14s"
           }
-        ]
+        ],
+        "kpiOld": "142",
+        "kpiNew": "143 (Auto)",
+        "contactPhone": "+52 81 9876 5432"
       },
       {
         "label": "Agendar Cita",
@@ -584,7 +590,10 @@
             "title": "Automatización Lista",
             "desc": "Recordatorio SMS programado a -24h"
           }
-        ]
+        ],
+        "kpiOld": "78% Ocupado",
+        "kpiNew": "82% Ocupado",
+        "contactPhone": "+52 33 4455 6677"
       },
       {
         "label": "Reservaciones",
@@ -639,7 +648,10 @@
             "title": "Reserva Confirmada",
             "desc": "Etiqueta VIP aplicada en Host Stand"
           }
-        ]
+        ],
+        "kpiOld": "92% Lleno",
+        "kpiNew": "95% Lleno",
+        "contactPhone": "+52 55 9988 7766"
       },
       {
         "label": "Soporte Técnico",
@@ -696,7 +708,10 @@
             "title": "Ticket Resuelto",
             "desc": "SLA Cumplido: <4 minutos"
           }
-        ]
+        ],
+        "kpiOld": "99.98%",
+        "kpiNew": "99.99%",
+        "contactPhone": "+52 33 1122 3344"
       }
     ],
     "clickToStart": "Haz clic para iniciar la simulación",
@@ -728,12 +743,12 @@
     "costLabel": "Costo mensual del trabajo manual",
     "costDesc": "Es el valor mensual del tiempo que hoy inviertes en estos procesos. No incluye el costo de errores, retrabajo ni oportunidades perdidas.",
     "recoverableLabel": "Valor mensual potencialmente recuperable",
-    "recoverableDesc": "No es una promesa de ahorro: es una referencia del valor que podrías liberar si automatizas aproximadamente el {rate}% de estas tareas.",
-    "hoursMonth": "{hours} horas / mes",
-    "yearLabel": "{cost} / año",
+    "recoverableDesc": "No es una promesa de ahorro: es una referencia del valor que podrías liberar si automatizas aproximadamente el {{rate}}% de estas tareas.",
+    "hoursMonth": "{{hours}} horas / mes",
+    "yearLabel": "{{cost}} / año",
     "cta": "Quiero automatizar estos procesos",
-    "bottomText1": "{people} personas · {hours} h/mes",
-    "bottomText2": "{cost} / año actual"
+    "bottomText1": "{{people}} personas · {{hours}} h/mes",
+    "bottomText2": "{{cost}} / año actual"
   },
   "security": {
     "badge": "Seguridad Grado Empresarial",
@@ -808,7 +823,7 @@
     "address1": "Rubén Darío 43",
     "address2": "Rincón del Bosque, Polanco V Secc.",
     "address3": "Ciudad de México, CDMX",
-    "rights": "© 2026 A BLΛNK. Todos los derechos reservados.",
+    "rights": "© 2026 A BLANK. Todos los derechos reservados.",
     "design": "Design & Developed in Mexico"
   }
 }

@@ -129,7 +129,7 @@ Quiero identificar qué procesos conviene automatizar y cuánto ahorro podría o
   }, { scope: rootRef });
 
   return (
-    <section id="simulador" ref={rootRef} className="relative w-full py-16 md:py-32 overflow-hidden font-sans">
+    <section ref={rootRef} className="relative w-full py-16 md:py-32 overflow-hidden font-sans">
       
       <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
         
@@ -142,8 +142,8 @@ Quiero identificar qué procesos conviene automatizar y cuánto ahorro podría o
           
           {/* Título usando el nuevo CSS Global */}
           <h2>
-            <span>¿Cuánto te cuestan</span>
-            <span>tus procesos manuales?</span>
+            <span>{t('simulator.title1')}</span>
+            <span>{t('simulator.title2')}</span>
           </h2>
 
           <p className="sim-sub text-lg text-white/50 max-w-xl mx-auto text-balance font-light">
@@ -158,51 +158,51 @@ Quiero identificar qué procesos conviene automatizar y cuánto ahorro podría o
           <div className="sim-panel lg:col-span-7 space-y-6">
             <div className="bg-[#06070a] md:bg-white/5 border border-white/10 rounded-[32px] p-6 md:p-8 relative overflow-hidden md:backdrop-blur-xl shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
               
-              <div className="absolute -top-32 -left-32 w-64 h-64 bg-blue-500/10 blur-[50px] md:blur-[100px] rounded-full pointer-events-none" />
+              <div className="hidden md:block absolute -top-32 -left-32 w-64 h-64 bg-blue-500/10 blur-[50px] md:blur-[100px] rounded-full pointer-events-none" style={{ transform: 'translateZ(0)' }} />
               
               <div className="space-y-10 relative z-10">
                 
                 {/* 1. Personas */}
                 <div>
-                  <label className="block text-sm font-medium text-white mb-2 flex items-center gap-2">
+                  <label htmlFor="sim-q1" className="block text-sm font-medium text-white mb-2 flex items-center gap-2">
                     <MessageSquare size={16} className="text-white/50" />
                     {t('simulator.q1.label')}
                   </label>
                   <p className="text-xs text-white/40 mb-4">{t('simulator.q1.desc')}</p>
                   <div className="flex items-center gap-2 max-w-[200px]">
-                    <input type="number" min="1" value={people || ''} onChange={e => setPeople(Number(e.target.value))} className="bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white w-full focus:outline-none focus:border-white/40 transition-colors shadow-[inset_0_2px_4px_rgba(0,0,0,0.2)]"/>
+                    <input id="sim-q1" type="number" min="1" value={people || ''} onChange={e => setPeople(Number(e.target.value))} className="bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white w-full focus:outline-none focus:border-white/40 transition-colors shadow-[inset_0_2px_4px_rgba(0,0,0,0.2)]"/>
                   </div>
                 </div>
 
                 {/* 2. Horas */}
                 <div>
-                  <label className="block text-sm font-medium text-white mb-2 flex items-center gap-2">
+                  <label htmlFor="sim-q2" className="block text-sm font-medium text-white mb-2 flex items-center gap-2">
                     <Clock size={16} className="text-white/50" />
                     {t('simulator.q2.label')}
                   </label>
                   <p className="text-xs text-white/40 mb-4">{t('simulator.q2.desc')}</p>
                   <div className="flex items-center gap-2 max-w-[200px]">
-                    <input type="number" min="0" value={hoursPerWeek || ''} onChange={e => setHoursPerWeek(Number(e.target.value))} className="bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white w-full focus:outline-none focus:border-white/40 transition-colors shadow-[inset_0_2px_4px_rgba(0,0,0,0.2)]"/>
+                    <input id="sim-q2" type="number" min="0" value={hoursPerWeek || ''} onChange={e => setHoursPerWeek(Number(e.target.value))} className="bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white w-full focus:outline-none focus:border-white/40 transition-colors shadow-[inset_0_2px_4px_rgba(0,0,0,0.2)]"/>
                     <span className="text-white/50 text-sm">{t('simulator.q2.suffix')}</span>
                   </div>
                 </div>
 
                 {/* 3. Costo por hora */}
                 <div>
-                  <label className="block text-sm font-medium text-white mb-2 flex items-center gap-2">
+                  <label htmlFor="sim-q3" className="block text-sm font-medium text-white mb-2 flex items-center gap-2">
                     <DollarSign size={16} className="text-white/50" />
                     {t('simulator.q3.label')}
                   </label>
                   <p className="text-xs text-white/40 mb-4">{t('simulator.q3.desc')}</p>
                   <div className="flex items-center gap-2 max-w-[200px] relative">
                     <span className="absolute left-4 text-white/50">$</span>
-                    <input type="number" min="0" value={hourlyCost || ''} onChange={e => setHourlyCost(Number(e.target.value))} className="bg-black/50 border border-white/10 rounded-xl pl-8 pr-4 py-3 text-white w-full focus:outline-none focus:border-white/40 transition-colors shadow-[inset_0_2px_4px_rgba(0,0,0,0.2)]"/>
+                    <input id="sim-q3" type="number" min="0" value={hourlyCost || ''} onChange={e => setHourlyCost(Number(e.target.value))} className="bg-black/50 border border-white/10 rounded-xl pl-8 pr-4 py-3 text-white w-full focus:outline-none focus:border-white/40 transition-colors shadow-[inset_0_2px_4px_rgba(0,0,0,0.2)]"/>
                   </div>
                 </div>
 
                 {/* 4. Potencial de automatización */}
                 <div>
-                  <label className="block text-sm font-medium text-white mb-2 flex items-center gap-2">
+                  <label htmlFor="sim-q4" className="block text-sm font-medium text-white mb-2 flex items-center gap-2">
                     <Zap size={16} className="text-white/50" />
                     {t('simulator.q4.label')}
                   </label>
@@ -215,7 +215,7 @@ Quiero identificar qué procesos conviene automatizar y cuánto ahorro podría o
                     ))}
                   </div>
                   <div className="flex items-center gap-2 max-w-[200px]">
-                    <input type="number" min="0" max="100" value={automationRate || ''} onChange={e => setAutomationRate(Number(e.target.value))} className="bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white w-full focus:outline-none focus:border-white/40 transition-colors shadow-[inset_0_2px_4px_rgba(0,0,0,0.2)]"/>
+                    <input id="sim-q4" type="number" min="0" max="100" value={automationRate || ''} onChange={e => setAutomationRate(Number(e.target.value))} className="bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white w-full focus:outline-none focus:border-white/40 transition-colors shadow-[inset_0_2px_4px_rgba(0,0,0,0.2)]"/>
                     <span className="text-white/50 text-sm">%</span>
                   </div>
                 </div>
@@ -227,7 +227,7 @@ Quiero identificar qué procesos conviene automatizar y cuánto ahorro podría o
           <div className="lg:col-span-5 relative">
             <div className="sim-panel sticky top-8 bg-gradient-to-b from-[#0a0a0c] to-[#040405] border border-white/10 rounded-[32px] p-6 md:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.8)] overflow-hidden">
               
-              <div className="absolute -top-32 -right-32 w-64 h-64 bg-red-500/10 blur-[45px] md:blur-[90px] rounded-full pointer-events-none" />
+              <div className="hidden md:block absolute -top-32 -right-32 w-64 h-64 bg-red-500/10 blur-[45px] md:blur-[90px] rounded-full pointer-events-none" style={{ transform: 'translateZ(0)' }} />
               
               <h3 className="text-xl font-display font-medium text-white mb-8 relative z-10">{t('simulator.resultTitle')}</h3>
 

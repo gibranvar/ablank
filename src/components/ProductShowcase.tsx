@@ -352,8 +352,8 @@ export function ProductShowcase() {
                 <div className="bg-[#12141c] md:bg-white/[0.03] md:backdrop-blur-xl rounded-[24px] p-5 border border-white/10 relative overflow-hidden shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_10px_20px_rgba(0,0,0,0.2)]">
                   <p className="text-[10px] text-white/40 uppercase tracking-wider font-bold">{data.kpiTitle}</p>
                   <div className="relative mt-2 h-8">
-                    <div className="ps-crm-revenue-old absolute inset-0 text-3xl font-display font-bold bg-gradient-to-br from-white to-white/40 bg-clip-text text-transparent">{data.kpi?.old}</div>
-                    <div className="ps-crm-revenue-new opacity-0 absolute inset-0 text-3xl font-display font-bold bg-gradient-to-br from-green-400 to-green-600 bg-clip-text text-transparent">{data.kpi?.new}</div>
+                    <div className="ps-crm-revenue-old absolute inset-0 text-3xl font-display font-bold bg-gradient-to-br from-white to-white/40 bg-clip-text text-transparent">{data.kpiOld}</div>
+                    <div className="ps-crm-revenue-new opacity-0 absolute inset-0 text-3xl font-display font-bold bg-gradient-to-br from-green-400 to-green-600 bg-clip-text text-transparent">{data.kpiNew}</div>
                   </div>
                 </div>
                 <div className="bg-[#12141c] md:bg-white/[0.03] md:backdrop-blur-xl rounded-[24px] p-5 border border-white/10 flex flex-col justify-center shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_10px_20px_rgba(0,0,0,0.2)]">
@@ -372,7 +372,7 @@ export function ProductShowcase() {
                 <div className="flex justify-between items-start mb-6 pb-6 border-b border-white/10">
                    <div>
                      <h3 className="text-xl font-bold text-white mb-1">{data.contactName}</h3>
-                     <p className="text-sm text-white/40">{data.contact?.phone}</p>
+                     <p className="text-sm text-white/40">{data.contactPhone}</p>
                    </div>
                    <div className="ps-crm-status-box px-3 py-1.5 rounded-full border transition-colors duration-500 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)]">
                      <span className="ps-crm-status-text text-[10px] font-bold uppercase tracking-wider">{data.statusOld}</span>

@@ -256,7 +256,7 @@ export function Hero() {
                     <img 
             src="https://res.cloudinary.com/p9tnym3u/image/upload/f_auto,q_auto/v1789087899/A_BLANK_1.png" 
             alt="Interfaz de la plataforma" 
-            fetchpriority="high"
+            fetchPriority="high"
             className="w-full h-auto object-cover block"
           />
         </div>

@@ -2,7 +2,7 @@
   "nav": {
     "platform": "Architecture",
     "solutions": "Capabilities",
-    "simulator": "ROI Simulator",
+    "simulator": "Simulator",
     "faq": "FAQ",
     "talkToExpert": "Book Architecture Review"
   },
@@ -472,7 +472,10 @@
             "title": "Sale Won (Closed)",
             "desc": "Production order generated · +.5k"
           }
-        ]
+        ],
+        "kpiOld": "$450,000",
+        "kpiNew": "+$575,000",
+        "contactPhone": "+52 55 1234 5678"
       },
       {
         "label": "Invoicing",
@@ -529,7 +532,10 @@
             "title": "Ticket Resolved",
             "desc": "Resolution time: 1m 14s"
           }
-        ]
+        ],
+        "kpiOld": "142",
+        "kpiNew": "143 (Auto)",
+        "contactPhone": "+52 81 9876 5432"
       },
       {
         "label": "Scheduling",
@@ -584,7 +590,10 @@
             "title": "Automation Ready",
             "desc": "SMS reminder scheduled at -24h"
           }
-        ]
+        ],
+        "kpiOld": "78% Booked",
+        "kpiNew": "82% Booked",
+        "contactPhone": "+52 33 4455 6677"
       },
       {
         "label": "Reservations",
@@ -639,7 +648,10 @@
             "title": "Reservation Confirmed",
             "desc": "VIP tag applied at Host Stand"
           }
-        ]
+        ],
+        "kpiOld": "92% Full",
+        "kpiNew": "95% Full",
+        "contactPhone": "+52 55 9988 7766"
       },
       {
         "label": "Tech Support",
@@ -696,14 +708,17 @@
             "title": "Ticket Resolved",
             "desc": "SLA Met: <4 minutes"
           }
-        ]
+        ],
+        "kpiOld": "99.98%",
+        "kpiNew": "99.99%",
+        "contactPhone": "+52 33 1122 3344"
       }
     ],
     "clickToStart": "Click to start simulation",
     "useCaseLabel": "Use Case"
   },
   "simulator": {
-    "badge": "Automation ROI Calculator",
+    "badge": "Automation Calculator",
     "title1": "How much are manual",
     "title2": "processes costing you?",
     "subtitle": "Calculate the time and capital you are burning every month on tasks that should be automated.",
@@ -728,12 +743,12 @@
     "costLabel": "Monthly cost of manual labor",
     "costDesc": "This is the monthly value of the time currently invested. It does not factor in errors, rework, or lost opportunities.",
     "recoverableLabel": "Potentially recoverable monthly value",
-    "recoverableDesc": "This is not a guaranteed savings promise: it is a baseline of the value you could unlock by automating approx. {rate}% of these tasks.",
-    "hoursMonth": "{hours} hours / month",
-    "yearLabel": "{cost} / year",
+    "recoverableDesc": "This is not a guaranteed savings promise: it is a baseline of the value you could unlock by automating approx. {{rate}}% of these tasks.",
+    "hoursMonth": "{{hours}} hours / month",
+    "yearLabel": "{{cost}} / year",
     "cta": "I want to automate these processes",
-    "bottomText1": "{people} members · {hours} h/month",
-    "bottomText2": "{cost} / current year"
+    "bottomText1": "{{people}} members · {{hours}} h/month",
+    "bottomText2": "{{cost}} / current year"
   },
   "security": {
     "badge": "Enterprise-Grade Security",
@@ -808,7 +823,7 @@
     "address1": "Rubén Darío 43",
     "address2": "Rincón del Bosque, Polanco V Secc.",
     "address3": "Mexico City, CDMX",
-    "rights": "© 2026 A BLΛNK. All rights reserved.",
+    "rights": "© 2026 A BLANK. All rights reserved.",
     "design": "Premium Nearshore Engineering"
   }
 }
