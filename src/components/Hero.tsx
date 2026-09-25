@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -13,6 +13,21 @@ if (typeof window !== 'undefined') {
 export function Hero() {
   const root = useRef<HTMLElement>(null);
   const dashboardRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [videoFailed, setVideoFailed] = useState(false);
+
+  // Intentar forzar la reproducción para detectar si el celular la bloquea (Ahorro de batería)
+  useEffect(() => {
+    if (videoRef.current) {
+      const playPromise = videoRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise.catch((error) => {
+          console.warn("Autoplay bloqueado (posible Ahorro de Batería activado). Mostrando foto de respaldo.", error);
+          setVideoFailed(true);
+        });
+      }
+    }
+  }, []);
 
   useGSAP(
     () => {
@@ -114,20 +129,34 @@ export function Hero() {
           bloque se desvanezca antes de tocar la sección de abajo.
           ========================================================= */}
       <div 
-        className="absolute inset-0 z-0 pointer-events-none"
+        className="absolute inset-0 z-0 pointer-events-none bg-[#050505]"
         style={{
           WebkitMaskImage: 'linear-gradient(to bottom, black 85%, transparent 100%)',
           maskImage: 'linear-gradient(to bottom, black 85%, transparent 100%)'
         }}
       >
-        <video 
-          src="https://framerusercontent.com/assets/XyQKBChh8CZBaaXrJoxPbwvI.mp4" 
-          loop 
-          muted 
-          playsInline 
-          autoPlay 
-          className="w-full h-full object-cover"
-        />
+        {/* Foto de respaldo: se muestra siempre de fondo, pero el video la cubre. Si el video falla (Ahorro de batería), esta foto será lo único que se vea */}
+        <div className="absolute inset-0">
+          <img 
+            src="/mobile-bg-fallback.png"
+            alt="Fondo móvil"
+            className="w-full h-full object-cover opacity-60"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#050505]/30 to-[#050505]" />
+        </div>
+
+        {/* Video dinámico */}
+        {!videoFailed && (
+          <video 
+            ref={videoRef}
+            src="https://framerusercontent.com/assets/XyQKBChh8CZBaaXrJoxPbwvI.mp4" 
+            loop 
+            muted 
+            playsInline 
+            autoPlay 
+            className="w-full h-full object-cover relative z-10"
+          />
+        )}
         <div 
           className="absolute inset-0 opacity-40 mix-blend-overlay"
           style={{
@@ -143,7 +172,7 @@ export function Hero() {
         {/* Badge */}
         <div className="hero-badge mb-6 inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-black/80 md:bg-white/5 md:backdrop-blur-md">
           <span className="text-[10px] sm:text-xs font-medium text-white/80 uppercase tracking-[0.05em]">
-            Plataforma de digitalización
+            Desarrollo de Sistemas a la Medida
           </span>
         </div>
 
@@ -161,10 +190,10 @@ export function Hero() {
         </p>
 
         {/* CTAs Centrados */}
-        <div className="hero-ctas-wrapper mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 w-full">
+        <div className="hero-ctas-wrapper mt-10 flex flex-col-reverse sm:flex-row items-center justify-center gap-4 w-full">
           <a 
             href="#casos" 
-            className="hero-cta group relative inline-flex items-center justify-center gap-2 px-8 py-4 text-sm font-semibold text-white transition-transform hover:scale-[1.02] active:scale-95 overflow-hidden"
+            className="hero-cta group relative inline-flex w-full sm:w-auto items-center justify-center gap-2 px-8 py-4 text-sm font-semibold text-white transition-transform hover:scale-[1.02] active:scale-95 overflow-hidden"
             style={{
               borderRadius: '16px',
               backgroundColor: '#000',
@@ -193,7 +222,7 @@ export function Hero() {
             href="https://wa.me/525576048470?text=Hola,%20vi%20su%20anuncio.%20Me%20interesa%20automatizar%20los%20procesos%20de%20mi%20empresa." 
             target="_blank"
             rel="noopener noreferrer"
-            className="hero-cta group relative inline-flex items-center justify-center px-8 py-4 text-sm font-semibold text-white transition-all duration-500 hover:scale-[1.02] active:scale-95 overflow-hidden bg-white/[0.02] hover:bg-white/[0.05] border border-white/[0.08] hover:border-white/[0.2] backdrop-blur-xl shadow-[inset_0_1px_2px_rgba(255,255,255,0.15),_0_10px_20px_rgba(0,0,0,0.4)]"
+            className="hero-cta group relative inline-flex w-full sm:w-auto items-center justify-center px-8 py-4 text-sm font-semibold text-white transition-all duration-500 hover:scale-[1.02] active:scale-95 overflow-hidden bg-white/[0.02] hover:bg-white/[0.05] border border-white/[0.08] hover:border-white/[0.2] backdrop-blur-xl shadow-[inset_0_1px_2px_rgba(255,255,255,0.15),_0_10px_20px_rgba(0,0,0,0.4)]"
             style={{ borderRadius: '16px' }}
           >
             {/* Reflejo de volumen (borde superior interno) */}
