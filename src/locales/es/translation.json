@@ -1,801 +1,61 @@
 {
   "nav": {
-    "platform": "Plataforma",
-    "solutions": "Soluciones",
-    "simulator": "Simulador",
+    "platform": "Arquitectura",
+    "solutions": "Simulador",
+    "simulator": "Calculadora",
     "faq": "FAQ",
-    "talkToExpert": "Hablar con un experto"
-  },
-  "hero": {
-    "badge": "Desarrollo de Sistemas a la Medida",
-    "title1": "Escala tu negocio,",
-    "title2": "no tu caos.",
-    "subtitle": "Tu equipo pierde horas todos los días en tareas mecánicas. Construimos la infraestructura tecnológica para que operes sin cuellos de botella: ecosistemas web, automatizaciones a medida y tu CRM conectado a WhatsApp.",
-    "cta1": "Ver simulación",
-    "cta2": "Agendar diagnóstico",
-    "stats": {
-      "systems": "Sistemas integrados",
-      "systemsSub": "CRM, ERP y canales",
-      "uptime": "Disponibilidad",
-      "uptimeSub": "Operación ininterrumpida",
-      "sync": "Sincronización",
-      "syncSub": "Datos en tiempo real",
-      "core": "Núcleo centralizado",
-      "coreSub": "Control total de negocio"
-    }
-  },
-  "positioning": {
-    "badge1": "Infraestructura Rota",
-    "title1_1": "Chats saturados y",
-    "title1_2": "operación manual en Excel.",
-    "badge2": "Arquitectura Sólida",
-    "title2_1": "Un Sistema Central",
-    "title2_2": "construido a tu medida.",
-    "layers": {
-      "layer0": {
-        "label": "IA Central",
-        "desc": "Procesamiento Core"
-      },
-      "layer1": {
-        "label": "WhatsApp",
-        "desc": "Mensajería Unificada"
-      },
-      "layer2": {
-        "label": "CRM Leads",
-        "desc": "Gestión Inteligente"
-      },
-      "layer3": {
-        "label": "Web & Shop",
-        "desc": "Escaparate Digital"
-      }
-    }
-  },
-  "platform": {
-    "badge": "Interconexión en Tiempo Real",
-    "title1": "Toda tu operación.",
-    "title2": "Centralizada en un solo ecosistema.",
-    "modules": {
-      "mod0": {
-        "label": "Website",
-        "desc": "Front-end"
-      },
-      "mod1": {
-        "label": "Ads",
-        "desc": "Captación"
-      },
-      "mod2": {
-        "label": "CRM",
-        "desc": "Gestión"
-      },
-      "mod3": {
-        "label": "Data",
-        "desc": "Almacén"
-      },
-      "mod4": {
-        "label": "A Blank",
-        "desc": "Núcleo Central"
-      },
-      "mod5": {
-        "label": "Analytics",
-        "desc": "Métricas"
-      },
-      "mod6": {
-        "label": "WhatsApp",
-        "desc": "Chat"
-      },
-      "mod7": {
-        "label": "Auto",
-        "desc": "Triggers"
-      },
-      "mod8": {
-        "label": "Software",
-        "desc": "API"
-      }
-    }
-  },
-  "features": {
-    "badge": "Características Core",
-    "title1": "No somos otro SaaS genérico.",
-    "title2": "Somos los arquitectos de tu operación.",
-    "items": {
-      "website": {
-        "title": "Website & Digital Experience",
-        "desc": "Creamos experiencias digitales de alta conversión. Tu web no es un folleto — es la puerta de entrada al sistema."
-      },
-      "crm": {
-        "title": "CRM & Leads",
-        "desc": "Olvida el caos en Excel. Captura, califica y centraliza cada lead de WhatsApp directamente en un sistema propio."
-      },
-      "ai": {
-        "title": "Inteligencia Artificial",
-        "desc": "Clasificación de leads, respuestas automáticas y análisis predictivo integrado en tus flujos."
-      },
-      "automation": {
-        "title": "Automation",
-        "desc": "Desde cotizaciones automáticas hasta seguimientos. Operamos tu negocio en piloto automático sin perder el toque humano."
-      },
-      "analytics": {
-        "title": "Analytics",
-        "desc": "Convierte la actividad del negocio en información útil. Dashboards reales, no reportes estáticos."
-      },
-      "integrations": {
-        "title": "Integrations",
-        "desc": "Conecta las herramientas que tu negocio ya usa. APIs, webhooks y sincronización bidireccional."
-      }
-    },
-    "cta": {
-      "title": "¿Listo para evolucionar?",
-      "subtitle": "Hagamos esto realidad. Tu sistema central te está esperando.",
-      "btn1": "Diseñar mi sistema",
-      "btn2": "Resolver dudas"
-    },
-    "visuals": {
-      "crm": {
-        "hotLead": "Hot Lead",
-        "capture": "Captura",
-        "quote": "Cotización",
-        "close": "Cierre"
-      },
-      "ai": {
-        "msg1": "¡Hola! ¿Tienen disponibilidad para una demo?",
-        "msg2": "¡Claro! Tengo 2 espacios libres este jueves. ¿Prefieres AM o PM?",
-        "opt1": "Jueves AM",
-        "opt2": "Jueves PM"
-      },
-      "automation": {
-        "webLead": "Web Lead",
-        "aiRouter": "IA Router",
-        "createDeal": "Crear Deal",
-        "emailDrip": "Email Drip",
-        "notify": "Notificar"
-      }
-    }
-  },
-  "useCases": {
-    "badge": "Casos de Uso",
-    "title1": "Un sistema central.",
-    "title2": "Para cada área del negocio.",
-    "marketing": {
-      "label": "Marketing",
-      "title": "Captura y nutre leads automáticamente",
-      "desc": "Desde el primer click hasta el CRM. Cada campaña, cada landing, cada contacto — sincronizado.",
-      "workflow": [
-        {
-          "step": "Campaña activa",
-          "detail": "Google Ads + Meta Ads"
-        },
-        {
-          "step": "Landing dinámica",
-          "detail": "Optimizada por AI"
-        },
-        {
-          "step": "Lead capturado",
-          "detail": "Form → CRM automático"
-        },
-        {
-          "step": "Nurture sequence",
-          "detail": "Email + WhatsApp"
-        },
-        {
-          "step": "Lead scored",
-          "detail": "AI clasifica intención"
-        }
-      ],
-      "metrics": [
-        {
-          "label": "Costo por lead",
-          "value": "-42%"
-        },
-        {
-          "label": "Leads/mes",
-          "value": "1,240"
-        },
-        {
-          "label": "Calificación",
-          "value": "Auto"
-        }
-      ]
-    },
-    "sales": {
-      "label": "Sales",
-      "title": "Sistema de cotizaciones y ventas por WhatsApp",
-      "desc": "Pipeline visible, seguimiento automático y presupuestos en segundos. Tu equipo enfocado solo en cerrar tratos.",
-      "workflow": [
-        {
-          "step": "Lead asignado",
-          "detail": "Distribución automática"
-        },
-        {
-          "step": "Cotización enviada",
-          "detail": "Cotizador conectado"
-        },
-        {
-          "step": "Seguimiento",
-          "detail": "WhatsApp + email reminders"
-        },
-        {
-          "step": "Propuesta aceptada",
-          "detail": "Firma digital"
-        },
-        {
-          "step": "Venta cerrada",
-          "detail": "Sync con facturación"
-        }
-      ],
-      "metrics": [
-        {
-          "label": "Conversión",
-          "value": "32%"
-        },
-        {
-          "label": "Ciclo venta",
-          "value": "-5 días"
-        },
-        {
-          "label": "Ticket prom.",
-          "value": "$3.2k"
-        }
-      ]
-    },
-    "operations": {
-      "label": "Operations",
-      "title": "Automatiza procesos internos",
-      "desc": "Inventario, órdenes, proveedores, logística. Lo que hoy requiere supervisiones — funciona solo.",
-      "workflow": [
-        {
-          "step": "Orden recibida",
-          "detail": "Ecommerce + API"
-        },
-        {
-          "step": "Stock validado",
-          "detail": "Sincronización automática"
-        },
-        {
-          "step": "Proveedor notificado",
-          "detail": "Reorder automático"
-        },
-        {
-          "step": "Logística asignada",
-          "detail": "Ruta optimizada por AI"
-        },
-        {
-          "step": "Entrega confirmada",
-          "detail": "WhatsApp al cliente"
-        }
-      ],
-      "metrics": [
-        {
-          "label": "Procesos auto",
-          "value": "87%"
-        },
-        {
-          "label": "Errores",
-          "value": "-94%"
-        },
-        {
-          "label": "Tiempo op.",
-          "value": "-60%"
-        }
-      ]
-    },
-    "service": {
-      "label": "Customer Service",
-      "title": "Respuestas inmediatas, 24/7",
-      "desc": "AI responde consultas frecuentes. Escala a humano cuando hace falta. Todo queda registrado.",
-      "workflow": [
-        {
-          "step": "Consulta recibida",
-          "detail": "WhatsApp + Web + Email"
-        },
-        {
-          "step": "AI responde",
-          "detail": "Contexto del CRM"
-        },
-        {
-          "step": "Ticket creado",
-          "detail": "Si requiere humano"
-        },
-        {
-          "step": "Agente asignado",
-          "detail": "Por especialidad"
-        },
-        {
-          "step": "Resolución",
-          "detail": "Feedback al sistema"
-        }
-      ],
-      "metrics": [
-        {
-          "label": "Respuesta",
-          "value": "<30s"
-        },
-        {
-          "label": "Auto-resuelve",
-          "value": "78%"
-        },
-        {
-          "label": "Satisfacción",
-          "value": "4.8/5"
-        }
-      ]
-    },
-    "admin": {
-      "label": "Administration",
-      "title": "Control total del negocio",
-      "desc": "Facturación, reportes, cumplimiento, accesos. Una sola plataforma para todo el back-office.",
-      "workflow": [
-        {
-          "step": "Venta registrada",
-          "detail": "Sync automático"
-        },
-        {
-          "step": "Factura generada",
-          "detail": "Cumplimiento fiscal"
-        },
-        {
-          "step": "Reporte consolidado",
-          "detail": "Dashboard en tiempo real"
-        },
-        {
-          "step": "Auditoría",
-          "detail": "Log de cada acción"
-        },
-        {
-          "step": "Pagos reconciliados",
-          "detail": "Bank API + Stripe"
-        }
-      ],
-      "metrics": [
-        {
-          "label": "Automatización",
-          "value": "92%"
-        },
-        {
-          "label": "Error manual",
-          "value": "-98%"
-        },
-        {
-          "label": "Reportes",
-          "value": "Tiempo real"
-        }
-      ]
-    },
-    "analytics": {
-      "label": "Analytics",
-      "title": "Decisiones con datos, no intuición",
-      "desc": "Cada área del negocio visible en dashboards. Métricas que se actualizan solas.",
-      "workflow": [
-        {
-          "step": "Datos consolidados",
-          "detail": "Todas las fuentes"
-        },
-        {
-          "step": "Procesamiento AI",
-          "detail": "Patrones y tendencias"
-        },
-        {
-          "step": "Dashboard unificado",
-          "detail": "KPIs por área"
-        },
-        {
-          "step": "Alertas inteligentes",
-          "detail": "Anomalías detectadas"
-        },
-        {
-          "step": "Reportes automáticos",
-          "detail": "Periodicos a stakeholders"
-        }
-      ],
-      "metrics": [
-        {
-          "label": "Fuentes",
-          "value": "14+"
-        },
-        {
-          "label": "Update",
-          "value": "Real-time"
-        },
-        {
-          "label": "Insights",
-          "value": "Auto"
-        }
-      ]
-    },
-    "workflowEngine": "Workflow Engine"
-  },
-  "product": {
-    "badge": "Simuladores de Industria",
-    "title1": "El ecosistema funcionando.",
-    "title2": "En tiempo real.",
-    "subtitle": "Elige un caso de uso y observa cómo la inteligencia artificial interactúa con el cliente mientras actualiza tu sistema automáticamente.",
-    "chatAIHeader": "Agente AI",
-    "chatOnline": "En línea",
-    "typeMsg": "Escribe un mensaje...",
-    "systemLog": "Registro del Sistema (En Vivo)",
-    "activeListening": "Activo y Procesando",
-    "automations": "Automatizaciones",
-    "originLabel": "Origen",
-    "generatedAI": "Generado por AI",
-    "scenarios": [
-      {
-        "label": "Cotización B2B",
-        "contactName": "Carlos Mendoza",
-        "statusOld": "NUEVO LEAD",
-        "statusNew": "VENTA CERRADA",
-        "kpiTitle": "Pipeline de Ventas",
-        "extractedLabel": "Volumen Req.",
-        "extractedOld": "--",
-        "extractedNew": "50k uds (Extracción AI)",
-        "origin": "Google Ads (Search)",
-        "chat": [
-          {
-            "text": "Hola, busco cotizar impresión de 50,000 catálogos corporativos. Vengo de su anuncio en Google.",
-            "time": "10:42 AM"
-          },
-          {
-            "text": "¡Hola! 👋 Claro que sí, somos expertos en alto volumen. Para darte el precio exacto, ¿cuántas páginas tiene cada catálogo?",
-            "time": "10:42 AM"
-          },
-          {
-            "text": "Son de 32 páginas, en papel couché mate.",
-            "time": "10:43 AM"
-          },
-          {
-            "text": "Perfecto. He calculado el costo por millar con nuestro descuento por volumen. Aquí tienes la cotización oficial 👇",
-            "time": "10:43 AM",
-            "pdf": "Cotizacion_50k.pdf",
-            "pdfSize": "142 KB"
-          },
-          {
-            "text": "¡Excelente precio! La apruebo, ¿cómo avanzamos?",
-            "time": "10:44 AM"
-          },
-          {
-            "text": "¡Genial! 🎉 He creado tu orden de producción. Te acabo de enviar el link de anticipo y portal al correo.",
-            "time": "10:44 AM"
-          }
-        ],
-        "logs": [
-          {
-            "title": "Lead B2B creado en CRM",
-            "desc": "Campaña: Search_Impresion_Corp"
-          },
-          {
-            "title": "Extracción de datos AI",
-            "desc": "Catálogos · 50k uds · 32 págs"
-          },
-          {
-            "title": "Cotización #1042 Generada",
-            "desc": "Descuento volumen aplicado (15%)"
-          },
-          {
-            "title": "Venta Cerrada (WON)",
-            "desc": "Orden de producción generada · +k"
-          }
-        ],
-        "kpiOld": "$450,000",
-        "kpiNew": "+$575,000",
-        "contactPhone": "+52 55 1234 5678"
-      },
-      {
-        "label": "Facturación",
-        "contactName": "Constructora ABC",
-        "statusOld": "TICKET ABIERTO",
-        "statusNew": "TICKET CERRADO",
-        "kpiTitle": "Tickets Resueltos (Hoy)",
-        "extractedLabel": "Ticket Ref.",
-        "extractedOld": "--",
-        "extractedNew": "#8932 (SAT OK)",
-        "origin": "Portal de Clientes",
-        "chat": [
-          {
-            "text": "Hola, necesito la factura de mi última compra de material eléctrico. Número de ticket 8932.",
-            "time": "11:15 AM"
-          },
-          {
-            "text": "¡Hola! 👋 Claro, encontré tu ticket por ,500. ¿Confirmas que usamos el RFC de \"Constructora ABC\"?",
-            "time": "11:15 AM"
-          },
-          {
-            "text": "Sí, por favor, los mismos datos fiscales de siempre.",
-            "time": "11:16 AM"
-          },
-          {
-            "text": "Listo. He procesado tu solicitud en el SAT. Aquí tienes tus archivos XML y PDF 👇",
-            "time": "11:16 AM",
-            "pdf": "Factura_8932.zip",
-            "pdfSize": "34 KB"
-          },
-          {
-            "text": "Todo perfecto, muchas gracias por la rapidez.",
-            "time": "11:17 AM"
-          },
-          {
-            "text": "¡Un placer! Quedo a tu disposición por si necesitas algo más. Excelente día.",
-            "time": "11:17 AM"
-          }
-        ],
-        "logs": [
-          {
-            "title": "Solicitud de Facturación",
-            "desc": "Ticket detectado: #8932"
-          },
-          {
-            "title": "Validación Fiscal AI",
-            "desc": "Datos del cliente verificados en SAT"
-          },
-          {
-            "title": "CFDI Generado (4.0)",
-            "desc": "Timbrado exitoso vía PAC"
-          },
-          {
-            "title": "Ticket Resuelto",
-            "desc": "Tiempo de resolución: 1m 14s"
-          }
-        ],
-        "kpiOld": "142",
-        "kpiNew": "143 (Auto)",
-        "contactPhone": "+52 81 9876 5432"
-      },
-      {
-        "label": "Agendar Cita",
-        "contactName": "Andrea Gómez",
-        "statusOld": "NUEVO PROSPECTO",
-        "statusNew": "CITA CONFIRMADA",
-        "kpiTitle": "Agenda Semanal",
-        "extractedLabel": "Horario Sel.",
-        "extractedOld": "--",
-        "extractedNew": "Martes · 4:00 PM",
-        "origin": "Instagram Ads",
-        "chat": [
-          {
-            "text": "Hola, me gustaría agendar una consulta de valoración para la próxima semana.",
-            "time": "09:05 AM"
-          },
-          {
-            "text": "¡Hola Andrea! 👋 Será un gusto atenderte. Tengo disponibilidad el Martes a las 4:00 PM o el Jueves a las 11:00 AM. ¿Cuál prefieres?",
-            "time": "09:05 AM"
-          },
-          {
-            "text": "El martes a las 4 pm me queda perfecto.",
-            "time": "09:06 AM"
-          },
-          {
-            "text": "Excelente elección. He bloqueado ese espacio en la agenda. ¿Deseas que te envíe la ubicación de la clínica por aquí?",
-            "time": "09:06 AM"
-          },
-          {
-            "text": "Sí, por favor, y nos vemos el martes.",
-            "time": "09:08 AM"
-          },
-          {
-            "text": "¡Cita confirmada! Te enviaré un recordatorio un día antes con las indicaciones de llegada.",
-            "time": "09:08 AM"
-          }
-        ],
-        "logs": [
-          {
-            "title": "Nuevo Lead Médico",
-            "desc": "Interés: Consulta de valoración"
-          },
-          {
-            "title": "Extracción de Fechas AI",
-            "desc": "Elección: Martes · 4:00 PM"
-          },
-          {
-            "title": "Cita Agendada (Sync)",
-            "desc": "Bloqueo en Google Calendar"
-          },
-          {
-            "title": "Automatización Lista",
-            "desc": "Recordatorio SMS programado a -24h"
-          }
-        ],
-        "kpiOld": "78% Ocupado",
-        "kpiNew": "82% Ocupado",
-        "contactPhone": "+52 33 4455 6677"
-      },
-      {
-        "label": "Reservaciones",
-        "contactName": "Roberto Valdés",
-        "statusOld": "RESERVA ACTIVA",
-        "statusNew": "MODIFICADA (6 PAX)",
-        "kpiTitle": "Ocupación Hoy",
-        "extractedLabel": "Modificación",
-        "extractedOld": "4 Pax",
-        "extractedNew": "6 Pax (+2 extra)",
-        "origin": "Base de Datos (VIP)",
-        "chat": [
-          {
-            "text": "Hola, recibí el recordatorio para mi cena de hoy, pero necesito agregar a 2 personas más.",
-            "time": "16:30 PM"
-          },
-          {
-            "text": "¡Hola Roberto! 👋 Veo tu reservación para 4 personas a las 8:30 PM. ¿Te confirmo entonces para 6 personas?",
-            "time": "16:30 PM"
-          },
-          {
-            "text": "Así es, seremos 6 en total. Llegaremos puntuales.",
-            "time": "16:31 PM"
-          },
-          {
-            "text": "He actualizado tu reserva a 6 personas y ajustamos la mesa para que estén cómodos. Tu código VIP de acceso es #RV-998.",
-            "time": "16:31 PM"
-          },
-          {
-            "text": "Genial, muchas gracias por la atención.",
-            "time": "16:33 PM"
-          },
-          {
-            "text": "¡Listísimo! Tu mesa los estará esperando. Nos vemos hoy a las 8:30 PM.",
-            "time": "16:33 PM"
-          }
-        ],
-        "logs": [
-          {
-            "title": "Solicitud de Modificación",
-            "desc": "Reserva detectada: Mesa 4"
-          },
-          {
-            "title": "Extracción de datos AI",
-            "desc": "Ajuste detectado: 4 a 6 Pax"
-          },
-          {
-            "title": "Actualización de Sistema",
-            "desc": "Uniendo Mesa 4 + Mesa 5"
-          },
-          {
-            "title": "Reserva Confirmada",
-            "desc": "Etiqueta VIP aplicada en Host Stand"
-          }
-        ],
-        "kpiOld": "92% Lleno",
-        "kpiNew": "95% Lleno",
-        "contactPhone": "+52 55 9988 7766"
-      },
-      {
-        "label": "Soporte Técnico",
-        "contactName": "Tech Solutions SA",
-        "statusOld": "INCIDENTE CRÍTICO",
-        "statusNew": "SISTEMA OPERATIVO",
-        "kpiTitle": "Uptime Global",
-        "extractedLabel": "Error Sist.",
-        "extractedOld": "--",
-        "extractedNew": "Error 504 (Timeout)",
-        "origin": "Alerta de Monitoreo",
-        "chat": [
-          {
-            "text": "Hola, nuestra tienda online está caída. Me sale un error 504 desde hace 5 minutos.",
-            "time": "02:14 AM"
-          },
-          {
-            "text": "¡Hola! Lamento el inconveniente. Estoy analizando su servidor. Veo un pico anómalo de tráfico, ¿autorizas reiniciar el servicio web?",
-            "time": "02:14 AM"
-          },
-          {
-            "text": "Sí, por favor procedan de inmediato, estamos perdiendo ventas.",
-            "time": "02:15 AM"
-          },
-          {
-            "text": "Reinicio completado exitosamente. Los servicios están 100% operativos nuevamente. Aquí tienes el reporte técnico 👇",
-            "time": "02:15 AM",
-            "pdf": "Reporte_Incidente.pdf",
-            "pdfSize": "210 KB"
-          },
-          {
-            "text": "Ya puedo entrar a la tienda. Funciona perfecto, mil gracias.",
-            "time": "02:17 AM"
-          },
-          {
-            "text": "Nos alegra haberlo solucionado. Monitorearemos el servidor de cerca las próximas horas.",
-            "time": "02:17 AM"
-          }
-        ],
-        "logs": [
-          {
-            "title": "Alerta Crítica Recibida",
-            "desc": "Prioridad: Alta · Error 504 Gateway"
-          },
-          {
-            "title": "Diagnóstico AI",
-            "desc": "Causa: Sobrecarga de memoria RAM"
-          },
-          {
-            "title": "Ejecución Automática",
-            "desc": "Script de reinicio (Nginx) invocado"
-          },
-          {
-            "title": "Ticket Resuelto",
-            "desc": "SLA Cumplido: <4 minutos"
-          }
-        ],
-        "kpiOld": "99.98%",
-        "kpiNew": "99.99%",
-        "contactPhone": "+52 33 1122 3344"
-      }
-    ],
-    "clickToStart": "Haz clic para iniciar la simulación",
-    "useCaseLabel": "Caso de Uso"
-  },
-  "simulator": {
-    "badge": "Calculadora de Automatización",
-    "title1": "¿Cuánto te cuestan",
-    "title2": "tus procesos manuales?",
-    "subtitle": "Calcula cuánto tiempo y dinero estás destinando cada mes a tareas que podrían automatizarse.",
-    "q1": {
-      "label": "¿Cuántas personas participan en estos procesos?",
-      "desc": "Incluye a todas las personas que intervienen aunque solo sea parte de su jornada."
-    },
-    "q2": {
-      "label": "¿Cuántas horas por semana consumen en total?",
-      "desc": "Suma las horas que todas las personas dedican a estos procesos durante una semana.",
-      "suffix": "h/sem"
-    },
-    "q3": {
-      "label": "¿Cuál es el costo aproximado por hora?",
-      "desc": "Usa salario, prestaciones y costo operativo aproximado; no necesitas tener una cifra exacta."
-    },
-    "q4": {
-      "label": "¿Qué parte de este trabajo crees que podría automatizarse?",
-      "desc": "Para una estimación prudente, empieza con 50%. Después podremos validar qué parte es realmente automatizable."
-    },
-    "resultTitle": "El costo real de hacerlo manualmente",
-    "costLabel": "Costo mensual del trabajo manual",
-    "costDesc": "Es el valor mensual del tiempo que hoy inviertes en estos procesos. No incluye el costo de errores, retrabajo ni oportunidades perdidas.",
-    "recoverableLabel": "Valor mensual potencialmente recuperable",
-    "recoverableDesc": "No es una promesa de ahorro: es una referencia del valor que podrías liberar si automatizas aproximadamente el {{rate}}% de estas tareas.",
-    "hoursMonth": "{{hours}} horas / mes",
-    "yearLabel": "{{cost}} / año",
-    "cta": "Quiero automatizar estos procesos",
-    "bottomText1": "{{people}} personas · {{hours}} h/mes",
-    "bottomText2": "{{cost}} / año actual"
+    "talkToExpert": "Auditar mi operación",
+    "contact": "Contacto"
   },
   "security": {
-    "badge": "Seguridad Grado Empresarial",
-    "title1": "Tu negocio, en",
-    "title2": "infraestructura blindada.",
-    "subtitle": "Protegemos tu operación con seguridad multicapa. Desde la encriptación de datos hasta el monitoreo continuo, no dejamos cabos sueltos.",
+    "badge": "ORQUESTACIÓN OPERATIVA",
+    "title1": "Arquitectura Lead-to-Cash",
+    "title2": "de Alta Velocidad",
+    "subtitle": "Conectamos tu captura de datos, CRMs y hojas de cálculo en un ecosistema unificado. Transformamos el caos operativo en un flujo lineal que procesa y dispara documentos en segundos, sin intervención humana.",
     "items": [
-      "Infraestructura 99.9% Uptime",
-      "Encriptación Militar AES-256",
-      "Monitoreo y Prevención 24/7"
+      "SLA 99.9% Uptime",
+      "Encriptación AES-256",
+      "Monitoreo Continuo 24/7"
     ],
     "networkStatus": "Network Status",
     "protected": "Protected",
     "activeLabel": "Active",
     "activeValue": "AES-256 Auth",
     "securedLabel": "Secured",
-    "securedValue": "API Gateway"
+    "securedValue": "API Gateway",
+    "item1": "Ejecución en < 45 Segundos",
+    "item2": "Integración No-Invasiva",
+    "item3": "Eliminación de Error Humano"
   },
   "faq": {
-    "badge": "Preguntas Frecuentes",
-    "title1": "Claridad total.",
-    "title2": "Cero fricción.",
-    "subtitle": "Respondemos las dudas más comunes sobre nuestra arquitectura, el modelo de trabajo y cómo garantizamos el éxito de la implementación.",
+    "badge": "FAQ & Gobernanza",
+    "title1": "Onboarding",
+    "title2": " sin fricción.",
+    "subtitle": "Resolvemos las dudas de tu equipo técnico y comercial sobre la implementación y gobierno de datos.",
     "questions": [
       {
-        "q": "¿Qué incluye exactamente el desarrollo a la medida?",
-        "a": "Nuestro enfoque cubre el ciclo completo: desde el análisis de tus procesos y diseño UI/UX, hasta la arquitectura backend, integración con tu CRM/ERP, automatizaciones y el despliegue en producción. Entregamos un sistema llave en mano listo para escalar."
+        "q": "¿Tenemos que cambiar nuestro ERP o CRM actual?",
+        "a": "Absolutamente no. Nos integramos vía API (REST/SOAP) o Webhooks a tu infraestructura existente (SAP, Oracle, Salesforce, HubSpot, Dynamics). Nuestro sistema actúa como una capa de automatización inteligente por encima de tus bases de datos, sin alterar tu núcleo operativo."
       },
       {
-        "q": "¿Trabajan con sistemas que ya usamos (HubSpot, Salesforce, etc.)?",
-        "a": "Sí, somos agnósticos a las plataformas. Nos integramos vía API (REST/GraphQL) o Webhooks con cualquier software moderno que tu equipo ya utilice, garantizando una sincronización bidireccional y en tiempo real."
+        "q": "Si el sistema cotiza solo, ¿cuál es el rol de nuestro equipo de ventas?",
+        "a": "Tus vendedores dejarán de ser 'capturistas de datos'. La automatización asume el trabajo administrativo (cruzar inventario, armar PDFs, perfilar datos), permitiendo que tus ejecutivos intervengan únicamente para negociar acuerdos complejos, revisar crédito y cerrar los tratos."
       },
       {
-        "q": "¿Cuánto tiempo toma implementar una solución completa?",
-        "a": "Depende de la complejidad técnica y las integraciones requeridas. Un MVP funcional suele tomar entre 4 a 8 semanas, mientras que arquitecturas empresariales complejas pueden extenderse de 3 a 5 meses. Proveemos un roadmap transparente desde el día 1."
+        "q": "¿Cómo garantizan que el sistema no envíe precios incorrectos o sin autorización?",
+        "a": "Nuestra arquitectura consulta los precios, inventarios y reglas de descuento en tiempo real directamente de tu ERP. Además, implementamos 'Compuertas Humanas': si una cotización supera un monto específico o requiere un descuento especial, el sistema la pausa y la rutea a un gerente para su aprobación."
       },
       {
-        "q": "¿Qué pasa con el mantenimiento una vez entregado el proyecto?",
-        "a": "Ofrecemos SLAs (Acuerdos de Nivel de Servicio) de soporte continuo. Monitoreamos el uptime 24/7, realizamos parches de seguridad, optimización de consultas de base de datos y proveemos una bolsa de horas para nuevas funcionalidades."
+        "q": "¿Cuánto tiempo toma tener el flujo de automatización operando?",
+        "a": "Trabajamos mediante despliegues ágiles por fases. El flujo inicial (Lead-to-Cash: de WhatsApp a la cotización formal) suele estar en producción entre 10 y 20 días, dependiendo de la arquitectura y accesibilidad de tus sistemas actuales."
       },
       {
-        "q": "¿Son dueños del código fuente o nos pertenece?",
-        "a": "El 100% de la propiedad intelectual es tuya. Al finalizar el proyecto, te entregamos el repositorio completo, la documentación técnica y las credenciales de la infraestructura (AWS/Vercel/DigitalOcean)."
+        "q": "¿Qué pasa con la privacidad y seguridad de nuestros datos comerciales?",
+        "a": "Tu información confidencial nunca se utiliza para entrenar modelos públicos de IA. No almacenamos tu catálogo de clientes ni tu facturación en servidores externos. Nuestro motor opera exclusivamente mediante conexiones API autenticadas; funciona como un puente de alta velocidad que procesa los datos en tiempo real entre tus propias plataformas (WhatsApp, CRM y ERP) y se desconecta, manteniendo el control absoluto de la información dentro de tu ecosistema."
       },
       {
-        "q": "¿Por qué trabajar con A BLANK y no contratar un equipo in-house?",
-        "a": "Armar un equipo in-house toma meses (reclutamiento, onboarding) y genera altos costos fijos. Nosotros somos un equipo SWAT ya ensamblado: orquestador, UI/UX, ingenieros y DevOps trabajando bajo una misma metodología probada, entregando resultados en fracción del tiempo."
+        "q": "¿Es un modelo SaaS donde tengo que pagar licencias por cada usuario de mi equipo?",
+        "a": "No. A diferencia del software tradicional que penaliza tu crecimiento cobrándote una renta extra por cada vendedor nuevo (pago por asiento), nosotros operamos como infraestructura dedicada. Tu inversión se basa en el despliegue inicial del ecosistema y una póliza mensual plana por mantenimiento operativo, seguridad y procesamiento de datos. Puedes escalar tu equipo comercial de 5 a 50 ejecutivos y tu póliza seguirá costando exactamente lo mismo."
       }
     ]
   },
@@ -803,27 +63,224 @@
     "text": "Usamos cookies para mejorar tu experiencia en A BLΛNK. Al continuar, aceptas nuestra política de privacidad.",
     "accept": "Aceptar cookies"
   },
-  "whatsapp": {
-    "tooltip": "Chatea con nosotros",
-    "msg": "Hola, me gustaría más información sobre el desarrollo de software."
-  },
   "footer": {
-    "title1": "Delega el caos operativo.",
-    "title2": "Escala con inteligencia.",
-    "subtitle": "Construimos el ecosistema exacto que tu empresa necesita para captar clientes, procesar ventas y operar 24/7 sin depender de ti.",
-    "cta": "Agendar asesoría por WhatsApp",
+    "title1": "Delega el caos en Excel.",
+    "title2": "Acelera tu cierre de ventas.",
+    "subtitle": "Construimos la infraestructura exacta que tu equipo comercial necesita para captar prospectos, consultar inventarios y disparar cotizaciones complejas en segundos. Elimina la fricción manual y cierra antes que tu competencia.",
+    "cta": "Diseñar mi Setup",
     "ctaMsg": "Hola, llegué al final de su sitio web. Quiero agendar una asesoría.",
     "navTitle": "Navegación",
-    "nav1": "Plataforma",
-    "nav2": "Soluciones",
-    "nav3": "Simulador",
+    "nav1": "Arquitectura",
+    "nav2": "Simulador",
+    "nav3": "Calculadora",
     "nav4": "FAQ",
     "contactTitle": "Contacto",
     "hqTitle": "Headquarters",
-    "address1": "Rubén Darío 43",
+    "address1": "Rubén Darío 40",
     "address2": "Rincón del Bosque, Polanco V Secc.",
     "address3": "Ciudad de México, CDMX",
     "rights": "© 2026 A BLANK. Todos los derechos reservados.",
-    "design": "Design & Developed in Mexico"
+    "design": "Design & Developed in Mexico",
+    "navContact": "Contacto",
+    "connectTitle": "Contacto Corporativo"
+  },
+  "meta": {
+    "landing": "Automatización Lead-to-Cash B2B | A BLANK",
+    "contact": "Contacto Institucional | A BLANK",
+    "contactDesc": "Portal de contacto para Enterprise Solutions y Client Portal de A Blank."
+  },
+  "heroVentas": {
+    "badge": "RevOps & Automatización B2B",
+    "h1": "Automatización de Cotizaciones B2B y Ecosistemas Lead-to-Cash",
+    "title1": "Cotiza en segundos.",
+    "title2": "Cierra antes que todos.",
+    "subtitle": "El 70% de las ventas corporativas se ganan por velocidad. Automatizamos tu pipeline Lead-to-Cash: desde el request en WhatsApp hasta el PDF formal, conectado directo a tu CRM y ERP.",
+    "cta": "Ver simulación en vivo",
+    "ctaSub": "Auditar mi proceso",
+    "dashInbox": "Bandeja",
+    "dashActive": "Deals Activos: 12",
+    "dashQuotes": "Cotizaciones",
+    "dashMore": "Más",
+    "dealName": "Industrias Corporativas - Póliza de Servicio Anual",
+    "dealMsg": "\"Solicitamos propuesta técnica y cotización para la póliza de mantenimiento preventivo anual en nuestras 3 plantas de Nuevo León.\"",
+    "dealBtn": "Ingresar al Deal",
+    "dealScore": "[A BLANK] creó el deal vía WhatsApp · hace 2 mins",
+    "sysName": "Motor de Automatización",
+    "sysTime": "0.8s después",
+    "sysPdf": "Validando disponibilidad de ingeniería en ERP y viáticos 2026. Status: 200 OK (Capacidad operativa confirmada).",
+    "sysSize": "Propuesta_Mantenimiento_Anual.pdf (2.4 MB · Generado por AI)",
+    "sysStatus": "Venta Cerrada: $850,000 MXN",
+    "copilotName": "[A BLANK] Copilot v2",
+    "copilotTitle": "Automatización Completada",
+    "copilotDesc": "Generó el PDF y actualizó el estado sin bloquear el hilo principal.",
+    "copilotCheck1": "Validado con reglas de negocio",
+    "copilotCheck2": "Márgenes de rentabilidad validados. Contrato generado con cláusulas de SLA.",
+    "sysMsg1": "Validando disponibilidad de ingenieros en el ERP y tabulador de viáticos 2026. ",
+    "sysMsg2": "Status: 200 OK (Capacidad operativa confirmada).",
+    "dealCreator": "[A BLANK] creó el deal vía WhatsApp",
+    "dealTime": "hace 2 min",
+    "dealEngine": "Automation Engine",
+    "dealEngineTime": "0.4s después"
+  },
+  "pain": {
+    "badge": "Fuga de Capital",
+    "title1": "Por qué tu pipeline pierde",
+    "title2": "conversiones",
+    "subtitle": "La fricción operativa es el asesino silencioso de tus cierres. Si tu proceso de cotización depende de hojas de cálculo, PDFs manuales y días de espera, literalmente estás financiando a tu competencia.",
+    "dealLost": "Deal Lost",
+    "b1Title": "Para cuando envías el PDF, el cliente ya firmó con tu competidor.",
+    "b1Desc": "Los procesos manuales fragmentan la información y asesinan el momentum de ventas.",
+    "closeRate": "Tu Tasa de Cierre",
+    "compRate": "Competencia Automatizada",
+    "b2Title": "Excel Hell",
+    "b2Desc": "Captura manual de datos. Hojas desactualizadas. Un error de dedo y el margen de ganancia desaparece.",
+    "b3Title": "Sistemas Legacy",
+    "b3Desc": "ERPs lentos y desconectados. Consultas cruzadas interminables para saber si hay inventario disponible.",
+    "b4Title": "Formato y Diseño Manual",
+    "b4Desc": "Tu equipo pasa más tiempo copiando y pegando logos en Word que cerrando ventas. El PDF final sale con errores de formato.",
+    "errorPrice": "ERROR DE PRECIO"
+  },
+  "howItWorks": {
+    "badge": "Ecosistema Lead-to-Cash",
+    "title": "La evolución de tu proceso comercial",
+    "subtitle": "No vendemos chatbots. Construimos un motor que califica leads en tiempo real, genera cotizaciones dinámicas y nutre prospectos hasta el cierre.",
+    "step1Title": "Captación Activa",
+    "step1Sub": "Recepción 24/7 en todos los canales",
+    "step1Desc": "Integración multicanal de prospectos provenientes de Meta, Google Ads y LinkedIn, capturados en un solo flujo.",
+    "step2Title": "Calificación Autónoma",
+    "step2Sub": "Scoring y perfilado en tiempo real",
+    "step2Desc": "La IA analiza la intención, presupuesto y timeline del lead para asignarle un score y filtrarlo antes de pasarlo a un humano.",
+    "step3Title": "Cotización Dinámica",
+    "step3Sub": "Propuestas generadas al instante",
+    "step3Desc": "Conexión directa con tu ERP para calcular precios, generar el PDF de propuesta y enviarlo en minutos sin intervención manual.",
+    "step4Title": "Nutrición y Cierre",
+    "step4Sub": "Seguimiento persistente automatizado",
+    "step4Desc": "Campañas hiperpersonalizadas por WhatsApp y correo basadas en el comportamiento del lead hasta agendar la reunión.",
+    "demoMsg1": "Hola, vi su anuncio en LinkedIn para consultoría ERP. ¿Me pueden dar información?",
+    "demoMsg2": "Extrayendo datos de LinkedIn...",
+    "demoMsg3": "¡Hola! Claro, ayudamos a empresas a escalar. ¿Cuántos empleados tiene actualmente su empresa?",
+    "demoMsg4": "Somos alrededor de 120 empleados.",
+    "demoMsg5": "Validando tamaño de empresa > 100...",
+    "demoMsg6": "Lead Calificado",
+    "demoMsg7": "Agendar cita en Calendly (Enterprise)",
+    "chat1": "Buenas tardes. Ocupo cotizar 120 válvulas de acero al carbón de 2 pulgadas con envío a nuestra planta en Querétaro. Urgente.",
+    "chat2": "Buenas tardes. Procesando solicitud. Consultando inventario en tiempo real...",
+    "chat3": "Confirmado: 150 unidades en CEDIS Centro. Para aplicar su descuento (Nivel B), ¿confirma cotizar a Industrias del Bajío S.A. de C.V. y enviar a compras@ibajio.com?",
+    "chat4": "Sí, los datos son correctos. Adelante.",
+    "chat5": "Entendido. Generando cotización formal...",
+    "val1": "PIPELINE VALUE",
+    "val2": "AUTOMATIZACIÓN",
+    "val3": "Escucha Activa",
+    "val4": "LEAD NUEVO",
+    "ev1Title": "Lead Identificado",
+    "ev1Desc": "[Incoming Webhook] Match con DB de clientes.",
+    "ev2Title": "Consulta ERP",
+    "ev3Title": "Creación de Cotización",
+    "ev3Desc": "[POST] /api/crm/create-quote -> Generando PDF.",
+    "ev4Title": "Distribución Multicanal",
+    "ev4Desc": "Enviado por WhatsApp y compras@ibajio.com.",
+    "title1": "Tu cliente no quiere platicar con un bot.",
+    "title2": "Quiere su cotización.",
+    "statusQuoted": "COTIZADO",
+    "caseBadge": "CASO INDUSTRIAL",
+    "caseTitle": "Ver Simulación",
+    "caseSub": "Haz clic para iniciar la simulación",
+    "chatName": "A BLANK System",
+    "chatStatus": "En línea",
+    "chat6": "Cotización #COT-8942 enviada a su correo.",
+    "chat7": "Recibido. Lo reviso con el director y les confirmo. Gracias.",
+    "companyName": "Industrias del Bajío S.A. de C.V.",
+    "sysLog": "LOG DEL SISTEMA",
+    "ev2Desc": "[GET] /api/erp/inventory/valvulas -> Status: 200 OK",
+    "chat6PdfName": "COT-8942_IndustriasBajio.pdf",
+    "chat6PdfSize": "1.2 MB · Documento PDF",
+    "chat6Text2": "Total: $12,500 MXN. Entrega en 48 hrs. ¿Desea que asigne un ejecutivo para revisar condiciones de crédito?",
+    "phone": "+52 442 123 4567",
+    "statusNewLead": "LEAD NUEVO"
+  },
+  "simulatorVentas": {
+    "badge": "CALCULADORA DE FUGA DE CAPITAL",
+    "title1": "Tu pipeline tiene fugas.",
+    "title2": "Cuantifica tus pérdidas.",
+    "subtitle": "Calcula el capital que pierdes mensualmente por usar procesos manuales en lugar de infraestructura automatizada.",
+    "q1": "¿Cuántas cotizaciones B2B realiza tu equipo al mes?",
+    "q2": "¿Cuál es tu ticket promedio estimado por cotización (MXN)?",
+    "q3": "¿Cuántos días tardan en promedio en enviar la cotización final al prospecto?",
+    "impact": "Impacto Estimado",
+    "fuga": "FUGA DE CAPITAL (MENSUAL)",
+    "desc1": "Estás perdiendo aproximadamente ",
+    "desc2": " capital potencial al mes por prospectos que se enfrían y se van con tu competencia en esas ",
+    "desc3": " horas",
+    "cta": "Generar Executive Brief Financiero",
+    "modalTitle": "Executive Brief",
+    "modalSub": "Completa tus datos corporativos para enviarte el desglose detallado.",
+    "labelName": "Nombre Completo",
+    "phName": "ej. Alejandro Gómez",
+    "labelEmail": "Correo Corporativo",
+    "phEmail": "tu@empresa.com",
+    "labelPuesto": "Puesto",
+    "phPuesto": "ej. Director de Ventas",
+    "btnSubmit": "Recibir Executive Brief",
+    "btnSubmitting": "Generando y enviando...",
+    "submittedTitle": "Brief Enviado",
+    "submittedDesc": "Hemos enviado el análisis financiero detallado a tu correo. Revisa tu bandeja de entrada y sigue las instrucciones para agendar tu llamada.",
+    "submittedBtn": "Entendido",
+    "errName": "Ingresa tu nombre completo.",
+    "errEmail": "Ingresa tu correo corporativo.",
+    "errEmailValid": "Ingresa un formato de correo electrónico válido.",
+    "errEmailB2B": "Solo aceptamos correos corporativos (ej. nombre@empresa.com).",
+    "errPuesto": "Ingresa tu puesto o rol corporativo.",
+    "errGeneral": "Hubo un error al procesar su solicitud. Por favor, intente nuevamente o contacte a soporte.",
+    "dias": "días",
+    "resSubtitle": "Fuga Mensual Potencial",
+    "resFormTitle": "Ingresa tu correo corporativo para recibir el desglose de este cálculo de riesgo y el blueprint de mitigación."
+  },
+  "contact": {
+    "title": "Comunícate con nosotros.",
+    "subtitle": "Selecciona el canal adecuado para dirigir tu solicitud al departamento correspondiente de forma eficiente.",
+    "salesTitle": "Soluciones Corporativas",
+    "salesDesc": "Agenda una sesión con nuestro equipo técnico para auditar tus procesos actuales, diseñar tu arquitectura Lead-to-Cash o estructurar un despliegue B2B a medida.",
+    "salesCta": "Contactar ventas",
+    "supportTitle": "Soporte de Infraestructura",
+    "supportDesc": "Canal de comunicación directa y escalamiento exclusivo para clientes con ecosistemas activos y despliegues en producción.",
+    "supportCta": "Contactar soporte",
+    "corpInfo": "Información Corporativa",
+    "hq": "Headquarters",
+    "direct": "Contacto Directo",
+    "formTitle": "Selecciona el departamento",
+    "tabSales": "Soluciones B2B",
+    "tabSupport": "Client Portal",
+    "name": "Nombre completo",
+    "email": "Correo corporativo",
+    "msg": "Mensaje o detalle del proyecto",
+    "submit": "Enviar Solicitud",
+    "submitting": "Enviando..."
+  },
+  "contactForm": {
+    "errEmpty": "Por favor, completa todos los campos.",
+    "errEmail": "Por favor, ingresa un correo electrónico válido.",
+    "errB2B": "Para solicitudes corporativas, por favor utiliza un correo de empresa (no Gmail/Hotmail).",
+    "tabSales": "Soluciones Corporativas",
+    "tabSupport": "Portal de Clientes",
+    "labelPuesto": "Cargo o Puesto",
+    "labelReq": "Requerimientos (Opcional)",
+    "labelEmail": "Correo con el que estás registrado",
+    "labelHelp": "¿En qué podemos ayudarte?",
+    "labelDetails": "Detalles de la solicitud",
+    "opt1": "Consultas sobre el producto",
+    "opt2": "Soporte técnico",
+    "opt3": "Facturación y Pagos",
+    "btnCorp": "Agendar Llamada de Viabilidad",
+    "btnPortal": "Abrir Ticket de Soporte",
+    "phName": "Ej. Santiago Valdés",
+    "phCorpEmail": "ej. santiago@tuempresa.com",
+    "phRole": "Ej. Director de Finanzas",
+    "phReq": "Me interesa automatizar el proceso de cotización para nuestro equipo...",
+    "phEmail": "ej. tu@empresa.com",
+    "phDetails": "Describe brevemente el problema o tu duda...",
+    "submitting": "Enviando solicitud...",
+    "successCorp": "Solicitud enviada con éxito. Redirigiendo a tu llamada de viabilidad...",
+    "successSupport": "Ticket generado con éxito. Hemos notificado al equipo técnico y te contactaremos en breve.",
+    "errSend": "Error al enviar el mensaje. Por favor intenta de nuevo o escribe directamente a hello@ablank.mx"
   }
 }

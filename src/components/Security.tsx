@@ -4,7 +4,7 @@ import { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Shield, Server, Lock, } from 'lucide-react';
+import { Zap, Puzzle, Target } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 if (typeof window !== 'undefined') {
@@ -17,9 +17,9 @@ export function Security() {
 
   // Mover el arreglo adentro para tener acceso a `t`
   const trustItems = [
-    { icon: Server, title: t('security.items.0', 'Infraestructura 99.9% Uptime') },
-    { icon: Lock, title: t('security.items.1', 'Encriptación Militar AES-256') },
-    { icon: Shield, title: t('security.items.2', 'Monitoreo y Prevención 24/7') },
+    { icon: Zap, title: t('security.item1') },
+    { icon: Puzzle, title: t('security.item2') },
+    { icon: Target, title: t('security.item3') },
   ];
 
   // --- ANIMACIONES GSAP (Estética FeatureShowcase / Simulator) ---
@@ -80,14 +80,12 @@ export function Security() {
             <span className="text-[10px] font-medium text-white/80 uppercase tracking-[0.08em]">{t('security.badge')}</span>
           </div>
           
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6 tracking-tight leading-tight text-balance">
-            <span className="block text-white">{t('security.title1')}</span>
-            <span className="block bg-gradient-to-r from-[#0175ff] to-[#ffcd7d] bg-clip-text text-transparent pb-2">
-              {t('security.title2')}
-            </span>
+          <h2>
+            <span>{t('security.title1')}</span>
+            <span>{t('security.title2')}</span>
           </h2>
           
-          <p className="text-lg text-white/50 max-w-xl mx-auto text-balance">
+          <p className="mt-6 max-w-2xl text-balance text-base md:text-lg text-white/50 font-light mx-auto leading-relaxed">
             {t('security.subtitle')}
           </p>
         </div>
@@ -139,9 +137,9 @@ export function Security() {
               <div className="p-6 md:p-8 relative z-10">
                 
                 <div className="mb-8 md:mb-10">
-                  <div className="text-[12px] font-medium text-white/50 uppercase tracking-widest mb-2">{t('security.networkStatus')}</div>
+                  <div className="text-[12px] font-medium text-white/50 uppercase tracking-widest mb-2">Data Extraction</div>
                   <div className="text-3xl md:text-4xl font-display font-light text-white tracking-tight flex items-center gap-4">
-                    {t('security.protected')}
+                    Active
                     <div className="relative flex h-2.5 w-2.5">
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-50"></span>
                       <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.5)]"></span>
@@ -165,12 +163,12 @@ export function Security() {
                 {/* Etiquetas de Módulos */}
                 <div className="grid grid-cols-2 gap-4">
                   <div className="p-4 rounded-2xl bg-white/5 border border-white/10 shadow-[inset_0_1px_4px_rgba(255,255,255,0.05)]">
-                    <div className="text-[10px] font-mono text-blue-400 uppercase mb-1.5">{t('security.activeLabel')}</div>
-                    <div className="text-sm font-medium text-white">{t('security.activeValue')}</div>
+                    <div className="text-[10px] font-mono text-blue-400 uppercase mb-1.5">CRM Sync</div>
+                    <div className="text-sm font-medium text-white">Verified</div>
                   </div>
                   <div className="p-4 rounded-2xl bg-white/5 border border-white/10 shadow-[inset_0_1px_4px_rgba(255,255,255,0.05)]">
-                    <div className="text-[10px] font-mono text-blue-400 uppercase mb-1.5">{t('security.securedLabel')}</div>
-                    <div className="text-sm font-medium text-white">{t('security.securedValue')}</div>
+                    <div className="text-[10px] font-mono text-blue-400 uppercase mb-1.5">PDF Generation</div>
+                    <div className="text-sm font-medium text-white">Deployed</div>
                   </div>
                 </div>
 

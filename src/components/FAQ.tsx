@@ -106,14 +106,12 @@ export function FAQ() {
             <span className="text-[10px] font-medium text-white/80 uppercase tracking-[0.08em]">{t('faq.badge')}</span>
           </div>
           
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6 tracking-tight leading-tight text-balance">
-            <span className="block text-white">{t('faq.title1')}</span>
-            <span className="block bg-gradient-to-r from-[#0175ff] to-[#ffcd7d] bg-clip-text text-transparent pb-2">
-              {t('faq.title2')}
-            </span>
+          <h2>
+            <span>{t('faq.title1')}</span>
+            <span>{t('faq.title2')}</span>
           </h2>
           
-          <p className="text-[16px] md:text-[18px] text-white/50 max-w-xl mx-auto text-balance">
+          <p className="mt-6 max-w-2xl text-balance text-base md:text-lg text-white/50 font-light mx-auto leading-relaxed">
             {t('faq.subtitle')}
           </p>
         </div>

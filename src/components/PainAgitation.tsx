@@ -5,12 +5,14 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { FileSpreadsheet, ServerCrash, FileWarning, AlertTriangle } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
 }
 
 export function PainAgitation() {
+  const { t } = useTranslation();
   const containerRef = useRef<HTMLElement>(null);
 
   useGSAP(() => {
@@ -65,14 +67,14 @@ export function PainAgitation() {
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <div className="pain-header text-center will-change-[transform,opacity] mb-16 md:mb-20 flex flex-col items-center">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-red-500/20 bg-red-500/10 mb-6">
-            <span className="text-xs font-medium text-red-400 uppercase tracking-widest">Fuga de Capital</span>
+            <span className="text-[10px] font-medium text-red-400 uppercase tracking-[0.08em]">{t('pain.badge')}</span>
           </div>
           <h2>
-            <span>Por qué tu pipeline pierde</span>
-            <span>conversiones</span>
+            <span>{t('pain.title1')}</span>
+            <span>{t('pain.title2')}</span>
           </h2>
-          <p className="mt-6 text-lg text-white/60 max-w-xl mx-auto text-balance">
-            La fricción operativa es el asesino silencioso de tus cierres. Si tu proceso de cotización depende de hojas de cálculo, PDFs manuales y días de espera, literalmente estás financiando a tu competencia.
+          <p className="mt-6 max-w-2xl text-balance text-base md:text-lg text-white/50 font-light mx-auto leading-relaxed">
+            {t('pain.subtitle')}
           </p>
         </div>
 
@@ -85,27 +87,27 @@ export function PainAgitation() {
              <div className="flex-1 space-y-4 relative z-10">
                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/10 border border-red-500/20 mb-2">
                  <AlertTriangle size={14} className="text-red-400" />
-                 <span className="text-[10px] font-bold text-red-400 uppercase tracking-widest">Deal Lost</span>
+                 <span className="text-[10px] font-bold text-red-400 uppercase tracking-widest">{t('pain.dealLost')}</span>
                </div>
                <h3 className="text-2xl md:text-4xl font-display font-bold text-white leading-tight text-balance">
-                 Para cuando envías el PDF, el cliente ya firmó con tu competidor.
+                 {t('pain.b1Title')}
                </h3>
                <p className="text-white/50 text-sm md:text-base max-w-md">
-                 Los procesos manuales fragmentan la información y asesinan el momentum de ventas.
+                 {t('pain.b1Desc')}
                </p>
              </div>
              
              {/* Micro-UI: Tasa de Cierre */}
              <div className="w-full md:w-64 bg-black/50 border border-white/10 rounded-2xl p-5 relative z-10 flex flex-col gap-4">
                 <div>
-                  <p className="text-[10px] text-white/40 uppercase font-bold tracking-wider mb-1">Tu Tasa de Cierre</p>
+                  <p className="text-[10px] text-white/40 uppercase font-bold tracking-wider mb-1">{t('pain.closeRate')}</p>
                   <p className="text-4xl font-display font-bold text-red-400">12%</p>
                   <div className="w-full h-1.5 bg-white/5 rounded-full mt-2 overflow-hidden">
                     <div className="bento-bar-red h-full bg-red-500 rounded-full" style={{ width: '0%' }} />
                   </div>
                 </div>
                 <div>
-                  <p className="text-[10px] text-white/40 uppercase font-bold tracking-wider mb-1">Competencia Automatizada</p>
+                  <p className="text-[10px] text-white/40 uppercase font-bold tracking-wider mb-1">{t('pain.compRate')}</p>
                   <p className="text-2xl font-display font-bold text-white/90">70%</p>
                   <div className="w-full h-1.5 bg-white/5 rounded-full mt-2 overflow-hidden">
                     <div className="bento-bar-blue h-full bg-blue-500 rounded-full" style={{ width: '0%' }} />
@@ -114,14 +116,14 @@ export function PainAgitation() {
              </div>
           </div>
 
-          {/* Bento 2: Excel Hell */}
+          {/* Bento 2: {t('pain.b2Title')} */}
           <div className="bento-item will-change-[transform,opacity] bg-[#0a0a0c] border border-white/5 rounded-3xl p-6 relative overflow-hidden flex flex-col group">
             <div className="w-12 h-12 rounded-xl bg-green-500/10 flex items-center justify-center mb-6 border border-green-500/20 group-hover:scale-110 transition-transform">
               <FileSpreadsheet size={20} className="text-green-400" />
             </div>
-            <h3 className="text-xl font-bold text-white mb-2">Excel Hell</h3>
+            <h3 className="text-xl font-bold text-white mb-2">{t('pain.b2Title')}</h3>
             <p className="text-sm text-white/50 flex-1">
-              Captura manual de datos. Hojas desactualizadas. Un error de dedo y el margen de ganancia desaparece.
+              {t('pain.b2Desc')}
             </p>
             {/* Visual representation: Advanced Micro-UI */}
             <div className="mt-6 -mx-2 h-36 bg-[#0d1117]/80 border border-white/10 rounded-xl p-3 relative overflow-hidden flex flex-col font-mono text-[9px] shadow-[inset_0_0_10px_rgba(0,0,0,0.8)] opacity-90 group-hover:opacity-100 transition-opacity">
@@ -169,14 +171,14 @@ export function PainAgitation() {
             </div>
           </div>
 
-          {/* Bento 3: Sistemas Legacy */}
+          {/* Bento 3: {t('pain.b3Title')} */}
           <div className="bento-item will-change-[transform,opacity] bg-[#0a0a0c] border border-white/5 rounded-3xl p-6 relative overflow-hidden flex flex-col group">
             <div className="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center mb-6 border border-purple-500/20 group-hover:scale-110 transition-transform">
               <ServerCrash size={20} className="text-purple-400" />
             </div>
-            <h3 className="text-xl font-bold text-white mb-2">Sistemas Legacy</h3>
+            <h3 className="text-xl font-bold text-white mb-2">{t('pain.b3Title')}</h3>
             <p className="text-sm text-white/50 flex-1">
-              ERPs lentos y desconectados. Consultas cruzadas interminables para saber si hay inventario disponible.
+              {t('pain.b3Desc')}
             </p>
             {/* Visual representation: Terminal Micro-UI */}
             <div className="mt-6 -mx-2 h-36 bg-[#0a0a0a] border border-white/10 rounded-xl p-3 relative overflow-hidden font-mono text-[9px] shadow-[inset_0_0_10px_rgba(0,0,0,0.8)] opacity-90 group-hover:opacity-100 transition-opacity flex flex-col">
@@ -207,9 +209,9 @@ export function PainAgitation() {
               <div className="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center mb-6 border border-orange-500/20">
                 <FileWarning size={20} className="text-orange-400" />
               </div>
-              <h3 className="text-2xl font-bold text-white mb-2">Formato y Diseño Manual</h3>
+              <h3 className="text-2xl font-bold text-white mb-2">{t('pain.b4Title')}</h3>
               <p className="text-white/50 text-sm max-w-sm">
-                Tu equipo pasa más tiempo copiando y pegando logos en Word que cerrando ventas. El PDF final sale con errores de formato.
+                {t('pain.b4Desc')}
               </p>
             </div>
             
@@ -223,7 +225,7 @@ export function PainAgitation() {
                  <div className="w-full h-1.5 bg-gray-100 rounded" />
                </div>
                <div className="bento-error-badge absolute top-8 right-4 px-2 py-1 bg-red-500 text-white text-[8px] font-bold rounded shadow-lg -rotate-12 animate-pulse" style={{ opacity: 0 }}>
-                 ERROR DE PRECIO
+                 {t('pain.errorPrice')}
                </div>
             </div>
           </div>

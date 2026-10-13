@@ -1,16 +1,20 @@
 'use client';
 
+import { Button } from '@/components/ui/Button';
 import { useRef, useState, useEffect } from 'react';
 import { ArrowRight, Inbox, Users, FileText, MessageSquare, Database, Check, Menu, User, MoreHorizontal, Download, LayoutDashboard } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 
+import { useTranslation } from 'react-i18next';
+
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
 }
 
 export function HeroVentas() {
+  const { t } = useTranslation();
   const root = useRef<HTMLElement>(null);
   const dashboardRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -117,70 +121,39 @@ export function HeroVentas() {
       <div className="hero-text-content relative z-10 w-full px-6 flex flex-col items-center text-center">
         {/* Badge */}
         <div className="hero-badge mb-6 inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-black/80 md:bg-white/5 md:backdrop-blur-md">
-          <span className="text-[10px] sm:text-xs font-medium text-white/80 uppercase tracking-[0.05em]">
-            RevOps & Automatización B2B
+          <span className="text-[10px] font-medium text-white/80 uppercase tracking-[0.08em]">
+            {t('heroVentas.badge')}
           </span>
         </div>
 
         {/* H1 Oculto para SEO / Accesibilidad (Sniper B2B) */}
-        <h1 className="sr-only">Automatización de Cotizaciones B2B y Ecosistemas Lead-to-Cash</h1>
+        <h1 className="sr-only">{t('heroVentas.h1')}</h1>
 
         {/* Titular Visual (Ahora H2 por semántica) */}
         <div className="max-w-4xl">
           <h2 className="font-display font-semibold text-white text-balance tracking-[-0.03em]" style={{ fontSize: 'clamp(2.5rem, 5vw, 4.2rem)', lineHeight: 1.05 }}>
-            <span className="hero-line block will-change-transform pb-2">Cotiza en segundos.</span>
-            <span className="hero-line block will-change-transform pb-2 text-white/90">Cierra antes que todos.</span>
+            <span className="hero-line block will-change-transform pb-2">{t('heroVentas.title1')}</span>
+            <span className="hero-line block will-change-transform pb-2 text-white/90">{t('heroVentas.title2')}</span>
           </h2>
         </div>
 
         {/* Subtexto (Ahora H2 para cargar las keywords) */}
-        <h2 className="hero-sub mt-6 max-w-2xl text-balance text-white/70 font-light" style={{ fontSize: 'clamp(1rem, 2vw, 1.15rem)', lineHeight: 1.6 }}>
-          El 70% de las ventas corporativas se ganan por velocidad. Automatizamos tu pipeline Lead-to-Cash: desde el request en WhatsApp hasta el PDF formal, conectado directo a tu CRM y ERP.
+        <h2 className="hero-sub mt-6 max-w-2xl text-balance !text-base md:!text-lg !text-white/80 !font-light !tracking-normal !leading-relaxed">
+          {t('heroVentas.subtitle')}
         </h2>
 
         {/* CTAs Centrados */}
         <div className="hero-ctas-wrapper mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 w-full">
           
           {/* CTA Primario */}
-          <a 
-            href="#como-funciona" 
-            className="hero-cta group relative inline-flex w-full sm:w-auto items-center justify-center gap-2 px-8 py-4 text-sm font-semibold text-white transition-transform hover:scale-[1.02] active:scale-95 overflow-hidden"
-            style={{
-              borderRadius: '16px',
-              backgroundColor: '#000',
-              border: '1px solid rgba(255, 255, 255, 0.2)',
-              boxShadow: `
-                0px 0.8px 0.8px -0.75px rgba(0, 0, 0, 0.18), 
-                0px 2.2px 2.2px -1.5px rgba(0, 0, 0, 0.18), 
-                0px 5px 5px -2.25px rgba(0, 0, 0, 0.17), 
-                0px 11px 11px -3px rgba(0, 0, 0, 0.14), 
-                0px 28px 28px -3.75px rgba(0, 0, 0, 0.06), 
-                inset -4px 3px 9px 0px #0175ff, 
-                inset 3px -2px 8px 0px #ffcd7d
-              `
-            }}
-          >
-            <div className="absolute inset-0 -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-[1.5s] ease-in-out pointer-events-none" style={{ backgroundImage: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)' }} />
-            <span className="relative z-10 flex items-center gap-2">
-              Ver simulación en vivo
-              <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
-            </span>
-          </a>
+          <Button href="/#como-funciona" className="w-full sm:w-auto px-8 py-4">
+            {t('heroVentas.cta')}
+          </Button>
 
           {/* CTA Secundario */}
-          <a 
-            href="#simulador" 
-            className="hero-cta group relative inline-flex w-full sm:w-auto items-center justify-center px-8 py-4 text-sm font-semibold text-white transition-all duration-500 hover:scale-[1.02] active:scale-95 overflow-hidden bg-white/[0.02] hover:bg-white/[0.05] border border-white/[0.08] hover:border-white/[0.2] backdrop-blur-xl shadow-[inset_0_1px_2px_rgba(255,255,255,0.15),_0_10px_20px_rgba(0,0,0,0.4)]"
-            style={{ borderRadius: '16px' }}
-          >
-            {/* Reflejo de volumen (borde superior interno) */}
-            <div className="absolute inset-0 rounded-[16px] bg-gradient-to-b from-white/[0.08] to-transparent pointer-events-none" />
-            {/* Resplandor líquido que reacciona al hover */}
-            <div className="absolute -top-1/2 -left-1/2 w-[200%] h-[200%] bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.12)_0%,transparent_50%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-            {/* Destello de luz que cruza de izquierda a derecha (Shine) */}
-            <div className="absolute inset-0 -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-[1.5s] ease-in-out pointer-events-none" style={{ backgroundImage: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent)' }} />
-            <span className="relative z-10 tracking-wide">Auditar mi proceso</span>
-          </a>
+          <Button href="/#simulador" variant="secondary" showArrow={false} className="w-full sm:w-auto px-8 py-4">
+            {t('heroVentas.ctaSub')}
+          </Button>
 
         </div>
       </div>
@@ -246,17 +219,14 @@ export function HeroVentas() {
                 <div className="text-[10px] font-semibold text-white/40 uppercase tracking-wider mb-2 px-2">Workspace</div>
                 <div className="flex flex-col gap-0.5 mb-6">
                   <div className="flex items-center gap-2 text-[11px] lg:text-[13px] text-white/60 hover:text-white px-2 py-1.5 rounded hover:bg-white/5 cursor-default transition-colors">
-                    <Inbox size={14} className="opacity-70" /> Inbox
-                  </div>
+                    <Inbox size={14} className="opacity-70" />{t('heroVentas.dashInbox')}</div>
                   <div className="flex items-center justify-between text-[11px] lg:text-[13px] text-white/90 bg-white/[0.06] px-2 py-1.5 rounded cursor-default border border-white/5 shadow-sm">
                     <div className="flex items-center gap-2">
-                      <Users size={14} className="opacity-70" /> Active Deals
-                    </div>
+                      <Users size={14} className="opacity-70" />{t('heroVentas.dashActive')}</div>
                     <span className="text-[10px] bg-white/10 px-1.5 py-0.5 rounded text-white/70">12</span>
                   </div>
                   <div className="flex items-center gap-2 text-[11px] lg:text-[13px] text-white/60 hover:text-white px-2 py-1.5 rounded hover:bg-white/5 cursor-default transition-colors">
-                    <FileText size={14} className="opacity-70" /> Quotes
-                  </div>
+                    <FileText size={14} className="opacity-70" />{t('heroVentas.dashQuotes')}</div>
                 </div>
              </div>
 
@@ -264,14 +234,14 @@ export function HeroVentas() {
              <div className="flex-1 bg-[#0a0a0a] md:bg-[#161616] flex flex-col overflow-y-auto relative z-0 hide-scrollbar pb-24 md:pb-0">
                 {/* Header (Desktop + Mobile inline) */}
                 <div className="md:h-12 border-b border-white/5 flex flex-col md:flex-row md:items-center px-4 py-2.5 md:py-0 md:px-6 shrink-0 justify-between bg-[#0e0e0e] md:bg-[#161616]/80 backdrop-blur-sm z-10">
-                  <div className="flex items-start md:items-center gap-3 text-[13px] md:text-[11px] lg:text-[13px] max-[340px]:text-[11px] text-white/50">
-                    <div className="flex items-center gap-1.5 px-2 py-1 rounded bg-yellow-500/10 text-yellow-500 font-mono text-[10px] border border-yellow-500/20">
+                  <div className="flex items-start md:items-center gap-3 text-[13px] md:text-[11px] lg:text-[13px] max-[340px]:text-[11px] text-white/50 w-full md:w-auto">
+                    <div className="flex shrink-0 items-center gap-1.5 px-2 py-1 rounded bg-yellow-500/10 text-yellow-500 font-mono text-[10px] border border-yellow-500/20">
                       <div className="w-1.5 h-1.5 rounded-full bg-yellow-500 animate-pulse"></div>
-                      DEAL- 992
+                      <span className="hidden md:inline">DEAL- </span>992
                     </div>
                     <div className="hidden md:block w-px h-4 bg-white/10"></div>
-                    <span className="text-white/80 font-medium tracking-tight max-[340px]:text-[11px]">
-                      Industrias Corporativas - Póliza de Servicio Anual
+                    <span className="text-white/80 font-medium tracking-tight max-[340px]:text-[11px] flex-1 min-w-0 truncate max-w-[170px] min-[400px]:max-w-[220px] sm:max-w-none">
+                      {t('heroVentas.dealName')}
                     </span>
                   </div>
                   <div className="hidden md:flex items-center gap-3">
@@ -297,12 +267,12 @@ export function HeroVentas() {
                        </div>
                        <div className="pt-1.5 md:pt-2 w-full">
                          <div className="text-[13px] md:text-[11px] lg:text-[13px] max-[340px]:text-[11px] text-white/90 font-medium mb-2 flex flex-col lg:flex-row items-start lg:items-center gap-0.5 lg:gap-2">
-                           <span>[A BLANK] creó el deal vía WhatsApp</span>
-                           <span className="text-white/30 font-normal text-[11px]"><span className="hidden lg:inline">· </span>hace 2 min</span>
+                           <span>{t("heroVentas.dealCreator")}</span>
+                           <span className="text-white/30 font-normal text-[11px]"><span className="hidden lg:inline">· </span>{t("heroVentas.dealTime")}</span>
                          </div>
                          <div className="text-[13px] md:text-[11px] lg:text-[13px] max-[340px]:text-[11px] text-white/60 bg-[#121212] md:bg-[#1e1e1e] border border-white/5 md:border-white/5 rounded-xl p-3 md:p-3 shadow-sm inline-block w-full md:w-auto">
                            <span className="text-white/40">Lead:</span>{" "}
-                           "Solicitamos propuesta técnica y cotización para la póliza de mantenimiento preventivo anual en nuestras 3 plantas de Nuevo León."
+                           {t('heroVentas.dealMsg')}
                          </div>
                        </div>
                      </div>
@@ -316,13 +286,12 @@ export function HeroVentas() {
                        </div>
                        <div className="pt-1.5 md:pt-2">
                          <div className="text-[13px] md:text-[11px] lg:text-[13px] max-[340px]:text-[11px] text-white/90 font-medium mb-1.5 flex flex-col lg:flex-row items-start lg:items-center gap-0.5 lg:gap-2">
-                           <span>Automation Engine</span>
-                           <span className="text-white/30 font-normal text-[11px]"><span className="hidden lg:inline">· </span>0.4s después</span>
+                           <span>{t("heroVentas.dealEngine")}</span>
+                           <span className="text-white/30 font-normal text-[11px]"><span className="hidden lg:inline">· </span>{t("heroVentas.dealEngineTime")}</span>
                          </div>
                          <div className="text-[13px] md:text-[11px] lg:text-[13px] max-[340px]:text-[11px] text-white/70 leading-relaxed max-w-sm">
-                           Validando disponibilidad de ingenieros en el ERP y tabulador de viáticos 2026. 
-                           <div className="mt-2 text-green-400 font-mono bg-green-500/10 px-2 py-1 rounded-md inline-block border border-green-500/10 text-[11px]">
-                             Status: 200 OK (Capacidad operativa confirmada).
+                           {t('heroVentas.sysMsg1')}<div className="mt-2 text-green-400 font-mono bg-green-500/10 px-2 py-1 rounded-md inline-block border border-green-500/10 text-[11px]">
+                             {t('heroVentas.sysMsg2')}
                            </div>
                          </div>
                        </div>
@@ -337,8 +306,8 @@ export function HeroVentas() {
                        </div>
                        <div className="w-full pt-1.5 md:pt-2">
                          <div className="text-[13px] md:text-[11px] lg:text-[13px] max-[340px]:text-[11px] text-white/90 font-medium mb-2.5 flex flex-col lg:flex-row items-start lg:items-center gap-0.5 lg:gap-2">
-                           <span>[A BLANK] System</span>
-                           <span className="text-white/30 font-normal text-[11px]"><span className="hidden lg:inline">· </span>0.8s después</span>
+                           <span>{t('heroVentas.sysName')}</span>
+                           <span className="text-white/30 font-normal text-[11px]"><span className="hidden lg:inline">· </span>{t('heroVentas.sysTime')}</span>
                          </div>
                          
                          {/* PDF Card */}
@@ -349,10 +318,10 @@ export function HeroVentas() {
                               </div>
                               <div className="flex-1 overflow-hidden">
                                 <div className="text-[12px] md:text-[11px] lg:text-[13px] max-[340px]:text-[11px] text-white/90 font-medium tracking-tight truncate w-[150px] md:w-auto">
-                                  Propuesta_Poliza_Anual_Plantas.pdf
+                                  {t('heroVentas.sysPdf')}
                                 </div>
                                 <div className="text-[11px] text-white/40 mt-0.5">
-                                  2.4 MB · Generado por AI
+                                  {t('heroVentas.sysSize')}
                                 </div>
                               </div>
                             </div>
@@ -360,7 +329,7 @@ export function HeroVentas() {
                               <Download size={16} />
                             </div>
                             <div className="hidden md:block px-2.5 py-1 rounded-md bg-green-500/10 border border-green-500/20 text-green-400 text-[11px] font-mono whitespace-nowrap shadow-[inset_0_0_8px_rgba(34,197,94,0.1)]">
-                              Deal Won: $850,000 MXN
+                              {t('heroVentas.sysStatus')}
                             </div>
                          </div>
                        </div>
@@ -378,15 +347,15 @@ export function HeroVentas() {
                 <div className="w-10 h-1 bg-white/10 rounded-full mx-auto mb-3"></div>
                 <div className="flex items-center gap-2 text-[11px] text-[#5e6ad2] font-semibold tracking-wide mb-3">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#5e6ad2] shadow-[0_0_6px_rgba(94,106,210,0.6)]"></span>
-                  [A BLANK] Copilot v2
+                  {t('heroVentas.copilotName')}
                 </div>
-                <h3 className="text-white font-medium text-[15px] max-[340px]:text-[13px] mb-1">Automatización Completada</h3>
-                <p className="text-white/50 text-[12px] leading-relaxed mb-4">Generó el PDF y actualizó el estado sin bloquear el hilo principal.</p>
+                <h3 className="text-white font-medium text-[15px] max-[340px]:text-[13px] mb-1">{t('heroVentas.copilotTitle')}</h3>
+                <p className="text-white/50 text-[12px] leading-relaxed mb-4">{t('heroVentas.copilotDesc')}</p>
                 
                 <div className="space-y-2">
                   <div className="bg-[#1a1a1a] rounded-lg p-3 flex items-start gap-3 border border-white/5">
                     <Check size={14} className="text-[#5e6ad2] shrink-0 mt-0.5" />
-                    <span className="text-white/70 text-[13px] leading-snug max-[340px]:text-[11px]">Validado con reglas de negocio</span>
+                    <span className="text-white/70 text-[13px] leading-snug max-[340px]:text-[11px]">{t('heroVentas.copilotCheck1')}</span>
                   </div>
                   
                 </div>
@@ -397,7 +366,7 @@ export function HeroVentas() {
                 <div className="h-9 bg-white/5 border-b border-white/5 flex items-center px-3 justify-between shrink-0">
                   <div className="text-[11px] font-medium text-white/70 flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#5e6ad2] shadow-[0_0_6px_rgba(94,106,210,0.6)]"></span>
-                    [A BLANK] Copilot v2
+                    {t('heroVentas.copilotName')}
                   </div>
                   <div className="flex gap-1.5">
                     <div className="w-2.5 h-2.5 rounded-full bg-white/10" />
@@ -405,15 +374,15 @@ export function HeroVentas() {
                   </div>
                 </div>
                 <div className="p-3.5 text-[12px] text-white/70 space-y-2.5 bg-black/20 flex-1">
-                  <p className="text-white/90 font-medium text-[11px] lg:text-[13px]">Automatización Completada</p>
-                  <p className="text-[11px] text-white/40 leading-relaxed mb-2">Generó el PDF y actualizó el estado sin bloquear el hilo principal.</p>
+                  <p className="text-white/90 font-medium text-[11px] lg:text-[13px]">{t('heroVentas.copilotTitle')}</p>
+                  <p className="text-[11px] text-white/40 leading-relaxed mb-2">{t('heroVentas.copilotDesc')}</p>
                   <div className="flex items-start gap-2 text-white/60 bg-[#1e1e1e] p-2 rounded border border-white/5 leading-snug">
                     <Check size={12} className="text-[#5e6ad2] shrink-0 mt-[3px]" />
-                    <span>Validado con reglas de negocio</span>
+                    <span>{t('heroVentas.copilotCheck1')}</span>
                   </div>
                   <div className="flex items-start gap-2 text-white/60 bg-[#1e1e1e] p-2 rounded border border-white/5 leading-snug">
                     <Check size={12} className="text-[#5e6ad2] shrink-0 mt-[3px]" />
-                    <span>Márgenes de rentabilidad validados. Contrato generado con cláusulas de SLA.</span>
+                    <span>{t('heroVentas.copilotCheck2')}</span>
                   </div>
                 </div>
              </div>
@@ -422,20 +391,20 @@ export function HeroVentas() {
              <div className="md:hidden absolute bottom-0 left-0 right-0 h-[60px] bg-[#0a0a0a] border-t border-white/5 flex items-center justify-around px-2 z-40">
                <div className="flex flex-col items-center gap-1 text-white/40 relative h-full justify-center">
                  <Inbox size={20} />
-                 <span className="text-[10px]">Inbox</span>
+                 <span className="text-[10px]">{t('heroVentas.dashInbox')}</span>
                </div>
                <div className="flex flex-col items-center gap-1 text-green-400 relative h-full justify-center">
                  <LayoutDashboard size={20} />
-                 <span className="text-[10px]">Active Deals</span>
+                 <span className="text-[10px]">{t('heroVentas.dashActive')}</span>
                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-8 h-[3px] bg-green-500 rounded-t-full"></div>
                </div>
                <div className="flex flex-col items-center gap-1 text-white/40 relative h-full justify-center">
                  <FileText size={20} />
-                 <span className="text-[10px]">Quotes</span>
+                 <span className="text-[10px]">{t('heroVentas.dashQuotes')}</span>
                </div>
                <div className="flex flex-col items-center gap-1 text-white/40 relative h-full justify-center">
                  <MoreHorizontal size={20} />
-                 <span className="text-[10px]">More</span>
+                 <span className="text-[10px]">{t('heroVentas.dashMore')}</span>
                </div>
              </div>
              

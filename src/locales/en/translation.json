@@ -1,760 +1,17 @@
 {
   "nav": {
     "platform": "Architecture",
-    "solutions": "Capabilities",
-    "simulator": "Simulator",
+    "solutions": "Simulator",
+    "simulator": "Calculator",
     "faq": "FAQ",
-    "talkToExpert": "Book Architecture Review"
-  },
-  "hero": {
-    "badge": "SLA-Backed Custom Infrastructure",
-    "title1": "Scale your operations,",
-    "title2": "not your chaos.",
-    "subtitle": "Your team wastes hours daily on manual tasks. We build the idempotent technical infrastructure to run without bottlenecks: custom web ecosystems, Zero-Data-Leak architectures, and seamless CRM integrations.",
-    "cta1": "View Simulator",
-    "cta2": "Book Architecture Review",
-    "stats": {
-      "systems": "Systems Integrated",
-      "systemsSub": "CRM, ERP & Channels",
-      "uptime": "Uptime SLA",
-      "uptimeSub": "Uninterrupted operations",
-      "sync": "Sync Accuracy",
-      "syncSub": "Real-time data flow",
-      "core": "Centralized Core",
-      "coreSub": "Total business control"
-    }
-  },
-  "positioning": {
-    "badge1": "Broken Infrastructure",
-    "title1_1": "Saturated chats and",
-    "title1_2": "manual Excel workflows.",
-    "badge2": "Solid Architecture",
-    "title2_1": "One Central System",
-    "title2_2": "idempotent and scalable.",
-    "layers": {
-      "layer0": {
-        "label": "Central AI",
-        "desc": "Core Processing"
-      },
-      "layer1": {
-        "label": "WhatsApp",
-        "desc": "Unified Messaging"
-      },
-      "layer2": {
-        "label": "CRM Leads",
-        "desc": "Smart Management"
-      },
-      "layer3": {
-        "label": "Web & Shop",
-        "desc": "Digital Storefront"
-      }
-    }
-  },
-  "platform": {
-    "badge": "Real-Time Interconnection",
-    "title1": "Your entire operation.",
-    "title2": "Centralized in a single ecosystem.",
-    "modules": {
-      "mod0": {
-        "label": "Website",
-        "desc": "Front-end"
-      },
-      "mod1": {
-        "label": "Ads",
-        "desc": "Acquisition"
-      },
-      "mod2": {
-        "label": "CRM",
-        "desc": "Management"
-      },
-      "mod3": {
-        "label": "Data",
-        "desc": "Storage"
-      },
-      "mod4": {
-        "label": "Central Core",
-        "desc": "Architecture"
-      },
-      "mod5": {
-        "label": "Analytics",
-        "desc": "Metrics"
-      },
-      "mod6": {
-        "label": "WhatsApp",
-        "desc": "Chat"
-      },
-      "mod7": {
-        "label": "Auto",
-        "desc": "Triggers"
-      },
-      "mod8": {
-        "label": "Software",
-        "desc": "API"
-      }
-    }
-  },
-  "features": {
-    "badge": "Core Capabilities",
-    "title1": "Not just another generic SaaS.",
-    "title2": "We are the architects of your operation.",
-    "items": {
-      "website": {
-        "title": "Zero-Friction Digital Experience",
-        "desc": "We engineer high-converting digital experiences. Your website isn't a brochure—it's the resilient entry point to your system."
-      },
-      "crm": {
-        "title": "Idempotent CRM & Leads",
-        "desc": "Forget Excel chaos. Capture, qualify, and centralize every WhatsApp lead directly into a reliable, self-hosted system."
-      },
-      "ai": {
-        "title": "Artificial Intelligence",
-        "desc": "Lead scoring, automated responses, and predictive analytics integrated into your risk-free workflows."
-      },
-      "automation": {
-        "title": "SLA-Backed Automation",
-        "desc": "From automated quoting to follow-ups. We operate your business on autopilot with guaranteed uptime and human touch."
-      },
-      "analytics": {
-        "title": "Analytics",
-        "desc": "Convert business activity into actionable insights. Real-time dashboards, not static reports."
-      },
-      "integrations": {
-        "title": "Zero-Data-Leak Integrations",
-        "desc": "Connect the tools your business already uses. Secure APIs, reliable webhooks, and bidirectional syncing."
-      }
-    },
-    "cta": {
-      "title": "Ready to scale without risk?",
-      "subtitle": "Let's make this happen. Your central system is waiting.",
-      "btn1": "Design my system",
-      "btn2": "Talk to an engineer"
-    },
-    "visuals": {
-      "crm": {
-        "hotLead": "Hot Lead",
-        "capture": "Capture",
-        "quote": "Quote",
-        "close": "Close"
-      },
-      "ai": {
-        "msg1": "Hi! Do you have availability for a demo?",
-        "msg2": "Of course! I have 2 free slots this Thursday. Do you prefer AM or PM?",
-        "opt1": "Thursday AM",
-        "opt2": "Thursday PM"
-      },
-      "automation": {
-        "webLead": "Web Lead",
-        "aiRouter": "AI Router",
-        "createDeal": "Create Deal",
-        "emailDrip": "Email Drip",
-        "notify": "Notify"
-      }
-    }
-  },
-  "useCases": {
-    "badge": "Use Cases",
-    "title1": "One central system.",
-    "title2": "For every business area.",
-    "marketing": {
-      "label": "Marketing",
-      "title": "Capture and nurture leads automatically",
-      "desc": "From the first click to the CRM. Every campaign, every landing page, every contact — synchronized.",
-      "workflow": [
-        {
-          "step": "Active campaign",
-          "detail": "Google Ads + Meta Ads"
-        },
-        {
-          "step": "Dynamic landing",
-          "detail": "AI optimized"
-        },
-        {
-          "step": "Lead captured",
-          "detail": "Form → CRM auto-sync"
-        },
-        {
-          "step": "Nurture sequence",
-          "detail": "Email + WhatsApp"
-        },
-        {
-          "step": "Lead scored",
-          "detail": "AI intent classification"
-        }
-      ],
-      "metrics": [
-        {
-          "label": "Cost per lead",
-          "value": "-42%"
-        },
-        {
-          "label": "Leads/month",
-          "value": "1,240"
-        },
-        {
-          "label": "Qualification",
-          "value": "Auto"
-        }
-      ]
-    },
-    "sales": {
-      "label": "Sales",
-      "title": "Quoting and sales system via WhatsApp",
-      "desc": "Visible pipeline, automated follow-up, and quotes in seconds. Your team focused only on closing deals.",
-      "workflow": [
-        {
-          "step": "Lead assigned",
-          "detail": "Automatic distribution"
-        },
-        {
-          "step": "Quote sent",
-          "detail": "Connected quoting tool"
-        },
-        {
-          "step": "Follow-up",
-          "detail": "WhatsApp + email reminders"
-        },
-        {
-          "step": "Proposal accepted",
-          "detail": "Digital signature"
-        },
-        {
-          "step": "Deal won",
-          "detail": "Sync with billing"
-        }
-      ],
-      "metrics": [
-        {
-          "label": "Conversion",
-          "value": "32%"
-        },
-        {
-          "label": "Sales cycle",
-          "value": "-5 days"
-        },
-        {
-          "label": "Avg. ticket",
-          "value": "$3.2k"
-        }
-      ]
-    },
-    "operations": {
-      "label": "Operations",
-      "title": "Automate internal processes",
-      "desc": "Inventory, orders, suppliers, logistics. What requires supervision today — runs itself.",
-      "workflow": [
-        {
-          "step": "Order received",
-          "detail": "Ecommerce + API"
-        },
-        {
-          "step": "Stock validated",
-          "detail": "Automatic sync"
-        },
-        {
-          "step": "Supplier notified",
-          "detail": "Automatic reorder"
-        },
-        {
-          "step": "Logistics assigned",
-          "detail": "AI optimized route"
-        },
-        {
-          "step": "Delivery confirmed",
-          "detail": "WhatsApp to client"
-        }
-      ],
-      "metrics": [
-        {
-          "label": "Auto processes",
-          "value": "87%"
-        },
-        {
-          "label": "Errors",
-          "value": "-94%"
-        },
-        {
-          "label": "Op. time",
-          "value": "-60%"
-        }
-      ]
-    },
-    "service": {
-      "label": "Customer Service",
-      "title": "Immediate responses, 24/7",
-      "desc": "AI answers frequent queries. Escalates to human when needed. Everything is logged.",
-      "workflow": [
-        {
-          "step": "Query received",
-          "detail": "WhatsApp + Web + Email"
-        },
-        {
-          "step": "AI answers",
-          "detail": "CRM context aware"
-        },
-        {
-          "step": "Ticket created",
-          "detail": "If human required"
-        },
-        {
-          "step": "Agent assigned",
-          "detail": "By specialty"
-        },
-        {
-          "step": "Resolution",
-          "detail": "System feedback"
-        }
-      ],
-      "metrics": [
-        {
-          "label": "Response",
-          "value": "<30s"
-        },
-        {
-          "label": "Auto-resolve",
-          "value": "78%"
-        },
-        {
-          "label": "Satisfaction",
-          "value": "4.8/5"
-        }
-      ]
-    },
-    "admin": {
-      "label": "Administration",
-      "title": "Total business control",
-      "desc": "Billing, reports, compliance, access. A single platform for all back-office.",
-      "workflow": [
-        {
-          "step": "Sale logged",
-          "detail": "Automatic sync"
-        },
-        {
-          "step": "Invoice generated",
-          "detail": "W-8BEN & tax compliance"
-        },
-        {
-          "step": "Consolidated report",
-          "detail": "Real-time dashboard"
-        },
-        {
-          "step": "Audit",
-          "detail": "Log of every action"
-        },
-        {
-          "step": "Payments reconciled",
-          "detail": "Bank API + SWIFT/Wire"
-        }
-      ],
-      "metrics": [
-        {
-          "label": "Automation",
-          "value": "92%"
-        },
-        {
-          "label": "Manual error",
-          "value": "-98%"
-        },
-        {
-          "label": "Reporting",
-          "value": "Real-time"
-        }
-      ]
-    },
-    "analytics": {
-      "label": "Analytics",
-      "title": "Data-driven decisions, not intuition",
-      "desc": "Every business area visible in dashboards. Metrics that update themselves.",
-      "workflow": [
-        {
-          "step": "Consolidated data",
-          "detail": "All sources"
-        },
-        {
-          "step": "AI processing",
-          "detail": "Patterns and trends"
-        },
-        {
-          "step": "Unified dashboard",
-          "detail": "KPIs by area"
-        },
-        {
-          "step": "Smart alerts",
-          "detail": "Anomalies detected"
-        },
-        {
-          "step": "Automated reports",
-          "detail": "Periodic to stakeholders"
-        }
-      ],
-      "metrics": [
-        {
-          "label": "Sources",
-          "value": "14+"
-        },
-        {
-          "label": "Update",
-          "value": "Real-time"
-        },
-        {
-          "label": "Insights",
-          "value": "Auto"
-        }
-      ]
-    },
-    "workflowEngine": "Workflow Engine"
-  },
-  "product": {
-    "badge": "Live SLA Simulators",
-    "title1": "Zero-latency workflows.",
-    "title2": "Real-time execution.",
-    "subtitle": "Select a use case and watch how our AI engine interacts with the client while autonomously updating your CRM.",
-    "chatAIHeader": "AI Agent",
-    "chatOnline": "Online",
-    "typeMsg": "Type a message...",
-    "systemLog": "System Log (Real-time)",
-    "activeListening": "Active & Listening",
-    "automations": "Automations",
-    "originLabel": "Origin",
-    "generatedAI": "AI Generated",
-    "scenarios": [
-      {
-        "label": "B2B Quoting",
-        "contactName": "Carlos Mendoza",
-        "statusOld": "NEW LEAD",
-        "statusNew": "SALE WON",
-        "kpiTitle": "Pipeline Revenue",
-        "extractedLabel": "Required Vol.",
-        "extractedOld": "--",
-        "extractedNew": "50k units (AI Ext.)",
-        "origin": "Google Ads (Search)",
-        "chat": [
-          {
-            "text": "Hi, I need a quote for printing 50,000 corporate catalogs. Found you on Google.",
-            "time": "10:42 AM"
-          },
-          {
-            "text": "Hello! 👋 We specialize in high volume. To give you an exact price, how many pages per catalog?",
-            "time": "10:42 AM"
-          },
-          {
-            "text": "They are 32 pages, matte coated paper.",
-            "time": "10:43 AM"
-          },
-          {
-            "text": "Perfect. I have calculated the cost per thousand applying our volume discount. Here is the official quote 👇",
-            "time": "10:43 AM",
-            "pdf": "Quote_50k.pdf",
-            "pdfSize": "142 KB"
-          },
-          {
-            "text": "Excellent price! Approved, how do we proceed?",
-            "time": "10:44 AM"
-          },
-          {
-            "text": "Great! 🎉 I just created your production order. The down payment and portal link has been sent to your email.",
-            "time": "10:44 AM"
-          }
-        ],
-        "logs": [
-          {
-            "title": "B2B Lead Created in CRM",
-            "desc": "Campaign: Search_Corp_Printing"
-          },
-          {
-            "title": "AI Data Extraction",
-            "desc": "Catalogs · 50k units · 32 pgs"
-          },
-          {
-            "title": "Quote #1042 Generated",
-            "desc": "Volume discount applied (15%)"
-          },
-          {
-            "title": "Sale Won (Closed)",
-            "desc": "Production order generated · +.5k"
-          }
-        ],
-        "kpiOld": "$450,000",
-        "kpiNew": "+$575,000",
-        "contactPhone": "+52 55 1234 5678"
-      },
-      {
-        "label": "Invoicing",
-        "contactName": "Constructora ABC",
-        "statusOld": "OPEN TICKET",
-        "statusNew": "CLOSED TICKET",
-        "kpiTitle": "Tickets Resolved (Today)",
-        "extractedLabel": "Ref. Ticket",
-        "extractedOld": "--",
-        "extractedNew": "#8932 (Tax OK)",
-        "origin": "Client Portal",
-        "chat": [
-          {
-            "text": "Hi, I need the invoice for my last electrical material purchase. Ticket number 8932.",
-            "time": "11:15 AM"
-          },
-          {
-            "text": "Hello! 👋 Sure, I found your ticket for . Can you confirm we are using the \"Constructora ABC\" tax ID?",
-            "time": "11:15 AM"
-          },
-          {
-            "text": "Yes, please, the same tax details as always.",
-            "time": "11:16 AM"
-          },
-          {
-            "text": "Done. I processed your request with the tax authorities. Here are your XML and PDF files 👇",
-            "time": "11:16 AM",
-            "pdf": "Invoice_8932.zip",
-            "pdfSize": "34 KB"
-          },
-          {
-            "text": "Everything looks perfect, thank you for the speed.",
-            "time": "11:17 AM"
-          },
-          {
-            "text": "My pleasure! Let me know if you need anything else. Have a great day.",
-            "time": "11:17 AM"
-          }
-        ],
-        "logs": [
-          {
-            "title": "Invoice Request",
-            "desc": "Ticket detected: #8932"
-          },
-          {
-            "title": "AI Tax Validation",
-            "desc": "Client data verified with tax auth"
-          },
-          {
-            "title": "Invoice Generated",
-            "desc": "Successfully stamped via PAC"
-          },
-          {
-            "title": "Ticket Resolved",
-            "desc": "Resolution time: 1m 14s"
-          }
-        ],
-        "kpiOld": "142",
-        "kpiNew": "143 (Auto)",
-        "contactPhone": "+52 81 9876 5432"
-      },
-      {
-        "label": "Scheduling",
-        "contactName": "Andrea Gómez",
-        "statusOld": "NEW PROSPECT",
-        "statusNew": "APPOINTMENT CONFIRMED",
-        "kpiTitle": "Weekly Schedule",
-        "extractedLabel": "Selected Time",
-        "extractedOld": "--",
-        "extractedNew": "Tuesday · 4:00 PM",
-        "origin": "Instagram Ads",
-        "chat": [
-          {
-            "text": "Hi, I would like to schedule a consultation for next week.",
-            "time": "09:05 AM"
-          },
-          {
-            "text": "Hello Andrea! 👋 It would be a pleasure. We have availability on Tuesday at 4:00 PM or Thursday at 11:00 AM. Which do you prefer?",
-            "time": "09:05 AM"
-          },
-          {
-            "text": "Tuesday at 4 PM works perfectly.",
-            "time": "09:06 AM"
-          },
-          {
-            "text": "Excellent choice. I have blocked that slot in the calendar. Would you like me to send you the clinic location here?",
-            "time": "09:06 AM"
-          },
-          {
-            "text": "Yes, please, see you on Tuesday.",
-            "time": "09:08 AM"
-          },
-          {
-            "text": "Appointment confirmed! I will send you a reminder one day before with arrival instructions.",
-            "time": "09:08 AM"
-          }
-        ],
-        "logs": [
-          {
-            "title": "New Medical Lead",
-            "desc": "Interest: Consultation"
-          },
-          {
-            "title": "AI Date Extraction",
-            "desc": "Choice: Tuesday · 4:00 PM"
-          },
-          {
-            "title": "Appointment Scheduled",
-            "desc": "Blocked in Google Calendar"
-          },
-          {
-            "title": "Automation Ready",
-            "desc": "SMS reminder scheduled at -24h"
-          }
-        ],
-        "kpiOld": "78% Booked",
-        "kpiNew": "82% Booked",
-        "contactPhone": "+52 33 4455 6677"
-      },
-      {
-        "label": "Reservations",
-        "contactName": "Roberto Valdés",
-        "statusOld": "ACTIVE RESERVATION",
-        "statusNew": "MODIFIED (6 PAX)",
-        "kpiTitle": "Occupancy Today",
-        "extractedLabel": "Modification",
-        "extractedOld": "4 Pax",
-        "extractedNew": "6 Pax (+2 extra)",
-        "origin": "Database (VIP)",
-        "chat": [
-          {
-            "text": "Hi, I received the reminder for my dinner tonight, but I need to add 2 more people.",
-            "time": "16:30 PM"
-          },
-          {
-            "text": "Hello Roberto! 👋 I see your reservation for 4 people at 8:30 PM. Should I confirm it for 6 people then?",
-            "time": "16:30 PM"
-          },
-          {
-            "text": "That is correct, 6 in total. We will be right on time.",
-            "time": "16:31 PM"
-          },
-          {
-            "text": "I have updated your reservation to 6 people and adjusted the table for your comfort. Your VIP access code is #RV-998.",
-            "time": "16:31 PM"
-          },
-          {
-            "text": "Awesome, thank you so much for the attention.",
-            "time": "16:33 PM"
-          },
-          {
-            "text": "All set! Your table will be waiting. See you tonight at 8:30 PM.",
-            "time": "16:33 PM"
-          }
-        ],
-        "logs": [
-          {
-            "title": "Modification Request",
-            "desc": "Reservation detected: Table 4"
-          },
-          {
-            "title": "AI Data Extraction",
-            "desc": "Adjustment detected: 4 to 6 Pax"
-          },
-          {
-            "title": "System Update",
-            "desc": "Merging Table 4 + Table 5"
-          },
-          {
-            "title": "Reservation Confirmed",
-            "desc": "VIP tag applied at Host Stand"
-          }
-        ],
-        "kpiOld": "92% Full",
-        "kpiNew": "95% Full",
-        "contactPhone": "+52 55 9988 7766"
-      },
-      {
-        "label": "Tech Support",
-        "contactName": "Tech Solutions SA",
-        "statusOld": "CRITICAL INCIDENT",
-        "statusNew": "SYSTEM OPERATIONAL",
-        "kpiTitle": "Global Uptime",
-        "extractedLabel": "Sys. Error",
-        "extractedOld": "--",
-        "extractedNew": "Error 504 (Timeout)",
-        "origin": "Monitoring Alert",
-        "chat": [
-          {
-            "text": "Hi, our online store is down. I am getting a 504 error for the past 5 minutes.",
-            "time": "02:14 AM"
-          },
-          {
-            "text": "Hello! Sorry for the inconvenience. I am analyzing your server. I see an anomalous traffic spike, do you authorize a web service restart?",
-            "time": "02:14 AM"
-          },
-          {
-            "text": "Yes, please proceed immediately, we are losing sales.",
-            "time": "02:15 AM"
-          },
-          {
-            "text": "Restart completed successfully. Services are 100% operational again. Here is the technical report 👇",
-            "time": "02:15 AM",
-            "pdf": "Incident_Report.pdf",
-            "pdfSize": "210 KB"
-          },
-          {
-            "text": "I can access the store now. Works perfectly, thank you a million.",
-            "time": "02:17 AM"
-          },
-          {
-            "text": "Glad we could solve it. We will monitor the server closely for the next hours.",
-            "time": "02:17 AM"
-          }
-        ],
-        "logs": [
-          {
-            "title": "Critical Alert Received",
-            "desc": "Priority: High · 504 Gateway Error"
-          },
-          {
-            "title": "AI Diagnostics",
-            "desc": "Cause: RAM overload"
-          },
-          {
-            "title": "Automated Execution",
-            "desc": "Restart script (Nginx) invoked"
-          },
-          {
-            "title": "Ticket Resolved",
-            "desc": "SLA Met: <4 minutes"
-          }
-        ],
-        "kpiOld": "99.98%",
-        "kpiNew": "99.99%",
-        "contactPhone": "+52 33 1122 3344"
-      }
-    ],
-    "clickToStart": "Click to start simulation",
-    "useCaseLabel": "Use Case"
-  },
-  "simulator": {
-    "badge": "Automation Calculator",
-    "title1": "How much are manual",
-    "title2": "processes costing you?",
-    "subtitle": "Calculate the time and capital you are burning every month on tasks that should be automated.",
-    "q1": {
-      "label": "How many team members are involved in these processes?",
-      "desc": "Include all personnel who participate, even if it is only part of their shift."
-    },
-    "q2": {
-      "label": "How many hours per week do they consume in total?",
-      "desc": "Sum the hours all individuals dedicate to these workflows during a week.",
-      "suffix": "h/wk"
-    },
-    "q3": {
-      "label": "What is the approximate hourly cost?",
-      "desc": "Use salary, benefits, and rough overhead; no need for an exact figure."
-    },
-    "q4": {
-      "label": "What portion of this work do you believe could be automated?",
-      "desc": "For a conservative estimate, start with 50%. We can validate actual feasibility later."
-    },
-    "resultTitle": "The true cost of manual execution",
-    "costLabel": "Monthly cost of manual labor",
-    "costDesc": "This is the monthly value of the time currently invested. It does not factor in errors, rework, or lost opportunities.",
-    "recoverableLabel": "Potentially recoverable monthly value",
-    "recoverableDesc": "This is not a guaranteed savings promise: it is a baseline of the value you could unlock by automating approx. {{rate}}% of these tasks.",
-    "hoursMonth": "{{hours}} hours / month",
-    "yearLabel": "{{cost}} / year",
-    "cta": "I want to automate these processes",
-    "bottomText1": "{{people}} members · {{hours}} h/month",
-    "bottomText2": "{{cost}} / current year"
+    "talkToExpert": "Audit My Process",
+    "contact": "Contact"
   },
   "security": {
-    "badge": "Enterprise-Grade Security",
-    "title1": "Your business, running on",
-    "title2": "fortified infrastructure.",
-    "subtitle": "We protect your operations with multi-layered security. From AES-256 data encryption to 24/7 proactive monitoring, zero loopholes allowed.",
+    "badge": "OPERATIONAL ORCHESTRATION",
+    "title1": "High-Velocity",
+    "title2": "Lead-to-Cash Architecture",
+    "subtitle": "We connect your data capture, CRMs, and spreadsheets into a unified ecosystem. We transform operational chaos into a linear flow that processes and fires documents in seconds, without human intervention.",
     "items": [
       "99.9% Uptime SLA Infrastructure",
       "Military-Grade AES-256 Encryption",
@@ -765,37 +22,41 @@
     "activeLabel": "Active",
     "activeValue": "AES-256 Auth",
     "securedLabel": "Secured",
-    "securedValue": "API Gateway"
+    "securedValue": "API Gateway",
+    "item1": "Execution in < 45 Seconds",
+    "item2": "Non-Invasive Integration",
+    "item3": "Human Error Elimination"
   },
   "faq": {
-    "badge": "Frequently Asked Questions",
-    "title1": "Total clarity.",
-    "title2": "Zero friction.",
-    "subtitle": "Answering your most common questions about our architecture, engagement model, and how we guarantee successful implementations.",
+    "badge": "FAQ & Data Governance",
+    "title": "Frictionless Deployment.",
+    "subtitle": "We resolve your technical and commercial team's questions regarding implementation and data governance.",
+    "title1": "Frictionless Deployment.",
+    "title2": "",
     "questions": [
       {
-        "q": "What exactly is included in custom development?",
-        "a": "Our approach covers the entire lifecycle: from process analysis and UI/UX design, to backend architecture, CRM/ERP integration, automations, and production deployment. We deliver a turnkey system ready to scale."
+        "q": "Do we have to replace our current ERP or CRM?",
+        "a": "Absolutely not. We integrate via API (REST/SOAP) or Webhooks into your existing infrastructure (SAP, Oracle, Salesforce, HubSpot, Dynamics). Our system acts as an intelligent automation layer on top of your databases, without altering your core operations."
       },
       {
-        "q": "Do you integrate with systems we already use (HubSpot, Salesforce, etc.)?",
-        "a": "Yes, we are platform agnostic. We integrate via API (REST/GraphQL) or Webhooks with any modern software your team relies on, ensuring real-time bidirectional synchronization."
+        "q": "If the system quotes automatically, what is the role of our sales team?",
+        "a": "Your sales reps will stop being 'data entry clerks'. The automation handles the administrative heavy lifting (inventory crossing, PDF generation, data profiling), allowing your executives to step in strictly to negotiate complex agreements, review credit, and close deals."
       },
       {
-        "q": "How long does it take to implement a full solution?",
-        "a": "It depends on the technical complexity and required integrations. A functional MVP usually takes 4 to 8 weeks, while complex enterprise architectures can span 3 to 5 months. We provide a transparent roadmap from day 1."
+        "q": "How do you guarantee the system won't send incorrect or unauthorized pricing?",
+        "a": "Our architecture queries pricing, inventory, and discount rules in real-time directly from your ERP. Additionally, we implement 'Human Gates': if a quote exceeds a specific threshold or requires a custom discount, the system pauses and routes it to a manager for approval."
       },
       {
-        "q": "What happens with maintenance once the project is delivered?",
-        "a": "We offer continuous support SLAs. We monitor uptime 24/7, apply security patches, optimize database queries, and provide a retainer for new features."
+        "q": "How long does it take to get the automation workflow into production?",
+        "a": "We work through agile, phased deployments. The initial workflow (Lead-to-Cash: from the initial text message to the formal quote) is typically in production within 10 to 20 days, depending on the architecture and accessibility of your current systems."
       },
       {
-        "q": "Who owns the source code?",
-        "a": "You own 100% of the intellectual property. Upon project completion, we hand over the full repository, technical documentation, and infrastructure credentials (AWS/Vercel/DigitalOcean)."
+        "q": "What about the privacy and security of our commercial data?",
+        "a": "Your confidential information is never used to train public AI models. We do not store your customer catalogs or billing data on external servers. Our engine operates exclusively through authenticated API connections; it functions as a high-speed bridge processing data in real-time between your own platforms (Communication Channels, CRM, ERP) and then disconnects, keeping absolute control of the information within your ecosystem."
       },
       {
-        "q": "Why work with A BLANK instead of hiring an in-house team?",
-        "a": "Building an in-house team takes months (recruiting, onboarding) and generates high fixed costs. We are a pre-assembled SWAT team: orchestrator, UI/UX, engineers, and DevOps working under a proven methodology, delivering results in a fraction of the time with Time-Zone Alignment (CST/EST)."
+        "q": "Is this a SaaS model where I have to pay per-user licenses for my team?",
+        "a": "No. Unlike traditional software that penalizes your growth by charging extra rent for every new sales rep (per-seat pricing), we operate as dedicated infrastructure. Your investment is based on the initial deployment of the ecosystem and a flat monthly retainer for operational maintenance, security, and data processing. You can scale your sales team from 5 to 50 reps, and your retainer remains exactly the same."
       }
     ]
   },
@@ -803,27 +64,230 @@
     "text": "We use cookies to improve your experience on A BLΛNK. By continuing, you accept our privacy policy.",
     "accept": "Accept cookies"
   },
-  "whatsapp": {
-    "tooltip": "Chat with us",
-    "msg": "Hi, I would like more information about custom software development."
-  },
   "footer": {
-    "title1": "Delegate operational chaos.",
-    "title2": "Scale with intelligence.",
-    "subtitle": "We build the exact ecosystem your enterprise needs to capture leads, process sales, and operate 24/7 without relying on you.",
-    "cta": "Schedule consultation via WhatsApp",
+    "title1": "Delegate the Excel chaos.",
+    "title2": "Accelerate your close rate.",
+    "subtitle": "We build the exact infrastructure your commercial team needs to capture prospects, query inventory, and dispatch complex quotes in seconds. Eliminate manual friction and close before your competition.",
+    "cta": "Architect My Setup",
     "ctaMsg": "Hi, I reached the end of your website. I want to schedule a consultation.",
     "navTitle": "Navigation",
-    "nav1": "Platform",
-    "nav2": "Solutions",
-    "nav3": "Simulator",
+    "nav1": "Architecture",
+    "nav2": "Simulator",
+    "nav3": "Calculator",
     "nav4": "FAQ",
     "contactTitle": "Contact",
     "hqTitle": "Headquarters",
-    "address1": "Rubén Darío 43",
+    "address1": "Rubén Darío 40",
     "address2": "Rincón del Bosque, Polanco V Secc.",
     "address3": "Mexico City, CDMX",
-    "rights": "© 2026 A BLANK. All rights reserved.",
-    "design": "Premium Nearshore Engineering"
+    "rights": "All rights reserved.",
+    "design": "Premium Nearshore Engineering",
+    "navContact": "Contact",
+    "connectTitle": "Connect"
+  },
+  "meta": {
+    "landing": "Lead-to-Cash B2B Automation | A BLANK",
+    "contact": "Enterprise Contact | A BLANK",
+    "contactDesc": "Contact portal for A Blank Enterprise Solutions and Client Portal."
+  },
+  "heroVentas": {
+    "badge": "RevOps & B2B Automation",
+    "h1": "B2B Quoting Automation & Lead-to-Cash Ecosystems",
+    "title1": "Quote in seconds.",
+    "title2": "Close before they do.",
+    "subtitle": "70% of enterprise deals are won by speed. We automate your Lead-to-Cash pipeline: from the initial SMS or Web request to the formal PDF, connected directly to your CRM and ERP.",
+    "cta": "Watch Live Demo",
+    "ctaSub": "Audit My Process",
+    "cta1": "Watch Live Demo",
+    "cta2": "Audit My Process",
+    "dashInbox": "Inbox",
+    "dashActive": "Active Deals: 12",
+    "dashQuotes": "Quotes",
+    "dashMore": "More",
+    "dealName": "Corporate Industries - Annual Maintenance Policy",
+    "dealCreator": "[A BLANK] created the deal",
+    "dealTime": "2 mins ago",
+    "dealMsg": "\"Requesting technical proposal and quote for the annual preventive maintenance policy across our 3 plants in Texas.\"",
+    "dealScore": "[A BLANK] created the deal via WhatsApp · 2 mins ago",
+    "dealBtn": "Enter Deal",
+    "dealEngine": "Automation Engine",
+    "dealEngineTime": "0.4s later",
+    "dealEngineMsg": "Validating engineering availability in ERP and 2026 travel expense tables. Status: 200 OK (Operational capacity confirmed).",
+    "sysName": "Automation Engine",
+    "sysTime": "0.8s later",
+    "sysPdf": "Validating engineering availability in ERP and 2026 travel expense tables. Status: 200 OK (Operational capacity confirmed).",
+    "sysSize": "Annual_Maintenance_Proposal_TX.pdf (2.4 MB · AI Generated)",
+    "sysStatus": "Deal Won: $45,000 USD",
+    "copilotName": "[A BLANK] Copilot v2",
+    "copilotTitle": "Automation Completed",
+    "copilotDesc": "PDF generated and pipeline status updated without blocking the main thread.",
+    "copilotCheck1": "Business Rules Validated",
+    "copilotCheck2": "Profit margins validated. Contract generated with SLA clauses.",
+    "sysMsg1": "Validating engineering availability in ERP and 2026 travel expense tables. ",
+    "sysMsg2": "Status: 200 OK (Operational capacity confirmed)."
+  },
+  "pain": {
+    "badge": "Revenue Leakage",
+    "title1": "Why your pipeline is leaking",
+    "title2": "conversions",
+    "subtitle": "Operational friction is the silent killer of your win rate. If your quoting process relies on spreadsheets, manual PDFs, and days of waiting, you are literally funding your competition.",
+    "dealLost": "Deal Lost",
+    "b1Title": "By the time you send the PDF, the client has already signed with your competitor.",
+    "b1Desc": "Manual processes fragment data and kill sales momentum.",
+    "closeRate": "Your Win Rate: 12%",
+    "compRate": "Automated Competitors: 70%",
+    "b2Title": "Excel Hell",
+    "b2Desc": "Manual data entry. Outdated sheets. One typo and your profit margin vanishes.",
+    "b3Title": "Legacy Systems",
+    "b3Desc": "Slow and disconnected ERPs. Endless cross-referencing just to check stock availability.",
+    "b4Title": "Manual Formatting",
+    "b4Desc": "Your team spends more time copy-pasting logos in Word than closing deals. The final PDF goes out with pricing errors.",
+    "errorPrice": "PRICING ERROR"
+  },
+  "howItWorks": {
+    "badge": "Live Demo",
+    "title": "The evolution of your sales pipeline",
+    "subtitle": "Close the Lead-to-Cash cycle in under a minute. We connect your SMS lines and Web Chat directly to your CRM and ERP so your sales team only steps in when there's money on the table.",
+    "step1Title": "Active Capture",
+    "step1Sub": "24/7 reception across all channels",
+    "step1Desc": "Omnichannel integration of prospects from Meta, Google Ads, and LinkedIn, captured into a single workflow.",
+    "step2Title": "Autonomous Qualification",
+    "step2Sub": "Real-time scoring and profiling",
+    "step2Desc": "AI analyzes the lead's intent, budget, and timeline to assign a score and filter them before routing to a human.",
+    "step3Title": "Dynamic Quoting",
+    "step3Sub": "Proposals generated instantly",
+    "step3Desc": "Direct ERP connection to calculate pricing, generate the PDF proposal, and send it in minutes without manual intervention.",
+    "step4Title": "Nurture and Close",
+    "step4Sub": "Automated persistent follow-up",
+    "step4Desc": "Hyper-personalized campaigns via WhatsApp and email based on lead behavior until the meeting is booked.",
+    "demoMsg1": "Hi, I saw your LinkedIn ad for ERP consulting. Can I get some info?",
+    "demoMsg2": "Extracting LinkedIn data...",
+    "demoMsg3": "Hello! Sure, we help companies scale. How many employees does your company currently have?",
+    "demoMsg4": "We are around 120 employees.",
+    "demoMsg5": "Validating company size > 100...",
+    "demoMsg6": "Qualified Lead",
+    "demoMsg7": "Book Calendly meeting (Enterprise)",
+    "chat1": "Good afternoon. I need a quote for 120 2-inch carbon steel valves shipped to our Dallas plant. Urgent.",
+    "chat2": "Good afternoon. Processing request. Checking real-time inventory...",
+    "chat3": "Confirmed: 150 units in our Central Warehouse. To apply your Tier B discount, please confirm the quote is for Texas Industries LLC and should be sent to purchasing@texasind.com?",
+    "chat4": "Yes, details are correct. Go ahead.",
+    "chat5": "Understood. Generating formal quote...",
+    "val1": "PIPELINE VALUE",
+    "val2": "AUTOMATION",
+    "val3": "Active Listening",
+    "val4": "NEW LEAD",
+    "ev1Title": "Lead Identified",
+    "ev1Desc": "[Incoming Webhook] Match with Customer DB.",
+    "ev2Title": "ERP Query",
+    "ev3Title": "Quote Creation",
+    "ev3Desc": "[POST] /api/crm/create-quote -> Generating PDF.",
+    "ev4Title": "Multichannel Distribution",
+    "ev4Desc": "Sent via WhatsApp and purchasing@texasind.com.",
+    "title1": "Your client doesn't want to chat with a bot.",
+    "title2": "They want their quote.",
+    "statusQuoted": "QUOTED",
+    "caseBadge": "INDUSTRIAL CASE",
+    "caseTitle": "Watch Simulation",
+    "caseSub": "Click to start simulation",
+    "chatName": "A BLANK System",
+    "chatStatus": "Online",
+    "chat6": "Quote #QT-8942 sent to your email.",
+    "chat7": "Received. I'll review with the director and confirm. Thanks.",
+    "companyName": "Texas Industries LLC",
+    "sysLog": "SYSTEM LOG",
+    "ev2Desc": "[GET] /api/erp/inventory/valves -> Status: 200 OK",
+    "chat6PdfName": "QT-8942_TexasIndustries.pdf",
+    "chat6PdfSize": "1.2 MB · PDF Document",
+    "chat6Text2": "Total: $12,500 USD. Delivery in 48 hrs. Should I assign an executive to review credit terms?",
+    "phone": "+1 555 123 4567",
+    "statusNewLead": "NEW LEAD"
+  },
+  "simulatorVentas": {
+    "badge": "REVENUE LEAKAGE CALCULATOR",
+    "title1": "Your pipeline is leaking.",
+    "title2": "Quantify your losses.",
+    "subtitle": "Calculate the capital you lose every month by relying on manual processes instead of automated infrastructure.",
+    "q1": "How many B2B quotes does your team process per month?",
+    "q2": "What is your estimated Average Order Value (USD)?",
+    "q3": "How many days does it take on average to send the final quote to a prospect?",
+    "impact": "Estimated Impact",
+    "fuga": "CAPITAL LEAKAGE (MONTHLY)",
+    "desc1": "You are losing approximately ",
+    "desc2": " in potential capital per month due to prospects going cold and signing with competitors during those ",
+    "desc3": " hours",
+    "cta": "Generate Financial Executive Brief",
+    "modalTitle": "Executive Brief",
+    "modalSub": "Fill in your corporate details to receive your detailed breakdown.",
+    "labelName": "Full Name",
+    "phName": "e.g. Alexander Smith",
+    "labelEmail": "Corporate Email",
+    "phEmail": "you@company.com",
+    "labelPuesto": "Job Title or Role",
+    "phPuesto": "e.g. VP of Sales",
+    "btnSubmit": "Receive Executive Brief",
+    "btnSubmitting": "Generating & sending...",
+    "submittedTitle": "Brief Sent",
+    "submittedDesc": "We have sent your detailed financial analysis to your email. Check your inbox and follow the instructions to schedule your call.",
+    "submittedBtn": "Got it",
+    "errName": "Please enter your full name.",
+    "errEmail": "Please enter your corporate email.",
+    "errEmailValid": "Please enter a valid email format.",
+    "errEmailB2B": "We only accept corporate emails (e.g. name@company.com).",
+    "errPuesto": "Please enter your job title or role.",
+    "errGeneral": "There was an error processing your request. Please try again or contact support.",
+    "dias": "days",
+    "resTitle": "Estimated Impact",
+    "resSubtitle": "Potential Monthly Leakage",
+    "resFormTitle": "Enter your corporate email to receive the breakdown of this risk calculation and your mitigation blueprint.",
+    "resFormDesc": "You are losing approximately {cost} in potential capital per month because prospects go cold and choose your competitors within those {hours} hours.",
+    "resBtn": "Generate Financial Executive Brief"
+  },
+  "contact": {
+    "title": "Get in touch.",
+    "subtitle": "Select the appropriate channel to route your request to the right department efficiently.",
+    "salesTitle": "Corporate Solutions",
+    "salesDesc": "Book a session with our technical team to audit your current processes, design your Lead-to-Cash architecture, or structure a custom B2B deployment.",
+    "salesCta": "Contact sales",
+    "supportTitle": "Infrastructure Support",
+    "supportDesc": "Direct communication and escalation channel exclusively for clients with active ecosystems and production deployments.",
+    "supportCta": "Contact support",
+    "corpInfo": "Corporate Information",
+    "hq": "Headquarters",
+    "direct": "Direct Contact",
+    "formTitle": "Select department",
+    "tabSales": "B2B Solutions",
+    "tabSupport": "Client Portal",
+    "name": "Full name",
+    "email": "Corporate email",
+    "msg": "Message or project details",
+    "submit": "Submit Request",
+    "submitting": "Submitting..."
+  },
+  "contactForm": {
+    "errEmpty": "Please fill out all required fields.",
+    "errEmail": "Please enter a valid email address.",
+    "errB2B": "For corporate inquiries, please use a business email (no Gmail/Hotmail).",
+    "tabSales": "Corporate Solutions",
+    "tabSupport": "Client Portal",
+    "labelPuesto": "Job Title",
+    "labelReq": "Project Requirements (Optional)",
+    "labelEmail": "Registered Account Email",
+    "labelHelp": "How can we help you?",
+    "labelDetails": "Request Details",
+    "opt1": "Product inquiries",
+    "opt2": "Technical support",
+    "opt3": "Billing and Payments",
+    "btnCorp": "Book Feasibility Call",
+    "btnPortal": "Open Support Ticket",
+    "phName": "e.g. James Smith",
+    "phCorpEmail": "e.g. james@yourcompany.com",
+    "phRole": "e.g. VP of Sales",
+    "phReq": "I am interested in automating the quoting process for our team...",
+    "phEmail": "e.g. you@company.com",
+    "phDetails": "Briefly describe your issue or question...",
+    "submitting": "Submitting request...",
+    "successCorp": "Request sent successfully. Redirecting to your feasibility call...",
+    "successSupport": "Support ticket created successfully. We have notified our technical team and will contact you shortly.",
+    "errSend": "Error sending message. Please try again or reach out directly to hello@ablank.mx"
   }
 }

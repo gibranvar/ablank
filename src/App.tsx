@@ -1,36 +1,41 @@
-import { Navigation } from '@/components/Navigation';
-import { Hero } from '@/components/Hero';
-import { Positioning } from '@/components/Positioning';
-import { Platform } from '@/components/Platform';
-import { FeatureShowcase } from '@/components/FeatureShowcase';
-import { UseCaseSection } from '@/components/UseCaseSection';
-import { ProductShowcase } from '@/components/ProductShowcase';
-import { LostSalesSimulator } from '@/components/Simulator';
-import { Security } from '@/components/Security';
-import { FAQ } from '@/components/FAQ';
-import { Footer } from '@/components/Footer';
-import { CookieBanner } from './components/CookieBanner';
-import { StickyWhatsApp } from './components/StickyWhatsApp';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
+import { HelmetProvider } from 'react-helmet-async';
+import { LandingVentas } from './pages/LandingVentas';
+import { Contact } from './pages/Contact';
+
+function ScrollToHashElement() {
+  const { pathname, hash } = useLocation();
+
+  useEffect(() => {
+    if (hash) {
+      setTimeout(() => {
+        const element = document.getElementById(hash.replace('#', ''));
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [pathname, hash]);
+
+  return null;
+}
 
 function App() {
   return (
-    <div className="relative" style={{ background: 'var(--bg-base)' }}>
-      <Navigation />
-      <main>
-        <Hero />
-        <Positioning />
-        <Platform />
-        <FeatureShowcase />
-        <UseCaseSection />
-        <ProductShowcase />
-        <LostSalesSimulator />
-        <Security />
-        <FAQ />
-        <CookieBanner />
-        <StickyWhatsApp />
-      </main>
-      <Footer />
-    </div>
+    <HelmetProvider>
+      <BrowserRouter>
+        <ScrollToHashElement />
+        <Routes>
+          <Route path="/" element={<LandingVentas />} />
+          <Route path="/automatizacion-ventas" element={<LandingVentas />} />
+          <Route path="/contacto" element={<Contact />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </BrowserRouter>
+    </HelmetProvider>
   );
 }
 

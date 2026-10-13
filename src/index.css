@@ -168,9 +168,9 @@ body {
   /* 1. Todos los <h2> de la web tendrán este tamaño y tipografía automáticamente */
   h2 {
     @apply font-display font-semibold tracking-[-0.03em] text-balance mb-6;
-    font-size: clamp(2.5rem, 5vw, 4rem) !important;
-    line-height: 1.05 !important;
-    color: white !important; /* Color blanco por defecto si no usas <span> */
+    font-size: clamp(2.5rem, 4.5vw, 3.25rem);
+    line-height: 1.05;
+    color: white; /* Color blanco por defecto si no usas <span> */
   }
 
   /* 2. Si divides el h2 usando <span>, el primero será blanco */

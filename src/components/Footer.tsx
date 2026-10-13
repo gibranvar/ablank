@@ -1,10 +1,12 @@
+import { Link } from 'react-router-dom';
 'use client';
+import { Button } from '@/components/ui/Button';
 
 import { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Globe } from 'lucide-react';
 import { pushToDataLayer } from '../utils/analytics';
 import { useTranslation } from 'react-i18next';
 
@@ -13,7 +15,13 @@ if (typeof window !== 'undefined') {
 }
 
 export function Footer() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const toggleLanguage = () => {
+    const newLang = i18n.language.startsWith('es') ? 'en' : 'es';
+    i18n.changeLanguage(newLang);
+    pushToDataLayer('language_changed', { language: newLang });
+  };
+
   const footerRef = useRef<HTMLElement>(null);
 
   useGSAP(() => {
@@ -86,28 +94,13 @@ export function Footer() {
           <span className="block">{t('footer.title2')}</span>
         </h2>
         
-        <p className="footer-sub text-[#9ba9c4] text-lg md:text-xl max-w-2xl mx-auto mb-10 text-balance">
+        <p className="footer-sub text-white/50 text-lg md:text-xl max-w-2xl mx-auto mb-10 text-balance">
           {t('footer.subtitle')}
         </p>
         
-        <a 
-          href={`https://wa.me/525576048470?text=${encodeURIComponent(t('footer.ctaMsg'))}`} 
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={() => pushToDataLayer('click_whatsapp', { location: 'footer_cta' })}
-          className="footer-cta group relative overflow-hidden inline-flex items-center justify-center gap-2 px-6 py-3 md:px-10 md:py-4 rounded-[12px] md:rounded-[16px] bg-[#020202] border border-white/40 text-white font-medium text-sm md:text-lg transition-transform hover:scale-[1.02] active:scale-95 shadow-2xl"
-          style={{
-            boxShadow: '0px 11px 11px -3px rgba(0,0,0,0.14), 0px 28px 28px -3.75px rgba(0,0,0,0.06), inset -4px 3px 9px 0px #0175ff, inset 3px -2px 8px 0px #ffcd7d, 0 0 40px rgba(1,117,255,0.3)'
-          }}
-        >
-          {/* Destello de luz que cruza (Shine) */}
-          <div className="absolute inset-0 -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-[1.5s] ease-in-out pointer-events-none" style={{ backgroundImage: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)' }} />
-          
-          <span className="relative z-10 flex items-center gap-2">
-            {t('footer.cta')}
-            <ArrowRight className="w-4 h-4 md:w-5 md:h-5 transition-transform group-hover:translate-x-1" />
-          </span>
-        </a>
+        <Button href="/contacto" className="footer-cta px-6 py-3 md:px-10 md:py-4 text-sm md:text-lg">
+          {t('footer.cta')}
+        </Button>
       </div>
 
       <div className="footer-giant-bg relative w-full py-16 md:py-32 flex items-center justify-center overflow-hidden mb-16 md:mb-20 pointer-events-none">
@@ -137,29 +130,30 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16 mb-16 md:mb-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-3 gap-y-12 gap-x-6 md:gap-16 mb-16 md:mb-20">
         
-        <div className="flex flex-col">
+        <div className="flex flex-col col-span-1">
           <h4 className="text-white font-medium mb-4 md:mb-6">{t('footer.navTitle')}</h4>
           <nav className="flex flex-col">
-            <FooterLink href="#plataforma">{t('footer.nav1')}</FooterLink>
-            <FooterLink href="#soluciones">{t('footer.nav2')}</FooterLink>
-            <FooterLink href="#simulador">{t('footer.nav3')}</FooterLink>
-            <FooterLink href="#faq">{t('footer.nav4')}</FooterLink>
+            <FooterLink href="/#fuga">{t('footer.nav1')}</FooterLink>
+            <FooterLink href="/#como-funciona">{t('footer.nav2')}</FooterLink>
+            <FooterLink href="/#simulador">{t('footer.nav3')}</FooterLink>
+            <FooterLink href="/#faq">{t('footer.nav4')}</FooterLink>
           </nav>
         </div>
 
-        <div className="flex flex-col">
-          <h4 className="text-white font-medium mb-4 md:mb-6">{t('footer.contactTitle')}</h4>
+        <div className="flex flex-col col-span-1">
+          <h4 className="text-white font-medium mb-4 md:mb-6">{t('footer.connectTitle')}</h4>
           <nav className="flex flex-col">
+            <FooterLink href="/contacto">{t('footer.navContact')}</FooterLink>
             <FooterLink href="mailto:hello@ablank.mx">hello@ablank.mx</FooterLink>
-            <FooterWALink href="tel:5576048470" msg={t('footer.ctaMsg')}>55 7604 8470</FooterWALink>
+            <FooterLink href="mailto:support@ablank.mx">support@ablank.mx</FooterLink>
           </nav>
         </div>
 
-        <div className="flex flex-col">
+        <div className="flex flex-col col-span-2 md:col-span-1">
           <h4 className="text-white font-medium mb-4 md:mb-6">{t('footer.hqTitle')}</h4>
-          <div className="text-[#9ba9c4] text-[15px] leading-relaxed py-2">
+          <div className="text-white/50 text-[15px] leading-relaxed py-2">
             {t('footer.address1')}<br />
             {t('footer.address2')}<br />
             {t('footer.address3')}
@@ -171,11 +165,18 @@ export function Footer() {
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <div className="w-full h-px bg-[#7da4ff]/10 mb-8" />
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
-          <p className="text-[#9ba9c4] text-[14px] md:text-[15px]">
+          <p className="text-white/50 text-[14px] md:text-[15px]">
             {t('footer.rights')}
           </p>
+          <button 
+            onClick={toggleLanguage}
+            className="hidden lg:flex items-center gap-2 px-4 py-2 rounded-full text-white/50 hover:text-white transition-colors"
+          >
+            <Globe size={16} />
+            <span className="text-sm font-medium">{i18n.language.startsWith('es') ? 'English' : 'Español'}</span>
+          </button>
           <div className="flex items-center gap-2">
-            <span className="text-[#9ba9c4] text-[14px] md:text-[15px]">{t('footer.design')}</span>
+            <span className="text-white/50 text-[14px] md:text-[15px]">{t('footer.design')}</span>
           </div>
         </div>
       </div>
@@ -185,29 +186,21 @@ export function Footer() {
 }
 
 function FooterLink({ href, children }: { href: string; children: React.ReactNode }) {
+  if (href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('http')) {
+    return (
+      <a href={href} className="group flex items-center justify-start md:justify-between py-2 transition-colors">
+        <span className="text-white/50 text-[15px] group-hover:text-white transition-colors">
+          {children}
+        </span>
+      </a>
+    );
+  }
   return (
-    <a 
-      href={href} 
-      className="group flex items-center justify-start md:justify-between py-2 transition-colors"
-    >
-      <span className="text-[#9ba9c4] text-[15px] group-hover:text-white transition-colors">
+    <Link to={href} className="group flex items-center justify-start md:justify-between py-2 transition-colors">
+      <span className="text-white/50 text-[15px] group-hover:text-white transition-colors">
         {children}
       </span>
-    </a>
+    </Link>
   );
 }
-function FooterWALink({ href, msg, children }: { href?: string; msg: string; children: React.ReactNode }) {
-  return (
-    <a 
-      href={`https://wa.me/525576048470?text=${encodeURIComponent(msg)}`} 
-      target="_blank" 
-      rel="noopener noreferrer"
-      onClick={() => pushToDataLayer('click_whatsapp', { location: 'footer_link' })}
-      className="group flex items-center justify-start md:justify-between py-2 transition-colors"
-    >
-      <span className="text-[#9ba9c4] text-[15px] group-hover:text-white transition-colors">
-        {children}
-      </span>
-    </a>
-  );
-}
+
