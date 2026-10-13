@@ -380,11 +380,11 @@ export function SimulatorVentas({ id }: { id?: string }) {
           <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setShowModal(false)} />
           <div className="relative w-full max-w-md bg-[#0a0a0c] border border-white/10 rounded-[32px] p-8 shadow-[0_0_50px_rgba(0,0,0,0.5)] z-10">
             {isSubmitted ? (
-              <div className="py-4 text-left space-y-3 animate-in fade-in duration-300">
+              <div className="py-6 text-center flex flex-col items-center justify-center space-y-3 animate-in fade-in duration-300">
                 <h3 className="text-base md:text-lg font-medium text-white tracking-tight">
                   {t('simulatorVentas.submittedTitle')}
                 </h3>
-                <p className="text-sm text-white/50 leading-relaxed font-light">
+                <p className="text-sm text-white/50 leading-relaxed font-light max-w-sm mx-auto">
                   {t('simulatorVentas.submittedDesc')}
                 </p>
                 <div className="pt-3">

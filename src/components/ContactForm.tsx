@@ -110,11 +110,11 @@ export function ContactForm({
       )}
 
       {isSubmitted ? (
-        <div className="py-4 text-left space-y-2 animate-in fade-in duration-300">
+        <div className="py-6 text-center flex flex-col items-center justify-center space-y-2 animate-in fade-in duration-300">
           <h3 className="text-base md:text-lg font-medium text-white tracking-tight">
             {activeTab === 'corporativo' ? t('contactForm.successTitleCorp') : t('contactForm.successTitleSupport')}
           </h3>
-          <p className="text-sm text-white/50 leading-relaxed font-light max-w-md">
+          <p className="text-sm text-white/50 leading-relaxed font-light max-w-md mx-auto">
             {activeTab === 'corporativo' ? t('contactForm.successDescCorp') : t('contactForm.successDescSupport')}
           </p>
         </div>
