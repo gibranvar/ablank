@@ -128,7 +128,7 @@ export function SimulatorVentas({ id }: { id?: string }) {
       const htmlContent = getBriefEmailHtml(fugaMensual);
 
       // 4. Enviar correo vía Resend (Serverless)
-      fetch('/api/send-brief', {
+      const resendRes = await fetch('/api/send-brief', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -136,7 +136,12 @@ export function SimulatorVentas({ id }: { id?: string }) {
           html_content: htmlContent,
           pdf_base64: pdfBase64
         })
-      }).catch(err => console.error("Error enviando email vía Resend:", err));
+      });
+
+      if (!resendRes.ok) {
+        const errJson = await resendRes.json().catch(() => ({}));
+        console.error("Error enviando email vía Resend:", errJson);
+      }
 
       // Mostrar estado de éxito en lugar de redirección
       setIsSubmitted(true);
