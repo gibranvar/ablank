@@ -110,11 +110,11 @@ export function ContactForm({
       )}
 
       {isSubmitted ? (
-        <div className="bg-emerald-500/10 border border-emerald-500/20 rounded-2xl p-8 text-center space-y-4">
-          <div className="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto">
-            <CheckCircle size={24} />
+        <div className="bg-white/[0.03] border border-white/10 rounded-2xl p-8 text-center space-y-4 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+          <div className="w-12 h-12 rounded-full bg-white/10 text-white flex items-center justify-center mx-auto border border-white/20 shadow-[inset_0_1px_4px_rgba(255,255,255,0.15)]">
+            <CheckCircle size={22} className="text-white" />
           </div>
-          <h3 className="text-lg font-semibold text-white">
+          <h3 className="text-lg font-display font-medium text-white tracking-tight">
             {activeTab === 'corporativo' ? t('contactForm.successCorp') : t('contactForm.successSupport')}
           </h3>
         </div>

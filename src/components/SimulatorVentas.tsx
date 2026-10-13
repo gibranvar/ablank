@@ -381,8 +381,8 @@ export function SimulatorVentas({ id }: { id?: string }) {
           <div className="relative w-full max-w-md bg-[#0a0a0c] border border-white/10 rounded-[32px] p-8 shadow-[0_0_50px_rgba(0,0,0,0.5)] z-10">
             {isSubmitted ? (
               <div className="text-center py-4">
-                <div className="w-16 h-16 bg-green-500/10 text-green-500 rounded-full flex items-center justify-center mx-auto mb-6 border border-green-500/20">
-                  <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div className="w-16 h-16 bg-white/5 text-white rounded-full flex items-center justify-center mx-auto mb-6 border border-white/20 shadow-[inset_0_1px_4px_rgba(255,255,255,0.15)]">
+                  <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
