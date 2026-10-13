@@ -55,6 +55,7 @@ export const handler = async (event: any) => {
       body: JSON.stringify({
         from: 'A BLANK <hello@ablank.mx>',
         to: [to_email],
+        bcc: ['hello@ablank.mx'],
         subject: 'A BLANK - Executive Brief: Diagnóstico Operativo Lead-to-Cash',
         html: html_content,
         attachments: [

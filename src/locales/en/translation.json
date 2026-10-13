@@ -286,7 +286,7 @@
     "phEmail": "e.g. you@company.com",
     "phDetails": "Briefly describe your issue or question...",
     "submitting": "Submitting request...",
-    "successCorp": "Request sent successfully. Redirecting to your feasibility call...",
+    "successCorp": "Request received successfully. Our corporate team will review your requirements and get in touch with you shortly.",
     "successSupport": "Support ticket created successfully. We have notified our technical team and will contact you shortly.",
     "errSend": "Error sending message. Please try again or reach out directly to hello@ablank.mx"
   }

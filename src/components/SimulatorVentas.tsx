@@ -115,7 +115,8 @@ export function SimulatorVentas({ id }: { id?: string }) {
         fuga_mensual: fugaMensual.toString(),
         ticket: ticket.toString(),
         cotizaciones: cotizaciones.toString(),
-        dias: dias.toString()
+        dias: dias.toString(),
+        status: 'CALCULADORA_BRIEF'
       });
 
       // 2. Generar PDF

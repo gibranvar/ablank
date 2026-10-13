@@ -279,7 +279,7 @@
     "phEmail": "ej. tu@empresa.com",
     "phDetails": "Describe brevemente el problema o tu duda...",
     "submitting": "Enviando solicitud...",
-    "successCorp": "Solicitud enviada con éxito. Redirigiendo a tu llamada de viabilidad...",
+    "successCorp": "Solicitud recibida con éxito. Nuestro equipo corporativo revisará tus requerimientos y se pondrá en contacto contigo a la brevedad.",
     "successSupport": "Ticket generado con éxito. Hemos notificado al equipo técnico y te contactaremos en breve.",
     "errSend": "Error al enviar el mensaje. Por favor intenta de nuevo o escribe directamente a hello@ablank.mx"
   }

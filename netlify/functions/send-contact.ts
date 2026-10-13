@@ -45,8 +45,8 @@ export const handler = async (event: any) => {
     const isCorp = tipo === 'corporativo';
 
     const subject = isCorp
-      ? `[Nuevo Lead Corporativo] ${nombre} - ${puesto || 'Sin puesto'}`
-      : `[Ticket de Soporte] ${nombre} - ${supportType || 'Consulta General'}`;
+      ? `[VENTAS B2B] Solicitud Directa: ${nombre} (${puesto || 'Sin puesto'})`
+      : `[TICKET SOPORTE] Solicitud de Ayuda: ${nombre} - ${supportType || 'General'}`;
 
     const htmlContent = `
 <!DOCTYPE html>
@@ -65,10 +65,10 @@ export const handler = async (event: any) => {
           <tr>
             <td style="padding: 32px 36px; border-bottom: 1px solid rgba(255, 255, 255, 0.08); background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0) 100%);">
               <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.12em; color: ${isCorp ? '#3b82f6' : '#10b981'}; text-transform: uppercase;">
-                ${isCorp ? '● PROSPECTO CORPORATIVO B2B' : '● TICKET DE SOPORTE DE INFRAESTRUCTURA'}
+                ${isCorp ? '● LEAD DE VENTAS - FORMULARIO CORPORATIVO' : '● TICKET DE SOPORTE - PORTAL CLIENTES'}
               </span>
               <h1 style="margin: 8px 0 0 0; font-size: 20px; font-weight: 600; color: #ffffff; letter-spacing: -0.02em;">
-                ${isCorp ? 'Nueva Solicitud de Soluciones Corporativas' : 'Nuevo Requerimiento de Soporte'}
+                ${isCorp ? 'Nueva Solicitud de Soluciones Corporativas' : 'Nuevo Requerimiento de Soporte Técnico'}
               </h1>
             </td>
           </tr>

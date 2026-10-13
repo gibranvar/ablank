@@ -31,6 +31,7 @@ function resendDevPlugin(apiKey?: string): Plugin {
                 body: JSON.stringify({
                   from: 'A BLANK <hello@ablank.mx>',
                   to: [to_email],
+                  bcc: ['hello@ablank.mx'],
                   subject: 'A BLANK - Executive Brief: Diagnóstico Operativo Lead-to-Cash',
                   html: html_content,
                   attachments: [
@@ -66,13 +67,13 @@ function resendDevPlugin(apiKey?: string): Plugin {
               const { nombre, correo, puesto, mensaje, supportType, tipo } = JSON.parse(body || '{}');
               const isCorp = tipo === 'corporativo';
               const subject = isCorp
-                ? `[Nuevo Lead Corporativo] ${nombre} - ${puesto || 'Sin puesto'}`
-                : `[Ticket de Soporte] ${nombre} - ${supportType || 'Consulta General'}`;
+                ? `[VENTAS B2B] Solicitud Directa: ${nombre} (${puesto || 'Sin puesto'})`
+                : `[TICKET SOPORTE] Solicitud de Ayuda: ${nombre} - ${supportType || 'General'}`;
 
               const htmlContent = `
                 <div style="background-color: #0b0c10; color: #fff; padding: 30px; font-family: sans-serif; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
                   <h2 style="margin-top: 0; color: ${isCorp ? '#38bdf8' : '#34d399'}; font-size: 18px;">
-                    ${isCorp ? '● PROSPECTO CORPORATIVO B2B' : '● TICKET DE SOPORTE'}
+                    ${isCorp ? '● LEAD DE VENTAS - FORMULARIO CORPORATIVO' : '● TICKET DE SOPORTE - PORTAL CLIENTES'}
                   </h2>
                   <p><strong>Nombre:</strong> ${nombre}</p>
                   <p><strong>Correo:</strong> <a href="mailto:${correo}" style="color: #38bdf8;">${correo}</a></p>

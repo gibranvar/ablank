@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ArrowRight, AlertTriangle, CheckCircle, Loader2 } from 'lucide-react';
-import { insertLead } from '@/lib/supabase';
 
 export function ContactForm({
   initialTab = 'corporativo', hideTabs = false }: { initialTab?: 'corporativo' | 'portal' | 'enterprise' | 'clientes', hideTabs?: boolean }) {
@@ -82,29 +81,8 @@ export function ContactForm({
         throw new Error(errData.error || 'Error al enviar');
       }
 
-      // 2. Registro en base de datos si es lead corporativo
-      if (activeTab === 'corporativo') {
-        insertLead({
-          nombre: formData.nombre.trim(),
-          email: formData.correo.trim().toLowerCase(),
-          puesto: formData.puesto.trim(),
-          fuga_mensual: 'N/A',
-          ticket: 'N/A',
-          cotizaciones: 'N/A',
-          dias: 'N/A',
-          status: 'CONTACTO'
-        }).catch(err => console.warn('[Supabase Contact Lead warning]:', err));
-      }
-
       setIsSubmitted(true);
       setIsSubmitting(false);
-
-      // Si es corporativo, redirigir a Calendly tras 1.5s
-      if (activeTab === 'corporativo') {
-        setTimeout(() => {
-          window.location.href = 'https://calendly.com/ablank-mx/llamada-de-viabilidad';
-        }, 1500);
-      }
 
     } catch (err: any) {
       console.error('[Contact Submit Error]:', err);
@@ -139,14 +117,6 @@ export function ContactForm({
           <h3 className="text-lg font-semibold text-white">
             {activeTab === 'corporativo' ? t('contactForm.successCorp') : t('contactForm.successSupport')}
           </h3>
-          {activeTab === 'corporativo' && (
-            <p className="text-xs text-white/60">
-              Si no eres redirigido automáticamente,{' '}
-              <a href="https://calendly.com/ablank-mx/llamada-de-viabilidad" className="text-white underline font-medium">
-                haz clic aquí para abrir Calendly
-              </a>.
-            </p>
-          )}
         </div>
       ) : (
         <form onSubmit={handleSubmit} noValidate className="space-y-5 flex flex-col">
