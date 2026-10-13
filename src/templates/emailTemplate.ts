@@ -67,7 +67,7 @@ export function getBriefEmailHtml(fugaMensual: number): string {
               <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse: collapse;">
                 <tr>
                   <td style="padding-top: 24px; padding-bottom: 32px; font-family: 'Inter', Helvetica, Arial, sans-serif; font-size: 15px; line-height: 1.6; color: #374151;">
-                    Para detener esta fuga e implementar una infraestructura autónoma que entregue cotizaciones corporativas en menos de un minuto, por favor revisa el PDF adjunto. Si deseas avanzar con la auditoría de arquitectura, puedes <a href="https://calendly.com/ablank-mx/llamada-de-viabilidad" target="_blank" style="color: #2563eb; text-decoration: underline; font-weight: 500;">agendar tu llamada de viabilidad técnica aquí</a> o simplemente responder a este correo.
+                    Para detener esta fuga e implementar una infraestructura autónoma que entregue cotizaciones corporativas en menos de un minuto, por favor revisa el PDF adjunto. Si deseas avanzar con la auditoría de arquitectura, puedes <a href="https://calendly.com/hello-ablank/a-blank-llamada-de-viabilidad-tecnica" target="_blank" style="color: #2563eb; text-decoration: underline; font-weight: 500;">agendar tu llamada de viabilidad técnica aquí</a> o simplemente responder a este correo.
                   </td>
                 </tr>
               </table>
