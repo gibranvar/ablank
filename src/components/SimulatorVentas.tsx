@@ -380,22 +380,21 @@ export function SimulatorVentas({ id }: { id?: string }) {
           <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setShowModal(false)} />
           <div className="relative w-full max-w-md bg-[#0a0a0c] border border-white/10 rounded-[32px] p-8 shadow-[0_0_50px_rgba(0,0,0,0.5)] z-10">
             {isSubmitted ? (
-              <div className="text-center py-4">
-                <div className="w-16 h-16 bg-white/5 text-white rounded-full flex items-center justify-center mx-auto mb-6 border border-white/20 shadow-[inset_0_1px_4px_rgba(255,255,255,0.15)]">
-                  <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <h3 className="text-2xl font-display font-semibold text-white mb-3">{t('simulatorVentas.submittedTitle')}</h3>
-                <p className="text-white/60 text-[15px] mb-8 leading-relaxed">
+              <div className="py-4 text-left space-y-3 animate-in fade-in duration-300">
+                <h3 className="text-base md:text-lg font-medium text-white tracking-tight">
+                  {t('simulatorVentas.submittedTitle')}
+                </h3>
+                <p className="text-sm text-white/50 leading-relaxed font-light">
                   {t('simulatorVentas.submittedDesc')}
                 </p>
-                <button 
-                  onClick={() => setShowModal(false)} 
-                  className="w-full bg-white/5 border border-white/10 text-white font-semibold py-3.5 rounded-xl hover:bg-white/10 transition-colors"
-                >
-                  {t('simulatorVentas.submittedBtn')}
-                </button>
+                <div className="pt-3">
+                  <button 
+                    onClick={() => setShowModal(false)} 
+                    className="text-xs font-medium text-white/40 hover:text-white transition-colors inline-flex items-center gap-1.5"
+                  >
+                    {t('simulatorVentas.submittedBtn')} &rarr;
+                  </button>
+                </div>
               </div>
             ) : (
               <>

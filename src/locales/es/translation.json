@@ -222,9 +222,9 @@
     "phPuesto": "ej. Director de Ventas",
     "btnSubmit": "Recibir Executive Brief",
     "btnSubmitting": "Generando y enviando...",
-    "submittedTitle": "Brief Enviado",
-    "submittedDesc": "Hemos enviado el análisis financiero detallado a tu correo. Revisa tu bandeja de entrada y sigue las instrucciones para agendar tu llamada.",
-    "submittedBtn": "Entendido",
+    "submittedTitle": "Análisis enviado a tu bandeja de entrada.",
+    "submittedDesc": "Hemos enviado el desglose financiero del Executive Brief y el blueprint de mitigación a tu correo corporativo.",
+    "submittedBtn": "Cerrar",
     "errName": "Ingresa tu nombre completo.",
     "errEmail": "Ingresa tu correo corporativo.",
     "errEmailValid": "Ingresa un formato de correo electrónico válido.",
@@ -279,8 +279,10 @@
     "phEmail": "ej. tu@empresa.com",
     "phDetails": "Describe brevemente el problema o tu duda...",
     "submitting": "Enviando solicitud...",
-    "successCorp": "Solicitud recibida con éxito. Nuestro equipo corporativo revisará tus requerimientos y se pondrá en contacto contigo a la brevedad.",
-    "successSupport": "Ticket generado con éxito. Hemos notificado al equipo técnico y te contactaremos en breve.",
+    "successTitleCorp": "Gracias, nos pondremos en contacto pronto.",
+    "successDescCorp": "Nuestro equipo corporativo revisará tus requerimientos y se pondrá en contacto contigo a la brevedad.",
+    "successTitleSupport": "Ticket generado con éxito.",
+    "successDescSupport": "Hemos notificado al equipo técnico y nos comunicaremos en breve.",
     "errSend": "Error al enviar el mensaje. Por favor intenta de nuevo o escribe directamente a hello@ablank.mx"
   }
 }

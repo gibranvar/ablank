@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ArrowRight, AlertTriangle, CheckCircle, Loader2 } from 'lucide-react';
+import { ArrowRight, AlertTriangle, Loader2 } from 'lucide-react';
 
 export function ContactForm({
   initialTab = 'corporativo', hideTabs = false }: { initialTab?: 'corporativo' | 'portal' | 'enterprise' | 'clientes', hideTabs?: boolean }) {
@@ -110,13 +110,13 @@ export function ContactForm({
       )}
 
       {isSubmitted ? (
-        <div className="py-6 md:py-8 text-center space-y-5">
-          <div className="w-16 h-16 rounded-full bg-white/5 text-white flex items-center justify-center mx-auto border border-white/20 shadow-[inset_0_1px_4px_rgba(255,255,255,0.15)]">
-            <CheckCircle size={28} className="text-white" />
-          </div>
-          <h3 className="text-xl md:text-2xl font-display font-medium text-white tracking-tight max-w-md mx-auto leading-relaxed">
-            {activeTab === 'corporativo' ? t('contactForm.successCorp') : t('contactForm.successSupport')}
+        <div className="py-4 text-left space-y-2 animate-in fade-in duration-300">
+          <h3 className="text-base md:text-lg font-medium text-white tracking-tight">
+            {activeTab === 'corporativo' ? t('contactForm.successTitleCorp') : t('contactForm.successTitleSupport')}
           </h3>
+          <p className="text-sm text-white/50 leading-relaxed font-light max-w-md">
+            {activeTab === 'corporativo' ? t('contactForm.successDescCorp') : t('contactForm.successDescSupport')}
+          </p>
         </div>
       ) : (
         <form onSubmit={handleSubmit} noValidate className="space-y-5 flex flex-col">

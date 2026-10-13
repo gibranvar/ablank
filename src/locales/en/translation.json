@@ -226,9 +226,9 @@
     "phPuesto": "e.g. VP of Sales",
     "btnSubmit": "Receive Executive Brief",
     "btnSubmitting": "Generating & sending...",
-    "submittedTitle": "Brief Sent",
-    "submittedDesc": "We have sent your detailed financial analysis to your email. Check your inbox and follow the instructions to schedule your call.",
-    "submittedBtn": "Got it",
+    "submittedTitle": "Analysis sent to your inbox.",
+    "submittedDesc": "We have sent the Executive Brief financial breakdown and mitigation blueprint to your corporate email.",
+    "submittedBtn": "Dismiss",
     "errName": "Please enter your full name.",
     "errEmail": "Please enter your corporate email.",
     "errEmailValid": "Please enter a valid email format.",
@@ -286,8 +286,10 @@
     "phEmail": "e.g. you@company.com",
     "phDetails": "Briefly describe your issue or question...",
     "submitting": "Submitting request...",
-    "successCorp": "Request received successfully. Our corporate team will review your requirements and get in touch with you shortly.",
-    "successSupport": "Support ticket created successfully. We have notified our technical team and will contact you shortly.",
+    "successTitleCorp": "Thanks, we'll be in touch shortly.",
+    "successDescCorp": "Our corporate team will review your requirements and get in touch with you directly.",
+    "successTitleSupport": "Ticket generated successfully.",
+    "successDescSupport": "Our technical team has been notified and will be in touch with you shortly.",
     "errSend": "Error sending message. Please try again or reach out directly to hello@ablank.mx"
   }
 }
