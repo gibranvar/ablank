@@ -87,7 +87,8 @@
   "meta": {
     "landing": "Automatización Lead-to-Cash B2B | A BLANK",
     "contact": "Contacto Institucional | A BLANK",
-    "contactDesc": "Portal de contacto para Enterprise Solutions y Client Portal de A Blank."
+    "contactDesc": "Portal de contacto para Enterprise Solutions y Client Portal de A Blank.",
+    "notFound": "404: Página no encontrada | A BLANK"
   },
   "heroVentas": {
     "badge": "RevOps & Automatización B2B",
@@ -284,5 +285,16 @@
     "successTitleSupport": "Ticket generado con éxito.",
     "successDescSupport": "Hemos notificado al equipo técnico y nos comunicaremos en breve.",
     "errSend": "Error al enviar el mensaje. Por favor intenta de nuevo o escribe directamente a hello@ablank.mx"
+  },
+  "notFound": {
+    "badge": "CÓDIGO DE ESTADO 404 // FUERA DE RUTA",
+    "title": "Página fuera del rango operativo.",
+    "subtitle": "La URL solicitada no existe, ha sido reubicada o no se encuentra sincronizada con nuestra arquitectura.",
+    "backHome": "Volver al inicio",
+    "contact": "Contactar al equipo",
+    "shortcutsTitle": "Rutas operativas disponibles:",
+    "linkSimulator": "Calculadora de Fuga de Capital",
+    "linkDemo": "Arquitectura Lead-to-Cash",
+    "linkContact": "Mesa de Soporte y Ventas"
   }
 }

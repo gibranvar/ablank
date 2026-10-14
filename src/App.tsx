@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { HelmetProvider } from 'react-helmet-async';
 import { LandingVentas } from './pages/LandingVentas';
 import { Contact } from './pages/Contact';
+import { NotFound } from './pages/NotFound';
 
 function ScrollToHashElement() {
   const { pathname, hash } = useLocation();
@@ -33,6 +34,7 @@ function App() {
           <Route path="/automatizacion-ventas" element={<LandingVentas />} />
           <Route path="/contacto" element={<Contact />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </HelmetProvider>

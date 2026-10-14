@@ -88,7 +88,8 @@
   "meta": {
     "landing": "Lead-to-Cash B2B Automation | A BLANK",
     "contact": "Enterprise Contact | A BLANK",
-    "contactDesc": "Contact portal for A Blank Enterprise Solutions and Client Portal."
+    "contactDesc": "Contact portal for A Blank Enterprise Solutions and Client Portal.",
+    "notFound": "404: Page Not Found | A BLANK"
   },
   "heroVentas": {
     "badge": "RevOps & B2B Automation",
@@ -291,5 +292,16 @@
     "successTitleSupport": "Ticket generated successfully.",
     "successDescSupport": "Our technical team has been notified and will be in touch with you shortly.",
     "errSend": "Error sending message. Please try again or reach out directly to hello@ablank.mx"
+  },
+  "notFound": {
+    "badge": "STATUS CODE 404 // OUT OF BOUNDS",
+    "title": "Page out of operational scope.",
+    "subtitle": "The requested URL does not exist, has been relocated, or is currently out of sync with our architecture.",
+    "backHome": "Return to home",
+    "contact": "Contact team",
+    "shortcutsTitle": "Available operational routes:",
+    "linkSimulator": "Capital Leakage Simulator",
+    "linkDemo": "Lead-to-Cash Architecture",
+    "linkContact": "Support & Sales Desk"
   }
 }
